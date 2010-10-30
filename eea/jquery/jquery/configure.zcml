@@ -1,0 +1,41 @@
+<configure
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:zcml="http://namespaces.zope.org/zcml">
+
+  <!-- jQuery Plone 4+ -->
+  <configure zcml:condition="have plone-4">
+    <browser:resource
+      name="eea.jquery.js"
+      file="jquery-1.4.2.js"
+      permission="zope.Public"
+      />
+  </configure>
+
+  <!-- Plone 2 and 3 -->
+  <configure zcml:condition="installed Products.CMFPlone.Extensions">
+    <browser:resource
+      name="eea.jquery.js"
+      file="jquery-1.3.2.js"
+      permission="zope.Public"
+      />
+  </configure>
+
+  <browser:resource
+    name="jquery-1.4.2.js"
+    file="jquery-1.4.2.js"
+    permission="zope.Public"
+    />
+
+  <browser:resource
+    name="jquery-1.3.2.js"
+    file="jquery-1.3.2.js"
+    permission="zope.Public"
+    />
+
+  <browser:resource
+    name="jquery.css"
+    file="jquery.css"
+    permission="zope.Public"
+    />
+
+</configure>

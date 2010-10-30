@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<object name="portal_css" meta_type="Stylesheets Registry">
+
+ <stylesheet id="fancybox/jquery.fancybox-1.3.0.css" remove="true" />
+
+ <stylesheet id="++resource++jquery.css"
+  title="jQuery CSS"
+  cacheable="True" compression="safe" cookable="True" enabled="on"
+  expression="python: request.get('cssdisable','') != 'jquery'"
+  media="all" rel="stylesheet"
+  position-top="" rendering="import" />
+ <stylesheet id="++resource++jquery.fancybox.css"
+  title="jQuery plugin: Fancybox"
+  cacheable="True" compression="safe" cookable="True" enabled="on"
+  expression="python: request.get('cssdisable','') != 'jquery'"
+  media="all" rel="stylesheet"
+  position-after="++resource++jquery.css" rendering="import" />
+</object>

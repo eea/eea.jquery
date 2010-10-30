@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts" meta_type="JavaScripts Registry">
+
+ <javascript id="jquery.js" remove="true"/>
+ <javascript id="++resource++jquery.flashembed-0.31.js" remove="true"/>
+
+ <javascript id="++resource++eea.jquery.js"
+  cacheable="True" compression="safe" cookable="True" enabled="True" inline="False"
+  expression="python: request.get('jsdisable','') != 'jquery'"
+  position-top=""/>
+ <javascript id="++resource++jquery.flashembed.js"
+  cacheable="True" compression="safe" cookable="True" enabled="True" inline="False"
+  expression="python: request.get('jsdisable','') != 'jquery'"
+  position-after="++resource++eea.jquery.js"/>
+</object>
