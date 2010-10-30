@@ -3,7 +3,6 @@
  <stylesheet id="++resource++jquery.css"
   title="jQuery CSS"
   cacheable="True" compression="safe" cookable="True" enabled="on"
-  expression="python: request.get('cssdisable','') != 'jquery'"
-  media="all" rel="stylesheet"
+  expression="" media="all" rel="stylesheet"
   position-top="" rendering="import" />
 </object>

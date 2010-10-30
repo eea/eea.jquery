@@ -3,13 +3,13 @@
  <stylesheet id="++resource++jquery.css"
   title="jQuery CSS"
   cacheable="True" compression="safe" cookable="True" enabled="on"
-  expression="python: request.get('cssdisable','') != 'jquery'"
+  expression=""
   media="all" rel="stylesheet"
   position-top="" rendering="import" />
  <stylesheet id="++resource++jquery-ui-1.7.custom.css"
   title="jQuery UI 1.7 Custom CSS"
   cacheable="True" compression="safe" cookable="True" enabled="on"
-  expression="python: request.get('cssdisable','') != 'jquery'"
+  expression=""
   media="all" rel="stylesheet"
   position-after="++resource++jquery.css" rendering="import" />
 </object>
