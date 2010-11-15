@@ -2,8 +2,8 @@ Changelog
 =========
 [Alin Voinea - alin.voinea@eaudeweb.ro]
 
-2.3-dev - (unreleased)
-----------------------
+4.0 - (2010-11-15)
+------------------
  * Feature: Moved to plone-collective
  * Feature: Added jquery 1.4.2
  * Feature: Default profile installs jquery 1.3 or 1.4 accorging to plone version
