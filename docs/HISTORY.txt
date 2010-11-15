@@ -1,6 +1,5 @@
 Changelog
 =========
-[Alin Voinea - alin.voinea@eaudeweb.ro]
 
 4.0 - (2010-11-15)
 ------------------
@@ -60,7 +59,7 @@ Changelog
      widget [voineali #2625]
 
 1.1.1 - (2009-12-04)
------------------
+--------------------
  * Feature: New tooltip images in the EEA color scheme. [thuliper #2840]
 
 1.1 - (2009-12-01)
@@ -69,6 +68,6 @@ Changelog
  * Feature: Added jQuery Tools. [thuliper]
 
 1.0 - (2009-10-29)
-----------------
+------------------
  * Initial release
 
