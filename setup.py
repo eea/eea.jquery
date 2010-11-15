@@ -10,7 +10,7 @@ VERSION = open(join(*PATH)).read().strip()
 
 setup(name=NAME,
       version=VERSION,
-      description="jQuery library for Plone",
+      description="jQuery library and plugins for Plone",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
