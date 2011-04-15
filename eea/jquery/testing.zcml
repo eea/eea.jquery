@@ -1,0 +1,15 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:zcml="http://namespaces.zope.org/zcml"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+  <!-- jQuery -->
+  <genericsetup:registerProfile
+    name="all"
+    title="EEA jQuery All"
+    directory="profiles/tests"
+    description="Extension profile for eea.jquery"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+    
+</configure>

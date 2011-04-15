@@ -1,6 +1,11 @@
 Changelog
 =========
 
+4.1-dev - (unreleased)
+----------------------
+ * Cleanup: Fixed all pylint, pyflakes violations [voineali #4256]
+ * Feature: Added tests framework [voineali #4256]
+
 4.0 - (2010-11-15)
 ------------------
  * Feature: Moved to plone-collective
