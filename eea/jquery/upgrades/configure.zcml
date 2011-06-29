@@ -1,0 +1,28 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  i18n_domain="eea">
+
+  <genericsetup:upgradeSteps
+    source="*"
+    destination="4.1"
+    profile="eea.jquery:01-jquery">
+
+    <genericsetup:upgradeDepends
+      title="Remove eea.jquery.js from portal_javascripts and use the Plone default jquery.js"
+      import_profile="eea.jquery:01-jquery"
+      />
+
+    <genericsetup:upgradeDepends
+      title="Remove eea.jquery.ui from portal_javascripts/portal_css and use collective.js.jqueryui instead"
+      import_profile="eea.jquery:02-ui"
+      />
+
+    <genericsetup:upgradeDepends
+      title="Remove '++resource++jquery.tools.min.js' from portal_javascripts as it comes with Plone by default"
+      import_profile="eea.jquery:15-tools"
+      />
+
+  </genericsetup:upgradeSteps>
+
+</configure>

@@ -2,11 +2,11 @@
   xmlns="http://namespaces.zope.org/zope"
   xmlns:five="http://namespaces.zope.org/five">
 
-  <five:registerPackage package="." />
+  <include package="collective.js.jqueryui" />
   <include file="profiles.zcml" />
 
   <include package=".jquery" />
-  <include package=".ui" />
   <include package=".plugins" />
+  <include package=".upgrades" />
 
 </configure>

@@ -146,13 +146,6 @@
     permission="zope.Public"
     />
 
-  <!-- jQuery tools -->
-  <browser:resource
-    name="jquery.tools.min.js"
-    file="tools/jquery.tools.min.js"
-    permission="zope.Public"
-    />
-
   <!-- jQuery qtip -->
   <browser:resource
     name="jquery.qtip.js"
