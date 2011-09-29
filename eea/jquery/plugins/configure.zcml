@@ -158,4 +158,29 @@
     directory="tools"
   />
 
+  <!-- jQuery Tokeninput -->
+  <browser:resource
+    name="jquery.tokeninput.js"
+    file="tokeninput/jquery.tokeninput.js"
+    permission="zope.Public"
+    />
+
+  <browser:resource
+    name="jquery.tokeninput.css"
+    file="tokeninput/token-input.css"
+    permission="zope.Public"
+    />
+
+  <browser:resource
+    name="jquery.tokeninput.facebook.css"
+    file="tokeninput/token-input-facebook.css"
+    permission="zope.Public"
+    />
+
+  <browser:resource
+    name="jquery.tokeninput.mac.css"
+    file="tokeninput/token-input-mac.css"
+    permission="zope.Public"
+    />
+
 </configure>

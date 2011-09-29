@@ -3,6 +3,9 @@ Changelog
 
 4.1-dev - (unreleased)
 ----------------------
+* Feature: Added jquery.tokeninput plugin
+  [voineali $4563]
+
 * Change: Upgraded to fancybox 1.3.4 for ie9 compatibility
   [szabozo0 #4542]
 

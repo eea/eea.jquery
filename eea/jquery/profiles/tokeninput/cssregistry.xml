@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<object name="portal_css" meta_type="Stylesheets Registry">
+ <stylesheet id="++resource++jquery.css"
+  title="jQuery CSS"
+  cacheable="True" compression="safe" cookable="True" enabled="on"
+  expression="" media="all" rel="stylesheet"
+  position-top="" rendering="import" />
+ <stylesheet id="++resource++jquery.tokeninput.css"
+  title="jQuery plugin: Tokeninput"
+  cacheable="True" compression="safe" cookable="True" enabled="on"
+  expression="" media="all" rel="stylesheet"
+  position-after="++resource++jquery.css" rendering="import" />
+ <stylesheet id="++resource++jquery.tokeninput.facebook.css"
+  title="jQuery plugin: Tokeninput Facebook"
+  cacheable="True" compression="safe" cookable="True" enabled="on"
+  expression="" media="all" rel="stylesheet"
+  position-after="++resource++jquery.css" rendering="import" />
+ <stylesheet id="++resource++jquery.tokeninput.mac.css"
+  title="jQuery plugin: Tokeninput Mac"
+  cacheable="True" compression="safe" cookable="True" enabled="on"
+  expression="" media="all" rel="stylesheet"
+  position-after="++resource++jquery.css" rendering="import" />
+</object>

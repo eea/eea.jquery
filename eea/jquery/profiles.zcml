@@ -137,4 +137,13 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+  <!-- jQuery tokeninput -->
+  <genericsetup:registerProfile
+    name="16-tokeninput"
+    title="EEA jQuery Tokeninput"
+    directory="profiles/tokeninput"
+    description="Extension profile for eea.jquery - Tokeninput"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
 </configure>
