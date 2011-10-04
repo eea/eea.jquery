@@ -1,8 +1,8 @@
 Changelog
 =========
 
-4.1-dev - (unreleased)
-----------------------
+4.1 - (2011-10-04)
+------------------
 * Feature: Added jquery.tokeninput plugin
   [voineali $4563]
 
