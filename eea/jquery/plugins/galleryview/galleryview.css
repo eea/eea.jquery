@@ -48,8 +48,13 @@
 /* NOTE - It is best to define padding here as well so overlay and background retain identical dimensions */
 .gallery .panel-overlay,
 .gallery .panel .overlay-background {
-  height: 60px;
-  padding: 0 1em;
+  min-height: 60px;
+  padding: 1em;
+  display: block;
+  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.7); 
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2000000,endColorstr=#B2000000); 
+  zoom: 1;
 }
 
 /* PANEL OVERLAY BACKGROUND */
