@@ -183,4 +183,23 @@
     permission="zope.Public"
     />
 
+  <!-- jQuery jqGrid -->
+  <browser:resource
+    name="jquery.jqgrid.js"
+    file="jqgrid/jquery.jqGrid.src.js"
+    permission="zope.Public"
+    />
+
+  <browser:resource
+    name="jquery.jqgrid.locale-en.js"
+    file="jqgrid/grid.locale-en.js"
+    permission="zope.Public"
+    />
+
+  <browser:resource
+    name="jquery.jqgrid.css"
+    file="jqgrid/ui.jqgrid.css"
+    permission="zope.Public"
+    />
+
 </configure>

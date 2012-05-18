@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <metadata>
- <version>1</version> 
- <!-- Note: version of profile, has not to be in sync with setup.py! Change 
+ <version>1</version>
+ <!-- Note: version of profile, has not to be in sync with setup.py! Change
       only if you provide a generic setup update step -->
  <dependencies>
   <dependency>profile-eea.jquery:01-jquery</dependency>
@@ -19,5 +19,7 @@
   <dependency>profile-eea.jquery:13-splitter</dependency>
   <dependency>profile-eea.jquery:14-tagcloud</dependency>
   <dependency>profile-eea.jquery:15-tools</dependency>
+  <dependency>profile-eea.jquery:16-tokeninput</dependency>
+  <dependency>profile-eea.jquery:17-jqgrid</dependency>
  </dependencies>
 </metadata>

@@ -146,4 +146,13 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+  <!-- jQuery jqGrid -->
+  <genericsetup:registerProfile
+    name="17-jqgrid"
+    title="EEA jQuery jqGrid"
+    directory="profiles/jqgrid"
+    description="Extension profile for eea.jquery - jqGrid"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
 </configure>
