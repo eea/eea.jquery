@@ -3,6 +3,10 @@ Changelog
 
 4.3-dev - (unreleased)
 ----------------------
+* Change: Removed 'jquery.js' from profiles as in Plone 4.2 it was renamed to
+  plone.app.jquery.js and added links to jquery/metadata.xml to all genericsetup
+  profiles
+  [voineali refs #5346]
 
 4.2 - (2012-06-12)
 ------------------
