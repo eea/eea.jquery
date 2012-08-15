@@ -7,4 +7,17 @@
     permission="zope.Public"
     />
 
+  <!-- EEA jQuery Custom -->
+  <browser:resource
+    name="eea.jquery.css"
+    file="jquery.css"
+    permission="zope.Public"
+    />
+
+  <browser:resource
+    name="eea.jquery.js"
+    file="jquery-1.4.4.js"
+    permission="zope.Public"
+    />
+
 </configure>

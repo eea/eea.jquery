@@ -3,10 +3,11 @@ Changelog
 
 6.0-dev - (unreleased)
 ----------------------
-* Feature: Made this package Plone independent (Zope2 minimal requirements)
+* Feature: Made this package Plone independent
   [voineali refs #5424]
 * Feature: Added buildouts folder which will contain various samples of configurations
   [ghicaale refs #5418]
+* Feature: Zope2/Zope3 compatible (Plone/CMF independent)
 
 4.3 - (2012-08-10)
 ------------------

@@ -153,11 +153,6 @@
     permission="zope.Public"
     />
 
-  <browser:resourceDirectory
-    name="tools"
-    directory="tools"
-  />
-
   <!-- jQuery Tokeninput -->
   <browser:resource
     name="jquery.tokeninput.js"
@@ -199,6 +194,36 @@
   <browser:resource
     name="jquery.jqgrid.css"
     file="jqgrid/ui.jqgrid.css"
+    permission="zope.Public"
+    />
+
+  <!-- EEA jQuery UI Custom -->
+  <browser:resource
+    name="eea.jquery.ui.js"
+    file="ui/jquery.ui.js"
+    permission="zope.Public"
+    />
+
+  <browser:resource
+    name="eea.jquery.ui.css"
+    file="ui/jquery.ui.css"
+    permission="zope.Public"
+    />
+
+    <browser:resourceDirectory
+    name="eea.jquery.ui"
+    directory="ui"
+  />
+
+  <!-- EEA jQuery tools Custom -->
+  <browser:resourceDirectory
+    name="tools"
+    directory="tools"
+  />
+
+  <browser:resource
+    name="eea.jquery.tools.js"
+    file="tools/jquery.tools.js"
     permission="zope.Public"
     />
 
