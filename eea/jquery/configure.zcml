@@ -1,12 +1,14 @@
 <configure
   xmlns="http://namespaces.zope.org/zope"
-  xmlns:five="http://namespaces.zope.org/five">
+  xmlns:zcml="http://namespaces.zope.org/zcml"
+  i18n_domain="eea">
 
-  <include package="collective.js.jqueryui" />
-  <include file="profiles.zcml" />
+  <configure zcml:condition="installed Products.CMFPlone">
+    <include file="plone.zcml" />
+  </configure>
 
-  <include package=".jquery" />
-  <include package=".plugins" />
-  <include package=".upgrades" />
+  <configure zcml:condition="not-installed Products.CMFPlone">
+    <include file="zope2.zcml" />
+  </configure>
 
 </configure>

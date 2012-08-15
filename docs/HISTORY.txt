@@ -1,8 +1,10 @@
 Changelog
 =========
 
-4.4-dev - (unreleased)
+6.0-dev - (unreleased)
 ----------------------
+* Feature: Made this package Plone independent (Zope2 minimal requirements)
+  [voineali refs #5424]
 * Feature: Added buildouts folder which will contain various samples of configurations
   [ghicaale refs #5418]
 
