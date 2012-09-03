@@ -16,8 +16,8 @@ Contents
 Source code
 -----------
 
-Latest source code in Plone Collective svn:
-   http://svn.plone.org/svn/collective/eea.jquery/trunk/
+Latest source code in 
+`Plone Collective on Github <https://github.com/collective/eea.jquery>`_
 
 Copyright and license
 ---------------------
@@ -31,12 +31,14 @@ General Public License as published by the Free Software Foundation;
 either version 2 of the License, or (at your option) any later
 version.
 
-Contributor(s): Alin Voinea (Eau de Web),
-                Antonio De Marinis (European Environment Agency),
-                Alec Ghica (Eau de Web),
-                Sasha Vincic (Valentine Web Systems)
+Contributor(s): 
+   Alin Voinea (Eau de Web),
+   Antonio De Marinis (European Environment Agency),
+   Alec Ghica (Eau de Web),
+   Sasha Vincic (Valentine Web Systems)
+
 Credits:
-                Peter Holzer (Agitator)
+   Peter Holzer (Agitator)
 
 More details under docs/License.txt
 
