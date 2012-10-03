@@ -14,13 +14,21 @@ setup(name=NAME,
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
-        "Programming Language :: Python",
-        "Topic :: Software Development :: Libraries :: Python Modules",
+          "Framework :: Zope2",
+          "Framework :: Zope3",
+          "Framework :: Plone",
+          "Framework :: Plone :: 4.0",
+          "Framework :: Plone :: 4.1",
+          "Framework :: Plone :: 4.2",
+          "Programming Language :: Zope",
+          "Programming Language :: Python",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          "License :: OSI Approved :: GNU General Public License (GPL)",
         ],
-      keywords='eea jquery plone zope3',
-      author='Alin Voinea',
-      author_email='alin.voinea@eaudeweb.ro',
-      url='http://pypi.python.org/pypi/eea.jquery',
+      keywords='eea jquery plugins plone zope3',
+      author='European Environment Agency',
+      author_email="webadmin@eea.europa.eu",
+      url='https://eea.github.com/docs/eea.jquery',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['eea'],
@@ -31,6 +39,11 @@ setup(name=NAME,
           # -*- Extra requirements: -*-
           'collective.js.jqueryui',
       ],
+      extras_require={
+          'test': [
+              'plone.app.testing'
+          ]
+      },
       entry_points="""
       # -*- Entry points: -*-
       """,
