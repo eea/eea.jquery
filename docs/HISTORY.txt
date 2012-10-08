@@ -1,9 +1,8 @@
 Changelog
 =========
 
-
-6.0-dev - (unreleased)
-----------------------
+6.0 - (2012-10-08)
+------------------
 * Feature: Made this package Plone independent
   [voineali refs #5424]
 * Feature: Zope2/Zope3 compatible (Plone/CMF independent)
