@@ -227,4 +227,22 @@
     permission="zope.Public"
     />
 
+  <!-- Slick Grid -->
+  <browser:resource
+    name="jquery.slickgrid.js"
+    file="slickgrid/slick.grid.js"
+    permission="zope.Public"
+    />
+
+  <browser:resource
+    name="jquery.slickgrid.css"
+    file="slickgrid/slick.grid.css"
+    permission="zope.Public"
+    />
+
+  <browser:resourceDirectory
+    name="slickgrid-images"
+    directory="slickgrid/images"
+    />
+
 </configure>

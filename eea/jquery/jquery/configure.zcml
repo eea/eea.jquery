@@ -16,7 +16,7 @@
 
   <browser:resource
     name="eea.jquery.js"
-    file="jquery-1.4.4.js"
+    file="jquery-1.7.2.js"
     permission="zope.Public"
     />
 

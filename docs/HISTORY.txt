@@ -3,6 +3,10 @@ Changelog
 
 6.1-dev - (unreleased)
 ----------------------
+* Feature: Added jquery.slickgrid plugin
+  [avoinea refs #5599]
+* Change: Upgraded jquery to version 1.7.2
+  [avoinea]
 
 6.0 - (2012-10-08)
 ------------------
