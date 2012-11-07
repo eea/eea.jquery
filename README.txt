@@ -1,6 +1,12 @@
 ==========
 EEA jQuery
 ==========
+.. image:: http://ci.eionet.europa.eu/job/eea.jquery-www/badge/icon
+  :target: http://ci.eionet.europa.eu/job/eea.jquery-www/lastBuild
+.. image:: http://ci.eionet.europa.eu/job/eea.jquery-plone4/badge/icon
+  :target: http://ci.eionet.europa.eu/job/eea.jquery-plone4/lastBuild
+.. image:: http://ci.eionet.europa.eu/job/eea.jquery-zope/badge/icon
+  :target: http://ci.eionet.europa.eu/job/eea.jquery-zope/lastBuild
 
 Introduction
 ============
