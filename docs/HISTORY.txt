@@ -1,8 +1,8 @@
 Changelog
 =========
 
-6.2-dev - (unreleased)
-----------------------
+6.2 - (2012-11-22)
+------------------
 * Bug fix: Fix slickgrid images paths
   [avoinea refs #9610]
 
