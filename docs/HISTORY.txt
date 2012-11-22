@@ -1,6 +1,9 @@
 Changelog
 =========
 
+6.3-dev - (unreleased)
+----------------------
+
 6.2 - (2012-11-22)
 ------------------
 * Bug fix: Fix slickgrid images paths
