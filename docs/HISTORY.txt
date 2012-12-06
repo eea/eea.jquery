@@ -3,6 +3,9 @@ Changelog
 
 6.3-dev - (unreleased)
 ----------------------
+* Bug fix: Added delay on slickgrid columns reorder in order to easily use this
+  feature together with header menus
+  [avoinea refs #9610]
 
 6.2 - (2012-11-22)
 ------------------
