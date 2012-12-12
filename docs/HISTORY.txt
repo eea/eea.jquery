@@ -3,6 +3,7 @@ Changelog
 
 6.3-dev - (unreleased)
 ----------------------
+* Change: Changed resource path for images
 * Feature: Added ajax-loader.gif
   [szabozo0]
 * Bug fix: Added delay on slickgrid columns reorder in order to easily use this
