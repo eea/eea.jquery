@@ -1,6 +1,9 @@
 Changelog
 =========
 
+6.4-dev - (unreleased)
+----------------------
+
 6.3 - (2013-01-10)
 ------------------
 * Change: Changed resource path for images
