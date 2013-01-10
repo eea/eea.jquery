@@ -1,8 +1,8 @@
 Changelog
 =========
 
-6.3-dev - (unreleased)
-----------------------
+6.3 - (2013-01-10)
+------------------
 * Change: Changed resource path for images
 * Feature: Added ajax-loader.gif
   [szabozo0]
