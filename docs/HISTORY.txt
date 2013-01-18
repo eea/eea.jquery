@@ -1,8 +1,8 @@
 Changelog
 =========
 
-6.4-dev - (unreleased)
-----------------------
+6.4 - (2013-01-18)
+------------------
 * Upgrade step:
     - Within portal_setup import 'EEA jQuery Slickgrid' Javascript & Stylesheet registry
 
