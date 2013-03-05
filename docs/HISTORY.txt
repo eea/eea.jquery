@@ -6,6 +6,8 @@ Changelog
 
 6.4 - (2013-01-18)
 ------------------
+* Feature: added information for contributors
+  [ciobabog refs #13892]
 * Upgrade step:
     - Within portal_setup import 'EEA jQuery Slickgrid' Javascript & Stylesheet registry
 
