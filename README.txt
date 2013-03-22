@@ -89,6 +89,7 @@ Contributor(s):
 - Antonio De Marinis (European Environment Agency)
 - Alec Ghica (Eau de Web)
 - Sasha Vincic (Valentine Web Systems)
+- Mathieu Le Marec - Pasquet (kiorky) (Makina Corpus)
 
 Credits:
 --------

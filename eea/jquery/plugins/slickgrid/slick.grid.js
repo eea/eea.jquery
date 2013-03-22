@@ -1528,7 +1528,9 @@
     this.destroy = function () {
       $.datepicker.dpDiv.stop(true, true);
       $input.datepicker("hide");
-      $input.datepicker("destroy");
+      try{
+          $input.datepicker("destroy");
+      }catch(err){}
       $input.remove();
     };
 
@@ -2565,7 +2567,9 @@ if (typeof Slick === "undefined") {
     }
 
     function setupColumnReorder() {
-      $headers.sortable("destroy");
+      try{
+          $headers.sortable("destroy");
+      }catch(err) {}
       $headers.sortable({
         containment: "parent",
         axis: "x",
@@ -2884,7 +2888,9 @@ if (typeof Slick === "undefined") {
       }
 
       if (options.enableColumnReorder && $headers.sortable) {
-        $headers.sortable("destroy");
+        try{
+            $headers.sortable("destroy");
+        } catch(err) {}
       }
 
       unbindAncestorScrollEvents();

@@ -10,6 +10,9 @@ Changelog
   [ciobabog refs #13892]
 * Upgrade step:
     - Within portal_setup import 'EEA jQuery Slickgrid' Javascript & Stylesheet registry
+* Enhance compatiblity of Slickgrid with jqueryui 1.10
+  [kiorky]
+
 
 6.3 - (2013-01-10)
 ------------------
