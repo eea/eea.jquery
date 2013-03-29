@@ -164,4 +164,13 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+  <!-- jQuery Slick Grid -->
+  <genericsetup:registerProfile
+    name="19-colorpicker"
+    title="EEA jQuery ColorPicker"
+    directory="profiles/colorpicker"
+    description="Extension profile for eea.jquery - colorpicker"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
 </configure>

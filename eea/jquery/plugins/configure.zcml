@@ -245,4 +245,22 @@
     directory="slickgrid/images"
     />
 
+  <!--ColorPicker-->
+  <browser:resource
+    name="jquery.colorpicker.js"
+    file="colorpicker/js/colorpicker.js"
+    permission="zope.Public"
+    />
+
+  <browser:resource
+    name="jquery.colorpicker.css"
+    file="colorpicker/css/colorpicker.css"
+    permission="zope.Public"
+    />
+
+  <browser:resourceDirectory
+    name="colorpicker-images"
+    directory="colorpicker/images"
+    />
+
 </configure>

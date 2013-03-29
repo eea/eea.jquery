@@ -3,6 +3,8 @@ Changelog
 
 6.5-dev - (unreleased)
 ----------------------
+* Feature: Added jquery.colorpicker plugin
+  [szabozo0 refs #9583]
 
 6.4 - (2013-01-18)
 ------------------
