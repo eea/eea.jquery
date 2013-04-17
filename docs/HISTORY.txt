@@ -1,8 +1,8 @@
 Changelog
 =========
 
-6.5-dev - (unreleased)
-----------------------
+6.5 - (2013-04-17)
+------------------
 * Feature: Added jquery.colorpicker plugin
   [szabozo0 refs #9583]
 
@@ -14,7 +14,6 @@ Changelog
     - Within portal_setup import 'EEA jQuery Slickgrid' Javascript & Stylesheet registry
 * Enhance compatiblity of Slickgrid with jqueryui 1.10
   [kiorky]
-
 
 6.3 - (2013-01-10)
 ------------------
