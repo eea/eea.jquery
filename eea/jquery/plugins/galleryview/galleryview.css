@@ -100,3 +100,35 @@
 body.gallery_fancybox_view .gallery {
   border: none;
 }
+
+.gallery .nav-next,
+.gallery .nav-prev,
+.gallery .nav-next-overlay,
+.gallery .nav-prev-overlay
+{
+    position: absolute;
+    z-index: 1100;
+    cursor: pointer;
+}
+
+.gallery .nav-next {
+    right: 10px;
+}
+
+.gallery .nav-prev {
+    left: 10px;
+}
+
+.gallery .nav-prev-overlay,
+.gallery .nav-next-overlay {
+    z-index: 1099;
+    opacity: 0.75;
+}
+
+.gallery .nav-next-overlay {
+    right: 0;
+}
+
+.gallery .nav-prev-overlay {
+    left: 0;
+}
