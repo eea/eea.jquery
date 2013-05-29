@@ -3,9 +3,12 @@ Changelog
 
 6.6-dev - (unreleased)
 ----------------------
+* Feature: added several new or existing configurations as options to the 
+  jquery.galleryview, see CHANGELOG.txt from the plugin directory for details
+  [ichim-david #14606]
 * Feature: Added ability to insert navigation images for jquery.galleryview
   and disable the overlay navigation images
-  [ichimdav #1406]
+  [ichim-david #14606]
 
 6.5 - (2013-04-17)
 ------------------

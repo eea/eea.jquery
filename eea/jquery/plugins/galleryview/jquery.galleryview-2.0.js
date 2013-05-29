@@ -11,7 +11,7 @@
   See CHANGELOG.txt for a review of changes and LICENSE.txt for the applicable
   licensing information.
 
-  Version:		2.0.x (May 5, 2013) Modified by EEA
+  Version:		2.0.1 (May 28, 2013) Modified by ichim-david
 
 */
 
@@ -396,13 +396,13 @@ j_panels.each(function(i){
 });
 $('.panel-overlay',j_panels).css({
   'position':'absolute',
-  'zIndex':'999',
+  'zIndex': opts.zIndex,
   'width':(opts.panel_width-extraWidth($('.panel-overlay',j_panels)))+'px',
   'left':'0'
 });
 $('.overlay-background',j_panels).css({
   'position':'absolute',
-  'zIndex':'998',
+  'zIndex':opts.zIndex - 1,
   'width':opts.panel_width+'px',
   'left':'0',
   'opacity':opts.overlay_opacity
@@ -456,7 +456,7 @@ if(opts.overlay_position=='top') {
         'padding':'0',
         'width':strip_width+'px',
         'position':'absolute',
-        'zIndex':'900',
+        'zIndex': opts.zIndex,
         'top':(filmstrip_orientation=='vertical' && slide_method=='strip'?-((f_frame_height+opts.frame_gap)*iterator):0)+'px',
         'left':(filmstrip_orientation=='horizontal' && slide_method=='strip'?-((f_frame_width+opts.frame_gap)*iterator):0)+'px',
         'height':strip_height+'px'
@@ -466,7 +466,7 @@ if(opts.overlay_position=='top') {
         'position':'relative',
         'height':f_frame_height+(opts.show_captions?frame_caption_size:0)+'px',
         'width':f_frame_width+'px',
-        'zIndex':'901',
+        'zIndex': opts.zIndex + 1,
         'padding':'0',
         'cursor':'pointer'
       });
@@ -547,7 +547,7 @@ $('.caption',j_gallery).css({
 var pointer = $('<div></div>');
 pointer.addClass('pointer').appendTo(j_gallery).css({
   'position':'absolute',
-  'zIndex':'1000',
+  'zIndex': opts.zIndex + 1,
   'width':'0px',
   'fontSize':'0px',
   'lineHeight':'0%',
@@ -916,7 +916,7 @@ pointer.addClass('pointer').appendTo(j_gallery).css({
   galleryPos = getPos(j_gallery[0]);
   $('<div>').addClass('loader').css({
     'position':'absolute',
-    'zIndex':'32666',
+    'zIndex':'1200',
     'opacity':1,
     'top':'0px',
     'left':'0px',
@@ -971,10 +971,10 @@ pointer.addClass('pointer').appendTo(j_gallery).css({
   show_captions: false,
   fade_panels: true,
   pause_on_hover: false,
-  // new options in 2.0.x
-  hover_nav_buttons_images: true, // boolean about the display the overlay nav buttons
-  // false by default in order to keep current logic
-  keep_nav_buttons_visible: false, // boolean to show or hide nav buttons on gallery hover
-  theme_path: "../../++resource++galleryview/themes/"
+  // new options in 2.0.1 see CHANGELOG.txt for details
+  hover_nav_buttons_images: true,
+  keep_nav_buttons_visible: false,
+  theme_path: "../../++resource++galleryview/themes/",
+  zIndex: 999
 };
 })(jQuery);

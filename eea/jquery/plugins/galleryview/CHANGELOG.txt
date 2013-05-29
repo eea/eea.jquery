@@ -3,6 +3,21 @@ Author: 		Jack Anderson
 Documentation: 	http://www.spaceforaname.com/galleryview/
 
 
+Version 2.0.1 - 2013-05-28
+--------------------------
+Added the following new options:
+ - hover_nav_buttons_images: true,
+   - boolean affecting the display of the overlay nav buttons
+   - true by default in order to keep current logic
+ - keep_nav_buttons_visible: false,
+   - boolean to show or hide nav buttons on gallery hover when not displaying the
+     filmstrip
+ - theme_path: "../../++resource++galleryview/themes/",
+   - added theme_path as a configurable option
+ - zIndex: 999
+   - added base zIndex as a configurable option from which the gallery adds the
+     zIndex for the various images or panels
+
 Version 2.0 - 2009-05-05
 ----------------------------------------
 Revised required HTML markup for GalleryView
