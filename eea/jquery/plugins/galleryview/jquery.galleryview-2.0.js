@@ -73,7 +73,7 @@ var window_loaded = false;
   //Transition from current item to item 'i'
     function showItem(i) {
       //Disable next/prev buttons until transition is complete
-      if(opts.hover_buttons_images) {
+      if(opts.hover_nav_buttons_images) {
         $('.nav-next-overlay',j_gallery).unbind('click');
         $('.nav-prev-overlay',j_gallery).unbind('click');
       }
@@ -95,7 +95,7 @@ var window_loaded = false;
   if(opts.show_panels && opts.fade_panels) {
     j_panels.fadeOut(opts.transition_speed).eq(i%item_count).fadeIn(opts.transition_speed,function(){
       if(!opts.show_filmstrip) {
-        if(opts.hover_buttons_images) {
+        if(opts.hover_nav_buttons_images) {
           $('.nav-prev-overlay',j_gallery).click(showPrevItem);
           $('.nav-next-overlay',j_gallery).click(showNextItem);
         }
@@ -149,7 +149,7 @@ var window_loaded = false;
 
   //Enable navigation now that animation is complete
 
-  if(opts.hover_buttons_images) {
+  if(opts.hover_nav_buttons_images) {
     $('.nav-prev-overlay',j_gallery).click(showPrevItem);
     $('.nav-next-overlay',j_gallery).click(showNextItem);
   }
@@ -193,7 +193,7 @@ var window_loaded = false;
     }
 
   //Enable navigation now that animation is complete
-  if(opts.hover_buttons_images) {
+  if(opts.hover_nav_buttons_images) {
     $('.nav-prev-overlay',j_gallery).click(showPrevItem);
     $('.nav-next-overlay',j_gallery).click(showNextItem);
   }
@@ -216,7 +216,7 @@ var window_loaded = false;
       if(!opts.fade_panels) {
         j_panels.hide().eq(i%item_count).show();
       }
-      if(opts.hover_buttons_images) {
+      if(opts.hover_nav_buttons_images) {
         $('.nav-prev-overlay',j_gallery).click(showPrevItem);
         $('.nav-next-overlay',j_gallery).click(showNextItem);
       }
@@ -231,7 +231,7 @@ var window_loaded = false;
       if(!opts.fade_panels) {
         j_panels.hide().eq(i%item_count).show();
       }
-      if(opts.hover_buttons_images) {
+      if(opts.hover_nav_buttons_images) {
         $('.nav-prev-overlay',j_gallery).click(showPrevItem);
         $('.nav-next-overlay',j_gallery).click(showNextItem);
       }
@@ -366,7 +366,7 @@ var window_loaded = false;
           }).click(showPrevItem);
         }
 
-        if(opts.hover_buttons_images) {
+        if(opts.hover_nav_buttons_images) {
           $('<img />').addClass('nav-next-overlay').attr('src',theme_path+opts.nav_theme+'/panel-nav-next.gif').appendTo(j_gallery).css({
             'top':((opts.panel_height-22)/2)+gallery_padding-10+'px',
             'display':'none'
@@ -689,8 +689,17 @@ pointer.addClass('pointer').appendTo(j_gallery).css({
   /************************************************/
   /*	Add events to various elements				*/
   /************************************************/
+    if(opts.show_panels && !opts.show_filmstrip && opts.keep_nav_buttons_visible) {
+        if(opts.hover_nav_buttons_images) {
+            $('.nav-next-overlay').fadeIn('fast');
+            $('.nav-prev-overlay').fadeIn('fast');
+        }
+        $('.nav-next',j_gallery).fadeIn('fast');
+        $('.nav-prev',j_gallery).fadeIn('fast');
+    }
     if(opts.pause_on_hover || (opts.show_panels && !opts.show_filmstrip)) {
-      $().mousemove(function(e){
+      // make actual use of this code since this mousemove wasn't activated
+      $(j_gallery).parent().mousemove(function(e){
         if(mouseIsOverGallery(e.pageX,e.pageY)) {
           if(opts.pause_on_hover) {
             if(!paused) {
@@ -702,12 +711,14 @@ pointer.addClass('pointer').appendTo(j_gallery).css({
           }
           if(opts.show_panels && !opts.show_filmstrip && !panel_nav_displayed) {
 
-            if(opts.hover_buttons_images) {
+            if(!opts.keep_nav_buttons_visible){
+              if(opts.hover_nav_buttons_images) {
                 $('.nav-next-overlay').fadeIn('fast');
                 $('.nav-prev-overlay').fadeIn('fast');
+              }
+              $('.nav-next',j_gallery).fadeIn('fast');
+              $('.nav-prev',j_gallery).fadeIn('fast');
             }
-            $('.nav-next',j_gallery).fadeIn('fast');
-            $('.nav-prev',j_gallery).fadeIn('fast');
             panel_nav_displayed = true;
           }
         } else {
@@ -721,12 +732,14 @@ pointer.addClass('pointer').appendTo(j_gallery).css({
             }
           }
           if(opts.show_panels && !opts.show_filmstrip && panel_nav_displayed) {
-            if(opts.hover_buttons_images) {
-              $('.nav-next-overlay').fadeOut('fast');
-              $('.nav-prev-overlay').fadeOut('fast');
+            if(!opts.keep_nav_buttons_visible){
+              if(opts.hover_nav_buttons_images) {
+                $('.nav-next-overlay').fadeOut('fast');
+                $('.nav-prev-overlay').fadeOut('fast');
+              }
+              $('.nav-next',j_gallery).fadeOut('fast');
+              $('.nav-prev',j_gallery).fadeOut('fast');
             }
-            $('.nav-next',j_gallery).fadeOut('fast');
-            $('.nav-prev',j_gallery).fadeOut('fast');
             panel_nav_displayed = false;
           }
         }
@@ -963,6 +976,10 @@ pointer.addClass('pointer').appendTo(j_gallery).css({
   show_captions: false,
   fade_panels: true,
   pause_on_hover: false,
-  hover_buttons_images: true
+  // new options in 2.0.x
+  hover_nav_buttons_images: true, // boolean about the display the overlay nav buttons
+  // false by default in order to keep current logic
+  keep_nav_buttons_visible: false // boolean to show or hide nav buttons on gallery hover
+
 };
 })(jQuery);
