@@ -27,7 +27,6 @@ var window_loaded = false;
   var iterator = 0;
   var item_count = 0;
   var slide_method;
-  var theme_path = "../../++resource++galleryview/themes/";
   var paused = false;
 
   //Element dimensions
@@ -352,27 +351,23 @@ var window_loaded = false;
       });
       if(!opts.show_filmstrip) {
         //Add navigation buttons
-        if(!$('.nav-next', j_gallery).length){
-          $('<img />').addClass('nav-next').attr('src',theme_path+opts.nav_theme+'/next.gif').appendTo(j_gallery).css({
+          $('<img />').addClass('nav-next').attr('src',opts.theme_path+opts.nav_theme+'/next.gif').appendTo(j_gallery).css({
               'top':((opts.panel_height-22)/2)+gallery_padding+'px',
               'display':'none'
           }).click(showNextItem);
-        }
 
-        if(!$('.nav-prev', j_gallery).length){
-          $('<img />').addClass('nav-prev').attr('src',theme_path+opts.nav_theme+'/prev.gif').appendTo(j_gallery).css({
+          $('<img />').addClass('nav-prev').attr('src',opts.theme_path+opts.nav_theme+'/prev.gif').appendTo(j_gallery).css({
               'top':((opts.panel_height-22)/2)+gallery_padding+'px',
               'display':'none'
           }).click(showPrevItem);
-        }
 
         if(opts.hover_nav_buttons_images) {
-          $('<img />').addClass('nav-next-overlay').attr('src',theme_path+opts.nav_theme+'/panel-nav-next.gif').appendTo(j_gallery).css({
+          $('<img />').addClass('nav-next-overlay').attr('src',opts.theme_path+opts.nav_theme+'/panel-nav-next.gif').appendTo(j_gallery).css({
             'top':((opts.panel_height-22)/2)+gallery_padding-10+'px',
             'display':'none'
           }).click(showNextItem);
 
-          $('<img />').addClass('nav-prev-overlay').attr('src',theme_path+opts.nav_theme+'/panel-nav-prev.gif').appendTo(j_gallery).css({
+          $('<img />').addClass('nav-prev-overlay').attr('src',opts.theme_path+opts.nav_theme+'/panel-nav-prev.gif').appendTo(j_gallery).css({
             'top':((opts.panel_height-22)/2)+gallery_padding-10+'px',
             'display':'none'
           }).click(showPrevItem);
@@ -603,12 +598,12 @@ pointer.addClass('pointer').appendTo(j_gallery).css({
 
   //Add navigation buttons
   var navNext = $('<img />');
-  navNext.addClass('nav-next').attr('src',theme_path+opts.nav_theme+'/next.gif').appendTo(j_gallery).css({
+  navNext.addClass('nav-next').attr('src',opts.theme_path+opts.nav_theme+'/next.gif').appendTo(j_gallery).css({
     'position':'absolute',
     'cursor':'pointer'
   }).click(showNextItem);
   var navPrev = $('<img />');
-  navPrev.addClass('nav-prev').attr('src',theme_path+opts.nav_theme+'/prev.gif').appendTo(j_gallery).css({
+  navPrev.addClass('nav-prev').attr('src',opts.theme_path+opts.nav_theme+'/prev.gif').appendTo(j_gallery).css({
     'position':'absolute',
     'cursor':'pointer'
   }).click(showPrevItem);
@@ -979,7 +974,7 @@ pointer.addClass('pointer').appendTo(j_gallery).css({
   // new options in 2.0.x
   hover_nav_buttons_images: true, // boolean about the display the overlay nav buttons
   // false by default in order to keep current logic
-  keep_nav_buttons_visible: false // boolean to show or hide nav buttons on gallery hover
-
+  keep_nav_buttons_visible: false, // boolean to show or hide nav buttons on gallery hover
+  theme_path: "../../++resource++galleryview/themes/"
 };
 })(jQuery);
