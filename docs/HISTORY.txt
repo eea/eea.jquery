@@ -1,8 +1,8 @@
 Changelog
 =========
 
-6.6-dev - (unreleased)
-----------------------
+6.6 - (2013-06-17)
+------------------
 * Feature: added several new or existing configurations as options to the 
   jquery.galleryview, see CHANGELOG.txt from the plugin directory for details
   [ichim-david #14606]
