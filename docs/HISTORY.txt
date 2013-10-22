@@ -1,8 +1,8 @@
 Changelog
 =========
 
-6.7-dev - (unreleased)
-----------------------
+6.7 - (2013-10-22)
+------------------
 * Feature: Added jquery-annotator plugin
   [voineali refs #17185]
 
