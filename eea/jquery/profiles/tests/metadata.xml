@@ -19,5 +19,8 @@
   <dependency>profile-eea.jquery:15-tools</dependency>
   <dependency>profile-eea.jquery:16-tokeninput</dependency>
   <dependency>profile-eea.jquery:17-jqgrid</dependency>
+  <dependency>profile-eea.jquery:18-slickgrid</dependency>
+  <dependency>profile-eea.jquery:19-colorpicker</dependency>
+  <dependency>profile-eea.jquery:20-annotator</dependency>
  </dependencies>
 </metadata>

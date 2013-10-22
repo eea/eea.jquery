@@ -173,4 +173,13 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+  <!-- jQuery Annotator -->
+  <genericsetup:registerProfile
+    name="20-annotator"
+    title="EEA jQuery Annotator"
+    directory="profiles/annotator"
+    description="Extension profile for eea.jquery - annotator"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
 </configure>
