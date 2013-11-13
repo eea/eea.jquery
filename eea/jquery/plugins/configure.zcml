@@ -266,13 +266,13 @@
   <!-- Annotator -->
   <browser:resource
     name="jquery.annotator.js"
-    file="annotator/annotator-full.min.js"
+    file="annotator/annotator-full.js"
     permission="zope.Public"
     />
 
   <browser:resource
     name="jquery.annotator.css"
-    file="annotator/annotator.min.css"
+    file="annotator/annotator.css"
     permission="zope.Public"
     />
 

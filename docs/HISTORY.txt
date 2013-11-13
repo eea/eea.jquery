@@ -6,6 +6,8 @@ Changelog
 * Feature: Updated jquery-annotator plugin to version 1.2.8 and made it
   compatible with jquery 1.7.x
   [voineali refs #17185]
+* Feature: Added Comment Plugin (inline comment replies) for jquery-annotator
+  [voineali refs #17185]
 
 6.7 - (2013-10-22)
 ------------------
