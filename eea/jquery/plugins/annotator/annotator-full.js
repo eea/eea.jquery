@@ -7,7 +7,7 @@
 ** Dual licensed under the MIT and GPLv3 licenses.
 ** https://github.com/okfn/annotator/blob/master/LICENSE
 **
-** Built at: 2013-11-19 10:39:35Z
+** Built at: 2013-11-19 14:02:16Z
 */
 
 
@@ -684,7 +684,13 @@ Range.BrowserRange = (function() {
     while (nr.commonAncestor.nodeType !== Node.ELEMENT_NODE) {
       nr.commonAncestor = nr.commonAncestor.parentNode;
     }
-    return new Range.NormalizedRange(nr);
+    if (!matchText) {
+      return new Range.NormalizedRange(nr);
+    } else if (matchText.startsWith(nr.start.textContent.trim()) && matchText.endsWith(nr.end.textContent.trim())) {
+      return new Range.NormalizedRange(nr);
+    } else {
+      throw new Range.RangeError("Exact match enabled. Couldn't find text: " + matchText);
+    }
   };
 
   BrowserRange.prototype.serialize = function(root, ignoreSelector) {
@@ -848,13 +854,7 @@ Range.SerializedRange = (function() {
         return false;
       }
     });
-    if (!matchText) {
-      return new Range.BrowserRange(range).normalize(root, matchText);
-    } else if (matchText.startsWith(range.startContainer.wholeText) && matchText.endsWith(range.endContainer.wholeText)) {
-      return new Range.BrowserRange(range).normalize(root, matchText);
-    } else {
-      throw new Range.RangeError("Exact match enabled. Couldn't match text: " + matchText);
-    }
+    return new Range.BrowserRange(range).normalize(root, matchText);
   };
 
   SerializedRange.prototype.serialize = function(root, ignoreSelector) {
