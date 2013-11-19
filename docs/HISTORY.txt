@@ -3,6 +3,9 @@ Changelog
 
 6.8-dev - (unreleased)
 ----------------------
+* Feature: Added exactMatch option to jquery-annotator plugin in order to avoid
+  wrong annotated text if backend text was changed
+  [voineali refs #17460]
 * Feature: Updated jquery-annotator plugin to version 1.2.8 and made it
   compatible with jquery 1.7.x
   [voineali refs #17185]
