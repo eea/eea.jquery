@@ -1,6 +1,9 @@
 Changelog
 =========
 
+6.9-dev - (unreleased)
+----------------------
+
 6.8 - (2013-11-20)
 ------------------
 * Feature: Added exactMatch option to jquery-annotator plugin in order to avoid
