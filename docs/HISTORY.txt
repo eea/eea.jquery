@@ -1,8 +1,8 @@
 Changelog
 =========
 
-6.8-dev - (unreleased)
-----------------------
+6.8 - (2013-11-20)
+------------------
 * Feature: Added exactMatch option to jquery-annotator plugin in order to avoid
   wrong annotated text if backend text was changed
   [voineali refs #17460]
