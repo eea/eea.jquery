@@ -3,6 +3,9 @@ Changelog
 
 6.9-dev - (unreleased)
 ----------------------
+* Feature: Annotator trigger event after annotation is created in order to
+  easily refresh other instances
+  [voineali refs #17461]
 
 6.8 - (2013-11-20)
 ------------------
