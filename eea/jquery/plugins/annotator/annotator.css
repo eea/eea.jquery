@@ -923,3 +923,24 @@
 	background-color: transparent;
 }
 
+.annotator-erratum {
+    background-color: #DFD;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    cursor: pointer;
+    color: #999;
+}
+
+.annotator-erratum:hover {
+    color: #000;
+}
+
+.annotator-erratum.missing {
+    background-color: #FDD;
+    cursor: default;
+}
+
+.annotator-hl {
+    background-color: #DFD;
+}
+
