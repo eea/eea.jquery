@@ -7,7 +7,7 @@
 ** Dual licensed under the MIT and GPLv3 licenses.
 ** https://github.com/okfn/annotator/blob/master/LICENSE
 **
-** Built at: 2013-11-28 15:08:13Z
+** Built at: 2013-12-02 16:33:45Z
 */
 
 
@@ -2372,7 +2372,8 @@ Annotator.Plugin.Store = (function(_super) {
     var _this = this;
     if (__indexOf.call(this.annotations, annotation) >= 0) {
       return this._apiRequest('update', annotation, (function(data) {
-        return _this.updateAnnotation(annotation, data);
+        _this.updateAnnotation(annotation, data);
+        return _this.annotator.publish("afterAnnotationUpdated", [annotation]);
       }));
     }
   };
@@ -3442,10 +3443,10 @@ Annotator.Plugin.Comment = (function(_super) {
       item = $(item);
       replies = annotations[idx].replies || [];
       if (replies.length > 0) {
-        item.append('<div style=\'padding:5px\' class=\'annotator-replies-header\'> <span> Replies </span></div>\n  <div id="Replies">\n    <li class="Replies">\n    </li>\n  </div>');
+        item.append('<div class="annotator-replies"></div>');
       }
       if (replies.length > 0) {
-        replylist = this.annotator.element.find('.Replies');
+        replylist = this.annotator.element.find('.annotator-replies');
         for (_j = 0, _len1 = replies.length; _j < _len1; _j++) {
           reply = replies[_j];
           username = reply.user.name && reply.user.id ? '@' + reply.user.id + ' (' + reply.user.name + ')' : reply.user;
@@ -3458,7 +3459,7 @@ Annotator.Plugin.Comment = (function(_super) {
         }
       }
       if (!this.annotator.options.readOnly) {
-        item.append('<div class=\'replybox\'><textarea class="replyentry" placeholder="Reply to this annotation..."></textarea>');
+        item.append('<div class=\'replybox\'><textarea class="replyentry" placeholder="Reply..."></textarea>');
       }
     }
     return viewer.checkOrientation();
@@ -3548,7 +3549,7 @@ Annotator.Plugin.Errata = (function(_super) {
     'annotationsLoaded': 'annotationsLoaded',
     'afterAnnotationCreated': 'annotationCreated',
     'annotationDeleted': 'annotationDeleted',
-    'annotationUpdated': 'annotationUpdated',
+    'afterAnnotationUpdated': 'annotationUpdated',
     'rangeNormalizeFail': 'rangeNormalizeFail'
   };
 
@@ -3645,10 +3646,6 @@ Annotator.Erratum = (function(_super) {
     annotator: null
   };
 
-  Erratum.prototype.viewer = null;
-
-  Erratum.prototype.viewerHideTimer = null;
-
   Erratum.prototype.missing = {};
 
   function Erratum(element, options) {
@@ -3657,56 +3654,29 @@ Annotator.Erratum = (function(_super) {
     this;
   }
 
-  Erratum.prototype._setupViewer = function() {
-    var self;
-    self = this;
-    this.viewer = new Annotator.Viewer({
-      readOnly: this.annotator.options.readOnly
-    });
-    this.viewer.hide().on("edit", this.annotator.onEditAnnotation).on("delete", this.annotator.onDeleteAnnotation).addField({
-      load: function(field, annotation) {
-        return $(field).html(Util.escape(annotation.text));
-      }
-    }).addField({
-      load: function(field, annotation) {
-        var user, userString;
-        user = annotation.user;
-        userString = user.name && user.id ? '@' + user.id + ' (' + user.name + ')' : user;
-        return $(field).html(userString).addClass('annotator-user');
-      }
-    }).addField({
-      load: function(field, annotation) {
-        var div, html, replies, reply, user, userString, where, _i, _len;
-        replies = annotation.replies || [];
-        if (replies.length) {
-          html = $('<div style=\'padding:5px\' class=\'annotator-replies-header\'> <span> Replies </span></div>\n<div id="Replies">\n  <li class="Replies"></li>\n</div>');
-          where = html.find('.Replies');
-          for (_i = 0, _len = replies.length; _i < _len; _i++) {
-            reply = replies[_i];
-            user = reply.user;
-            userString = user.name && user.id ? '@' + user.id + ' (' + user.name + ')' : user;
-            div = $('<div class="reply">\n  <div class="replytext">' + reply.reply + '</div>\n<div class="annotator-user replyuser">' + userString + '</div>\n</div>').appendTo(where);
-          }
-        }
-        return $(field).html(html);
-      }
-    }).element.appendTo(this.element).bind({
-      "mouseover": function() {
-        return self.clearViewerHideTimer();
-      },
-      "mouseout": function() {
-        return self.startViewerHideTimer();
-      }
-    });
-    return this;
-  };
-
   Erratum.prototype._setupComment = function(annotation) {
-    var div, missing, self;
-    div = $('<div class="annotator-erratum" data-id="' + annotation.id + '">\n<div class="erratum-quote">' + annotation.quote + '</div>\n</div>');
+    var comment, div, erratum, existing, missing, replies, reply, self, text, user, userString, _i, _len;
+    text = Util.escape(annotation.text);
+    user = annotation.user;
+    userString = user.name && user.id ? '@' + user.id + ' (' + user.name + ')' : user;
+    div = $('<div class="annotator-erratum annotator-item" data-id="' + annotation.id + '">\n<div class="erratum-quote">' + annotation.quote + '</div>\n<dl class="erratum-comment">\n  <dt class="replytext">' + text + '</dt>\n<dd class="annotator-user">' + userString + '</dd>\n  </dl>\n</div>');
+    erratum = div.find('.erratum-comment').hide();
+    replies = annotation.replies || [];
+    for (_i = 0, _len = replies.length; _i < _len; _i++) {
+      reply = replies[_i];
+      user = reply.user;
+      userString = user.name && user.id ? '@' + user.id + ' (' + user.name + ')' : user;
+      text = Util.escape(reply.reply);
+      comment = $('<dt class="replytext">' + text + '</dt>\n<dd class="annotator-user">' + userString + '</dd>');
+      comment.appendTo(erratum);
+    }
     missing = this.missing[annotation.id];
     if (missing) {
       div.addClass('missing');
+    }
+    existing = this.element.find('[data-id="' + annotation.id + '"]');
+    if (existing.length) {
+      this.annotationDeleted(annotation);
     }
     self = this;
     div.data('id', annotation.id).data('comment', annotation).hide().prependTo(this.element).slideDown(function() {
@@ -3721,25 +3691,18 @@ Annotator.Erratum = (function(_super) {
     self = this;
     comment.unbind();
     comment.bind({
-      'mouseover': function(evt) {
-        var data, location;
-        self.clearViewerHideTimer();
-        data = comment.data('comment');
-        location = Util.mousePosition(evt, this);
-        self.viewer.element.css(location);
-        return self.viewer.load([data]);
-      },
-      'mouseout': function(evt) {
-        return self.startViewerHideTimer();
-      },
       'click': function(evt) {
         var highlights, scrollTop;
-        highlights = annotation.highlights;
-        if (highlights && highlights.length) {
-          scrollTop = $(highlights[0]).position().top;
-          return $('html,body').animate({
-            scrollTop: scrollTop
-          });
+        self.element.find('.erratum-comment').slideUp('fast');
+        comment.find('.erratum-comment').slideDown('fast');
+        if (comment.parents('.fullscreen').length) {
+          highlights = annotation.highlights;
+          if (highlights && highlights.length) {
+            scrollTop = $(highlights[0]).position().top;
+            return $('html,body').animate({
+              scrollTop: scrollTop
+            });
+          }
         }
       }
     });
@@ -3762,7 +3725,6 @@ Annotator.Erratum = (function(_super) {
       annotation = _ref[_i];
       this._setupComment(annotation);
     }
-    this._setupViewer();
     return this;
   };
 
@@ -3781,24 +3743,13 @@ Annotator.Erratum = (function(_super) {
   };
 
   Erratum.prototype.annotationUpdated = function(annotation) {
-    this._reloadComment(annotation);
+    this._setupComment(annotation);
     return this;
   };
 
   Erratum.prototype.rangeNormalizeFail = function(annotation) {
     this.missing[annotation.id] = annotation.quote;
     return this;
-  };
-
-  Erratum.prototype.clearViewerHideTimer = function() {
-    clearTimeout(this.viewerHideTimer);
-    return this.viewerHideTimer = false;
-  };
-
-  Erratum.prototype.startViewerHideTimer = function() {
-    if (!this.viewerHideTimer) {
-      return this.viewerHideTimer = setTimeout(this.viewer.hide, 250);
-    }
   };
 
   return Erratum;

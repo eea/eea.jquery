@@ -253,11 +253,6 @@
 	border-top: none;
 }
 
-.annotator-item .annotator-replies-header {
-	border-top: none;
-	border-bottom: 1px solid #eee;
-}
-
 .annotator-delete-reply {
 	float: right;
 }
@@ -265,10 +260,6 @@
 .annotator-item .annotator-user {
   text-align: right;
   border-top: none;
-}
-
-#Replies {
-  border: none;
 }
 
 .annotator-item .reply {
@@ -925,10 +916,28 @@
 
 .annotator-erratum {
     background-color: #DFD;
-    padding: 0.5em;
     margin: 0.5em 0;
     cursor: pointer;
     color: #999;
+}
+
+.annotator-erratum dt.replytext {
+  background: none;
+  font-style: italic;
+  padding: 1em;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+.erratum-quote {
+  padding: 0.5em;
+}
+
+.erratum-comment {
+  padding: 0.5em;
+  background: #fff;
+  border: 1px solid #EEE;
+  border-top: none;
 }
 
 .annotator-erratum:hover {
@@ -937,7 +946,6 @@
 
 .annotator-erratum.missing {
     background-color: #FDD;
-    cursor: default;
 }
 
 .annotator-hl {
