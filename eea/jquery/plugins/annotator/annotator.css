@@ -33,6 +33,7 @@
 .annotator-resize,
 .annotator-widget::after,
 .annotator-editor a::after,
+.annotator-erratum .annotator-controls button,
 .annotator-viewer .annotator-controls button,
 .annotator-viewer .annotator-controls a,
 .annotator-filter .annotator-filter-navigation button::after,
@@ -231,6 +232,7 @@
 	border-top: none;
 }
 
+.annotator-erratum .annotator-controls,
 .annotator-viewer .annotator-controls {
 	position: relative;
 	top: 5px;
@@ -244,7 +246,9 @@
 	float: right;
 }
 
+.annotator-erratum:hover .annotator-controls,
 .annotator-viewer li:hover .annotator-controls,
+.annotator-erratum li .annotator-controls.annotator-visible,
 .annotator-viewer li .annotator-controls.annotator-visible {
 	opacity: 1;
 }
@@ -257,9 +261,29 @@
 	float: right;
 }
 
-.annotator-item .annotator-user {
+.annotator-item .annotator-user, .annotator-item  .annotator-date {
   text-align: right;
   border-top: none;
+  font-size: 8pt;
+  color: #ccc;
+  padding-left: 0.3em;
+  cursor: default;
+}
+
+.annotator-item .annotator-date {
+  float: right;
+}
+
+.annotator-item .reply .annotator-date {
+  padding-right: 0;
+}
+
+.annotator-item .annotator-user:hover, .annotator-item  .annotator-date:hover {
+  color: #999;
+}
+
+.annotator-item .annotator-date:before {
+  content: ' - ';
 }
 
 .annotator-item .reply {
@@ -269,9 +293,11 @@
 
 .annotator-viewer  .annotator-item .replytext {
   padding-top: 0;
+  padding-left: 0;
 }
 
 .annotator-delete-reply,
+.annotator-erratum .annotator-controls button,
 .annotator-viewer .annotator-controls button,
 .annotator-viewer .annotator-controls a {
 	cursor: pointer;
@@ -288,7 +314,9 @@
 
 .annotator-delete-reply:hover,
 .annotator-delete-reply:focus,
+.annotator-erratum .annotator-controls button:hover,
 .annotator-viewer .annotator-controls button:hover,
+.annotator-erratum .annotator-controls button:focus,
 .annotator-viewer .annotator-controls button:focus,
 .annotator-viewer .annotator-controls a:hover,
 .annotator-viewer .annotator-controls a:focus {
@@ -296,24 +324,29 @@
 }
 
 .annotator-delete-reply:active,
+.annotator-erratum .annotator-controls button:active,
 .annotator-viewer .annotator-controls button:active,
 .annotator-viewer .annotator-controls a:active {
 	opacity: 1;
 }
 
 .annotator-delete-reply[disabled],
+.annotator-erratum .annotator-controls button[disabled],
 .annotator-viewer .annotator-controls button[disabled] {
 	display: none;
 }
 
+.annotator-erratum .annotator-controls .annotator-edit,
 .annotator-viewer .annotator-controls .annotator-edit {
 	background-position: 0 -60px;
 }
 
+.annotator-erratum .annotator-controls .annotator-delete,
 .annotator-viewer .annotator-controls .annotator-delete, .annotator-delete-reply {
 	background-position: 0 -75px;
 }
 
+.annotator-erratum .annotator-controls .annotator-link,
 .annotator-viewer .annotator-controls .annotator-link {
 	background-position: 0 -270px;
 }
