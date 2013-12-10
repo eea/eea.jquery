@@ -1,8 +1,8 @@
 Changelog
 =========
 
-6.9-dev - (unreleased)
-----------------------
+6.9 - (2013-12-10)
+------------------
 * Feature: Add new custom plugin (Errata) that displays all inline comments
   within an area (easily create listings with all inline comments)
   [voineali refs #17461]
