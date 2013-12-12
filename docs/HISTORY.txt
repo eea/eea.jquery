@@ -3,6 +3,9 @@ Changelog
 
 7.0-dev - (unreleased)
 ----------------------
+* Feature: Annotator plugin distinguish sections with several
+  overlapping comments
+  [voineali refs #17727]
 
 6.9 - (2013-12-10)
 ------------------

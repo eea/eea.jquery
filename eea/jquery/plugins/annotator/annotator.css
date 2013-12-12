@@ -49,6 +49,10 @@
 	background: rgba(255, 255, 10, 0.3);
 }
 
+.annotator-hl.hover {
+  border-bottom: 2px dashed #ff0000;
+}
+
 .annotator-hl-temporary {
 	background: rgba(0, 124, 255, 0.3);
 }
