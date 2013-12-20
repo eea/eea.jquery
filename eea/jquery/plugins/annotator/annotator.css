@@ -985,6 +985,15 @@
     background-color: #FDD;
 }
 
+.annotator-erratum.missing .erratum-comment::before {
+    content: attr(data-tooltip);
+    color: #F98;
+    font-style: italic;
+    font-size: 85%;
+    text-align: right;
+    display: block;
+}
+
 .annotator-hl {
     background-color: #DFD;
 }

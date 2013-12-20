@@ -7,7 +7,7 @@
 ** Dual licensed under the MIT and GPLv3 licenses.
 ** https://github.com/okfn/annotator/blob/master/LICENSE
 **
-** Built at: 2013-12-19 13:16:38Z
+** Built at: 2013-12-20 13:10:00Z
 */
 
 
@@ -3700,7 +3700,7 @@ Annotator.Erratum = (function(_super) {
   }
 
   Erratum.prototype._setupComment = function(annotation) {
-    var comment, dateString, div, erratum, existing, missing, published, replies, reply, self, textString, userString, userTitle, _i, _len;
+    var comment, dateString, div, erratum, existing, missing, published, quote, replies, reply, self, textString, userString, userTitle, _i, _len;
     self = this;
     textString = Util.escape(annotation.text);
     userTitle = annotation.user.name || annotation.user;
@@ -3726,6 +3726,9 @@ Annotator.Erratum = (function(_super) {
     missing = this.missing[annotation.id];
     if (missing) {
       div.addClass('missing');
+      quote = div.find('.erratum-comment');
+      quote.attr("data-tooltip", "Can't find the original text the comment was referring to");
+      quote.data("tooltip", "Can't find the original text the comment was referring to");
     }
     existing = this.element.find('[data-id="' + annotation.id + '"]');
     if (existing.length) {
@@ -3747,10 +3750,15 @@ Annotator.Erratum = (function(_super) {
     comment.unbind();
     comment.bind({
       'click': function(evt) {
-        self.publish('beforeClick', [annotation]);
+        var data;
+        data = {
+          annotation: annotation,
+          element: comment
+        };
+        self.publish('beforeClick', data);
         self.element.find('.erratum-comment').slideUp('fast');
         comment.find('.erratum-comment').slideDown('fast');
-        return self.publish('afterClick', [annotation]);
+        return self.publish('afterClick', data);
       }
     });
     return this;

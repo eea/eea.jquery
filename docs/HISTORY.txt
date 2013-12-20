@@ -3,6 +3,9 @@ Changelog
 
 7.0-dev - (unreleased)
 ----------------------
+* Feature: Explicitly explain red background of comments within annotator errata
+  plugin
+  [voineali refs #17729]
 * Feature: Annotator trigger afterClick and beforeClick within errata plugin
   in order to be handled from outside this package
   [voineali refs #17729]
