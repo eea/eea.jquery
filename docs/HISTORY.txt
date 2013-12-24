@@ -3,6 +3,8 @@ Changelog
 
 7.0-dev - (unreleased)
 ----------------------
+* Bugfix: Fixed speed of annotation popup when moving
+  [szabozo0]
 * Feature: Explicitly explain red background of comments within annotator errata
   plugin
   [voineali refs #17729]

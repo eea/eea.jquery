@@ -1770,6 +1770,10 @@ Annotator.Editor = (function(_super) {
           left: event.pageX
         };
         textarea = editor.find('textarea:first');
+
+        $(window).unbind('mouseup.annotator-editor-resize');
+        $(window).unbind('mousemove.annotator-editor-resize');
+
         $(window).bind({
           'mouseup.annotator-editor-resize': onMouseup,
           'mousemove.annotator-editor-resize': onMousemove
