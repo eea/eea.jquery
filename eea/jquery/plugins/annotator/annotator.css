@@ -994,6 +994,21 @@
     display: block;
 }
 
+.annotator-erratum-section {
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+  border: none;
+}
+
+.annotator-erratum-section legend {
+  text-align: center;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 1em;
+  width: 100%;
+}
+
 .annotator-hl {
     background-color: #DFD;
 }

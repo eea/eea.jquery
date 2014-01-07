@@ -3,10 +3,9 @@ Changelog
 
 7.0-dev - (unreleased)
 ----------------------
-* Feature: Updated annotator with plugin for googlecharts unpivot
-  [szabozo0 refs #17190]
-* Bugfix: Prevent multiple binds for mousedown on editor
-  [szabozo0]
+* Change: Split annotator errata portlet in 2 section:
+  pending comments and closed ones
+  [voineali refs #17729]
 * Feature: Explicitly explain red background of comments within annotator errata
   plugin
   [voineali refs #17729]

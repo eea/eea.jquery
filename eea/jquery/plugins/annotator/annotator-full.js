@@ -7,7 +7,7 @@
 ** Dual licensed under the MIT and GPLv3 licenses.
 ** https://github.com/okfn/annotator/blob/master/LICENSE
 **
-** Built at: 2014-01-07 09:57:48Z
+** Built at: 2014-01-07 14:57:11Z
 */
 
 
@@ -3701,8 +3701,16 @@ Annotator.Erratum = (function(_super) {
     this;
   }
 
+  Erratum.prototype._setupSections = function() {
+    this.element.empty();
+    this.pendingCount = 0;
+    this.pending = $('<fieldset class="annotator-erratum-section annotator-erratum-pending">\n  <legend>Active comments (<span class="count">' + this.pendingCount + '</span>)</legend>\n</fieldset>').appendTo(this.element);
+    this.closedCount = 0;
+    return this.closed = $('<fieldset class="annotator-erratum-section annotator-erratum-closed">\n  <legend>Closed comments (<span class="count">' + this.closedCount + '</span>)</legend>\n</fieldset>').appendTo(this.element);
+  };
+
   Erratum.prototype._setupComment = function(annotation) {
-    var comment, dateString, div, erratum, existing, missing, published, quote, replies, reply, self, textString, userString, userTitle, _i, _len;
+    var comment, dateString, div, erratum, existing, missing, published, quote, replies, reply, self, textString, userString, userTitle, where, _i, _len;
     self = this;
     textString = Util.escape(annotation.text);
     userTitle = annotation.user.name || annotation.user;
@@ -3739,7 +3747,16 @@ Annotator.Erratum = (function(_super) {
     if (this.readOnly) {
       div.find('.annotator-controls').remove();
     }
-    div.data('id', annotation.id).data('comment', annotation).hide().prependTo(this.element).slideDown(function() {
+    if (annotation.closed) {
+      where = this.closed;
+      this.closedCount += 1;
+      this._updateCounters();
+    } else {
+      where = this.pending;
+      this.pendingCount += 1;
+      this._updateCounters();
+    }
+    div.data('id', annotation.id).data('comment', annotation).hide().prependTo(where).slideDown(function() {
       return self._reloadComment(annotation);
     });
     return this;
@@ -3766,6 +3783,11 @@ Annotator.Erratum = (function(_super) {
     return this;
   };
 
+  Erratum.prototype._updateCounters = function() {
+    this.closed.find('legend .count').text(this.closedCount);
+    return this.pending.find('legend .count').text(this.pendingCount);
+  };
+
   Erratum.prototype.annotationsLoaded = function(annotations) {
     var annotation, compare, _i, _len, _ref;
     compare = function(a, b) {
@@ -3776,7 +3798,7 @@ Annotator.Erratum = (function(_super) {
       }
       return 0;
     };
-    this.element.empty();
+    this._setupSections();
     _ref = annotations.sort(compare);
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       annotation = _ref[_i];
@@ -3796,6 +3818,8 @@ Annotator.Erratum = (function(_super) {
     comment.slideUp(function() {
       return comment.remove();
     });
+    this.pendingCount -= 1;
+    this._updateCounters();
     return this;
   };
 
@@ -3935,4 +3959,4 @@ Annotator.Plugin.EEAGoogleChartsUnpivotAnnotation = (function(_super) {
 //
 */
 
-//# sourceMappingURL=annotator-full.map
+//@ sourceMappingURL=annotator-full.map
