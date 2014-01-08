@@ -994,19 +994,9 @@
     display: block;
 }
 
-.annotator-erratum-section {
-  margin: 0;
-  padding: 0;
-  line-height: inherit;
-  border: none;
-}
-
-.annotator-erratum-section legend {
+.annotator-erratum-section h2 {
   text-align: center;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  padding: 1em;
-  width: 100%;
+  font-size: 115%;
 }
 
 .annotator-hl {
