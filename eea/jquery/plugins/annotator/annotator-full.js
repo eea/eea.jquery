@@ -7,7 +7,7 @@
 ** Dual licensed under the MIT and GPLv3 licenses.
 ** https://github.com/okfn/annotator/blob/master/LICENSE
 **
-** Built at: 2014-01-08 18:21:42Z
+** Built at: 2014-01-08 18:51:43Z
 */
 
 
@@ -2435,11 +2435,12 @@ Annotator.Plugin.Store = (function(_super) {
         } else {
           annotation.deleted = true;
         }
-      } else {
-        this._apiRequest('destroy', annotation, (function() {
-          return _this.unregisterAnnotation(annotation);
-        }));
       }
+      this._apiRequest('destroy', annotation, (function() {
+        if (!_this.options.history) {
+          return _this.unregisterAnnotation(annotation);
+        }
+      }));
     }
     return this.annotator.publish("afterAnnotationDeleted", [annotation]);
   };
