@@ -6,8 +6,7 @@ Changelog
 
 * Change: Added date type for pivoted columns
   [szabozo0 refs #17190]
-* WIP
-  Feature: Added possibility to preserve deleted inline comments within annotator
+* Feature: Added possibility to preserve deleted inline comments within annotator
   Store Plugin. See Store Plugin history option.
   [voineali refs #17729]
 * Change: Split annotator errata portlet in 2 section:
