@@ -7,7 +7,7 @@
 ** Dual licensed under the MIT and GPLv3 licenses.
 ** https://github.com/okfn/annotator/blob/master/LICENSE
 **
-** Built at: 2014-01-13 16:20:46Z
+** Built at: 2014-01-15 20:45:32Z
 */
 
 
@@ -573,10 +573,16 @@ Range.sniff = function(r) {
   }
 };
 
-Range.nodeFromXPath = function(xpath, root) {
-  var customResolver, evaluateXPath, namespace, node, segment;
+Range.nodeFromXPath = function(xpath, root, matchText, offset) {
+  var customResolver, evaluateXPath, found, index, myindex, n, namespace, node, segment, xp, _i, _len;
   if (root == null) {
     root = document;
+  }
+  if (matchText == null) {
+    matchText = null;
+  }
+  if (offset == null) {
+    offset = 0;
   }
   evaluateXPath = function(xp, nsResolver) {
     var exception;
@@ -593,7 +599,7 @@ Range.nodeFromXPath = function(xpath, root) {
     }
   };
   if (!$.isXMLDoc(document.documentElement)) {
-    return evaluateXPath(xpath);
+    node = evaluateXPath(xpath);
   } else {
     customResolver = document.createNSResolver(document.ownerDocument === null ? document.documentElement : document.ownerDocument.documentElement);
     node = evaluateXPath(xpath, customResolver);
@@ -622,8 +628,32 @@ Range.nodeFromXPath = function(xpath, root) {
       };
       node = evaluateXPath(xpath, customResolver);
     }
-    return node;
   }
+  if (node && matchText && $(node).text().indexOf(matchText) === -1) {
+    node = null;
+  }
+  if (!node && matchText) {
+    xp = xpath.replace(/\[[0-9]+\]/g, "").replace(/\//g, " ");
+    node = $(root).find("" + xp + ":contains('" + matchText + "')");
+    if (node.length === 0) {
+      node = null;
+    } else if (node.length === 1) {
+      node = node[0];
+    } else {
+      found = null;
+      index = Number.MAX_VALUE;
+      for (_i = 0, _len = node.length; _i < _len; _i++) {
+        n = node[_i];
+        myindex = Math.abs($(n).text().indexOf(matchText) - offset);
+        if (myindex < index) {
+          index = myindex;
+          found = n;
+        }
+      }
+      node = found;
+    }
+  }
+  return node;
 };
 
 Range.RangeError = (function(_super) {
@@ -836,13 +866,30 @@ Range.SerializedRange = (function() {
   }
 
   SerializedRange.prototype.normalize = function(root, matchText) {
-    var contains, e, length, node, p, range, targetOffset, tn, _i, _j, _len, _len1, _ref, _ref1;
+    var contains, e, length, matching, node, p, range, targetOffset, texts, tn, _i, _j, _len, _len1, _ref, _ref1;
     range = {};
+    matching = {
+      start: null,
+      end: null
+    };
+    if (matchText) {
+      texts = $.map(matchText.split('\n'), function(text, idx) {
+        var tex;
+        tex = text.trim();
+        if (tex.length) {
+          return tex;
+        } else {
+          return null;
+        }
+      });
+      matching.start = $(texts).first()[0];
+      matching.end = $(texts).last()[0];
+    }
     _ref = ['start', 'end'];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       p = _ref[_i];
       try {
-        node = Range.nodeFromXPath(this[p], root);
+        node = Range.nodeFromXPath(this[p], root, matching[p], this[p + 'Offset']);
       } catch (_error) {
         e = _error;
         throw new Range.RangeError(p, ("Error while finding " + p + " node: " + this[p] + ": ") + e, e);

@@ -6,6 +6,9 @@ Changelog
 
 7.0 - (2014-01-14)
 ------------------
+* WIP
+  Feature: Improved the inline comments matching algorithm
+  [voineali refs #17735]
 * Change: Added date type for pivoted columns
   [szabozo0 refs #17190]
 * Feature: Added possibility to preserve deleted inline comments within annotator
