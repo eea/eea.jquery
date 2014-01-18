@@ -7,7 +7,7 @@
 ** Dual licensed under the MIT and GPLv3 licenses.
 ** https://github.com/okfn/annotator/blob/master/LICENSE
 **
-** Built at: 2014-01-17 17:48:28Z
+** Built at: 2014-01-18 11:32:27Z
 */
 
 
@@ -3868,8 +3868,8 @@ Annotator.Erratum = (function(_super) {
     if (missing) {
       div.addClass('missing');
       quote = div.find('.erratum-comment');
-      quote.attr("data-tooltip", "Can't find the original text the comment was referring to");
-      quote.data("tooltip", "Can't find the original text the comment was referring to");
+      quote.attr("data-tooltip", "Can't find the text the comment was referring to");
+      quote.data("tooltip", "Can't find the text the comment was referring to");
     }
     if (this.readOnly) {
       div.find('.annotator-controls').remove();
@@ -3914,6 +3914,8 @@ Annotator.Erratum = (function(_super) {
         };
         self.publish('beforeClick', data);
         self.element.find('.erratum-comment').slideUp('fast');
+        self.element.find('.annotator-erratum').removeClass('open');
+        comment.addClass('open');
         comment.find('.erratum-comment').slideDown('fast');
         return self.publish('afterClick', data);
       }

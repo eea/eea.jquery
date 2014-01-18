@@ -989,6 +989,37 @@
     display: block;
 }
 
+.annotator-erratum.open.missing .erratum-comment::before {
+    -webkit-animation: pulsate .15s 8 alternate;
+    -moz-animation: pulsate .15s 8 alternate;
+    -animation: pulsate .15s 8 alternate;
+}
+
+@-webkit-keyframes pulsate {
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: 0
+    }
+}
+@-moz-keyframes pulsate {
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: 0
+    }
+}
+@keyframes pulsate {
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: 0
+    }
+}
+
 .annotator-erratum-section h2 {
   text-align: center;
   font-size: 115%;
