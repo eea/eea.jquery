@@ -3,6 +3,8 @@ Changelog
 
 7.1-dev - (unreleased)
 ----------------------
+* Feature: Replaced annotator-controls with buttons while preserving eea-icons
+  [olimpiurob #18000]
 * Feature: Make annotator comments reply box bigger and higher contrast
   [batradav refs #17728]
 * Bug fix: Pulsate the warning message for missing comments within errata portlet
