@@ -1038,3 +1038,43 @@
   cursor: pointer;
 }
 
+.annotator-item textarea {
+  min-height: 90px;
+}
+
+/* WebKit browsers */
+.annotator-item textarea::-webkit-input-placeholder {
+  color: #427597;
+  font-size: 150%;
+}
+.annotator-item textarea:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+/* Mozilla Firefox 4 to 18 */
+.annotator-item textarea:-moz-placeholder {
+  color: #427597;
+  font-size: 150%;
+}
+.annotator-item textarea:focus:-moz-placeholder {
+  opacity: 0;
+}
+
+/* Mozilla Firefox 19+ */
+.annotator-item textarea::-moz-placeholder {
+  color: #427597;
+  font-size: 150%;
+}
+.annotator-item textarea:focus::-moz-placeholder {
+  opacity: 0;
+}
+
+ /* Internet Explorer 10+ */
+.annotator-item textarea:-ms-input-placeholder {
+  color: #427597;
+  font-size: 150%;
+}
+.annotator-item textarea:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+

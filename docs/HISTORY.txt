@@ -3,6 +3,8 @@ Changelog
 
 7.1-dev - (unreleased)
 ----------------------
+* Feature: Make annotator comments reply box bigger and higher contrast
+  [batradav refs #17728]
 * Bug fix: Pulsate the warning message for missing comments within errata portlet
   [batradav refs ##17705]
 * Feature: Improved the inline comments matching algorithm
