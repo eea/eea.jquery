@@ -7,6 +7,8 @@ Changelog
   [batradav refs ##17705]
 * Feature: Improved the inline comments matching algorithm
   [voineali refs #17735]
+* Feature: adding Sphinx-generated documentation in Page Template format
+  [batradav refs #9502]
 
 7.0 - (2014-01-14)
 ------------------
