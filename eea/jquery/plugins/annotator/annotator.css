@@ -3,7 +3,7 @@
 
 .annotator-notice,
 .annotator-filter *,
-.annotator-widget * {
+.annotator-widget {
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 	font-weight: normal;
 	text-align: left;
@@ -32,8 +32,7 @@
 .annotator-resize,
 .annotator-widget::after,
 .annotator-editor a::after,
-.annotator-erratum .annotator-controls button,
-.annotator-viewer .annotator-controls button,
+.annotator-viewer,
 .annotator-viewer .annotator-controls a,
 .annotator-filter .annotator-filter-navigation button::after,
 .annotator-filter .annotator-filter-property .annotator-filter-clear {
@@ -310,7 +309,7 @@
 	margin-left: 2px;
 	border: none;
 	opacity: 0.2;
-	text-indent: -900em;
+	text-indent: -0.1em;
 	background-color: transparent;
 	outline: none;
 }
@@ -333,16 +332,6 @@
 .annotator-erratum .annotator-controls button[disabled],
 .annotator-viewer .annotator-controls button[disabled] {
 	display: none;
-}
-
-.annotator-erratum .annotator-controls .annotator-edit,
-.annotator-viewer .annotator-controls .annotator-edit {
-	background-position: 0 -60px;
-}
-
-.annotator-erratum .annotator-controls .annotator-delete,
-.annotator-viewer .annotator-controls .annotator-delete {
-	background-position: 0 -75px;
 }
 
 .annotator-erratum .annotator-controls .annotator-link,
