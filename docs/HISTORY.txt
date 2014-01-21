@@ -3,6 +3,8 @@ Changelog
 
 7.1-dev - (unreleased)
 ----------------------
+* Feature: Log closing and opening of inline comments
+  [voineali refs #18080]
 * Feature: Annotator plugin added authorization handler for replies
   [olimpiurob #18000]
 * Feature: Replaced annotator-controls with buttons while preserving eea-icons
