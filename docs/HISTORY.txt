@@ -1,8 +1,8 @@
 Changelog
 =========
 
-7.1-dev - (unreleased)
-----------------------
+7.1 - (2014-01-21)
+------------------
 * Feature: Annotator made the "comment-by-time" visible in the first line
   [voineali refs #17731]
 * Feature: Log closing and opening of inline comments
