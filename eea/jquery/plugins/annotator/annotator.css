@@ -950,6 +950,19 @@
   line-height: 1.3;
 }
 
+.annotator-erratum dt.replyquote {
+  background: none;
+  font-style: italic;
+  padding: 1em;
+  font-weight: normal;
+  line-height: 1.3;
+  color: green;
+}
+
+.annotator-erratum.missing dt.replyquote {
+  color: #F98;
+}
+
 .annotator-erratum .annotator-controls {
   float: left;
   opacity: 1;
@@ -980,6 +993,43 @@
 
 .annotator-erratum.open .erratum-quote:before {
   content: ''
+}
+
+.annotator-erratum .erratum-header-date {
+  display: none;
+}
+
+.annotator-erratum.open .erratum-header-date {
+  display: block;
+  float: right;
+  font-weight: bold;
+}
+
+.annotator-erratum .erratum-header-user {
+  font-weight: bold;
+}
+
+.annotator-erratum.open .erratum-header-text {
+  display: block;
+  padding: 1em 0;
+}
+
+.annotator-erratum .erratum-header-text:before {
+  content: ' - '
+}
+
+.annotator-erratum.open .erratum-header-text:before {
+  content: '';
+}
+
+.annotator-erratum dt.erratum-header-replies {
+  text-align: right;
+  border-bottom: 1px solid;
+  color: #CCC;
+  padding: 0;
+  font-style: oblique;
+  background: none;
+  font-weight: normal;
 }
 
 .erratum-comment {

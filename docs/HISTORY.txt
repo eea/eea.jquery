@@ -3,6 +3,8 @@ Changelog
 
 7.1-dev - (unreleased)
 ----------------------
+* Feature: Annotator made the "comment-by-time" visible in the first line
+  [voineali refs #17731]
 * Feature: Log closing and opening of inline comments
   [voineali refs #18080]
 * Feature: Annotator plugin added authorization handler for replies

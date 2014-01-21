@@ -7,7 +7,7 @@
 ** Dual licensed under the MIT and GPLv3 licenses.
 ** https://github.com/okfn/annotator/blob/master/LICENSE
 **
-** Built at: 2014-01-21 08:32:32Z
+** Built at: 2014-01-21 12:22:06Z
 */
 
 
@@ -3874,12 +3874,15 @@ Annotator.Erratum = (function(_super) {
     }
     published = new Date(isoDate);
     dateString = Util.dateString(published);
-    div = $('<div class="annotator-erratum annotator-item" data-id="' + annotation.id + '">\n<span class="annotator-controls">\n  <button title="Close" class="annotator-delete">\n    <span class="eea-icon eea-icon-square-o"></span>\n  </button>\n</span>\n<div class="erratum-quote">' + annotation.quote + '</div>\n<dl class="erratum-comment">\n  <dt class="replytext">' + textString + '</dt>\n<dd class="annotator-date" title="' + published.toDateString() + '">' + dateString + '</dd>\n<dd class="annotator-user" title="' + userTitle + '">' + userString + '</dd>\n  </dl>\n</div>');
+    div = $('<div class="annotator-erratum annotator-item" data-id="' + annotation.id + '">\n<span class="annotator-controls">\n  <button title="Close" class="annotator-delete">\n    <span class="eea-icon eea-icon-square-o"></span>\n  </button>\n</span>\n<div class="erratum-quote">\n  <span class="erratum-header-date" title="' + published.toDateString() + '">' + dateString + '</span>\n<span class="erratum-header-user" title="' + userTitle + '">' + userString + '</span>\n<span class="erratum-header-text">' + textString + '</span>\n</div>\n<dl class="erratum-comment">\n  <dt class="replyquote">' + annotation.quote + '</dt>\n  </dl>\n</div>');
     div.find('.annotator-delete').click(function(evt) {
       return self.annotator.onDeleteAnnotation(annotation);
     });
     erratum = div.find('.erratum-comment').hide();
     replies = annotation.replies || [];
+    if (replies.length) {
+      $('<dt class="erratum-header-replies">Replies</dt>').appendTo(erratum);
+    }
     for (_i = 0, _len = replies.length; _i < _len; _i++) {
       reply = replies[_i];
       textString = Util.escape(reply.reply);
