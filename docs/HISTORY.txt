@@ -3,6 +3,8 @@ Changelog
 
 7.2-dev - (unreleased)
 ----------------------
+* Feature: Added reply functionality to annotator errata plugin
+  [olimpiurob #17728]
 
 7.1 - (2014-01-21)
 ------------------
