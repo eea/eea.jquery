@@ -3,6 +3,11 @@ Changelog
 
 7.2-dev - (unreleased)
 ----------------------
+* Bug fix: Fixed bug in annotator plugin not beeing able to add reply after
+  comment has been undeleted
+  [olimpiurob #17728]
+* Feature: Added reply functionality to annotator errata plugin
+  [olimpiurob #17728]
 
 7.1 - (2014-01-21)
 ------------------

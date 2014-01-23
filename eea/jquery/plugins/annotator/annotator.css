@@ -189,8 +189,11 @@
 }
 
 .annotator-widget .annotator-item,
+.annotator-portlet-body .annotator-item,
 .annotator-editor .annotator-item input,
-.annotator-editor .annotator-item textarea {
+.annotator-editor .annotator-item textarea,
+.annotator-portlet-body textarea {
+	font: 100% Monaco, "Courier New", Courier, monospace;
 	position: relative;
 	font-size: 12px;
 }
@@ -1114,6 +1117,21 @@
 
 .annotator-item textarea {
   min-height: 50px;
+  min-width: 99%;
+  border: 1px solid #eee;
+  display: block;
+  
+}
+
+.erratum-comment .replybox {
+	padding-top: 12px;
+	margin: 12px 0 6px;
+	border-top: 1px solid #eee;
+}
+
+.annotator-reply-controls {
+	text-align: right;
+	padding-top: 12px;
 }
 
 /* WebKit browsers */
