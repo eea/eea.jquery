@@ -3,6 +3,8 @@ Changelog
 
 7.2-dev - (unreleased)
 ----------------------
+* Bug fix: Fix Annotator Errata counter update on replies
+  [avoinea]
 * Bug fix: Fixed bug in annotator plugin not beeing able to add reply after
   comment has been undeleted
   [olimpiurob #17728]
