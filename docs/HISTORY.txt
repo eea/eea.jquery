@@ -3,6 +3,9 @@ Changelog
 
 7.3-dev - (unreleased)
 ----------------------
+* Feature: Trigger events when collapsing and uncollapsing comments in annotator
+  plugin
+  [olimpiurob #18193]
 
 7.2 - (2014-01-24)
 ------------------
