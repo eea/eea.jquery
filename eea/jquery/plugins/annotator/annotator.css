@@ -198,6 +198,13 @@
 	font-size: 12px;
 }
 
+#content .annotator-item textarea,
+.annotator-item textarea,
+#content .annotator-portlet-body textarea,
+.annotator-portlet-body textarea {
+  font: 100% Monaco, "Courier New", Courier, monospace;
+}
+
 .annotator-viewer .annotator-item {
 	border-top: 2px solid rgba(122, 122, 122, 0.2);
 }
@@ -1120,7 +1127,7 @@
   min-width: 99%;
   border: 1px solid #eee;
   display: block;
-  
+
 }
 
 .erratum-comment .replybox {
