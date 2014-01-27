@@ -193,7 +193,6 @@
 .annotator-editor .annotator-item input,
 .annotator-editor .annotator-item textarea,
 .annotator-portlet-body textarea {
-	font: 100% Monaco, "Courier New", Courier, monospace;
 	position: relative;
 	font-size: 12px;
 }
