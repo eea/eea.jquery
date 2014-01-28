@@ -3,6 +3,8 @@ Changelog
 
 7.3-dev - (unreleased)
 ----------------------
+* Feature: Updated annotator plugin with fixed FontAwesome icons for unpivot annotations
+  [szabozo0 refs #18191]
 * Feature: Trigger events when collapsing and uncollapsing comments in annotator
   plugin
   [olimpiurob #18193]
