@@ -3,6 +3,9 @@ Changelog
 
 7.3-dev - (unreleased)
 ----------------------
+* Change: Annotator js and css resources are now conditioned by the
+  'eea.annotator: View' permission
+  [olimpiurob #17233]
 * Feature: Trigger events when collapsing and uncollapsing comments in annotator
   plugin
   [olimpiurob #18193]
