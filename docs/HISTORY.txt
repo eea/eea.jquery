@@ -3,6 +3,8 @@ Changelog
 
 7.3-dev - (unreleased)
 ----------------------
+* Change: Annotator js and css resources are now restricted to authenticated users
+  [olimpiurob #17233]
 * Feature: Updated annotator plugin with fixed FontAwesome icons for unpivot annotations
   [szabozo0 refs #18191]
 * Feature: Trigger events when collapsing and uncollapsing comments in annotator
