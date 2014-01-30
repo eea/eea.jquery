@@ -5,18 +5,6 @@
 
   <genericsetup:upgradeSteps
     source="*"
-    destination="4.2"
-    profile="eea.jquery:01-jquery">
-
-    <genericsetup:upgradeDepends
-      title="Add permission check for jquery.annotator"
-      import_profile="eea.jquery:20-annotator"
-      />
-
-  </genericsetup:upgradeSteps>
-
-  <genericsetup:upgradeSteps
-    source="*"
     destination="4.1"
     profile="eea.jquery:01-jquery">
 
