@@ -3,6 +3,8 @@ Changelog
 
 7.3-dev - (unreleased)
 ----------------------
+* Change: Prettify the dates displayed in annotations
+  [olimpiurob #18288]
 * Change: Annotator js and css resources are now restricted to authenticated users
   [olimpiurob #17233]
 * Feature: Updated annotator plugin with fixed FontAwesome icons for unpivot annotations

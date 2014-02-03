@@ -7,7 +7,7 @@
 ** Dual licensed under the MIT and GPLv3 licenses.
 ** https://github.com/okfn/annotator/blob/master/LICENSE
 **
-** Built at: 2014-01-28 13:51:36Z
+** Built at: 2014-02-03 13:30:55Z
 */
 
 
@@ -357,6 +357,53 @@ Util.userString = function(user) {
     userString = user;
   }
   return userString;
+};
+
+Util.easyDate = function(date) {
+  var days, delta, hours, min, months, now, weeks, years;
+  now = new Date();
+  delta = (now - date) / 1000;
+  if (delta < 0) {
+    return 'just now';
+  }
+  if (delta < 3300) {
+    min = parseInt(delta / 60, 10);
+    return min + 'm';
+  }
+  if (delta < 72000) {
+    hours = parseInt(delta / 3600, 10);
+    return hours + 'h';
+  }
+  delta = delta / 3600;
+  if (delta < 48) {
+    return '1d';
+  }
+  if (delta < 160) {
+    days = parseInt(delta / 24, 10);
+    return days + 'd';
+  }
+  if (delta < 336) {
+    return '1w';
+  }
+  if (delta < 720) {
+    weeks = parseInt(delta / 24 / 7, 10);
+    return weeks + 'w';
+  }
+  delta = delta / 24;
+  if (delta < 60) {
+    return '1mo';
+  }
+  if (delta < 360) {
+    months = parseInt(delta / 30, 10);
+    return months + 'mo';
+  }
+  if (delta < 720) {
+    return '1y';
+  }
+  if (delta > 720) {
+    years = parseInt(delta / 360, 10);
+    return years + 'y';
+  }
 };
 
 /*
@@ -3631,7 +3678,7 @@ Annotator.Plugin.Comment = (function(_super) {
             isoDate += 'Z';
           }
           published = new Date(isoDate);
-          dateString = Util.dateString(published);
+          dateString = Util.easyDate(published);
           div = '<div class=\'reply\'>';
           if (!this.annotator.options.readOnly) {
             if (reply === replies[replies.length - 1]) {
@@ -3875,7 +3922,7 @@ Annotator.Erratum = (function(_super) {
       isoDate += 'Z';
     }
     published = new Date(isoDate);
-    dateString = Util.dateString(published);
+    dateString = Util.easyDate(published);
     div = $('<div class="annotator-erratum annotator-item" data-id="' + annotation.id + '">\n<span class="annotator-controls">\n  <button title="Close" class="annotator-delete">\n    <span class="eea-icon eea-icon-square-o"></span>\n  </button>\n</span>\n<div class="erratum-quote">\n  <span class="erratum-header-date" title="' + published.toDateString() + '">' + dateString + '</span>\n<span class="erratum-header-user" title="' + userTitle + '">' + userString + '</span>\n<span class="erratum-header-text">' + textString + '</span>\n</div>\n<dl class="erratum-comment">\n  <dt class="replyquote">' + annotation.quote + '</dt>\n  </dl>\n</div>');
     div.find('.annotator-delete').click(function(evt) {
       return self.annotator.onDeleteAnnotation(annotation);
@@ -3895,7 +3942,7 @@ Annotator.Erratum = (function(_super) {
         isoDate += 'Z';
       }
       published = new Date(isoDate);
-      dateString = Util.dateString(published);
+      dateString = Util.easyDate(published);
       comment = $('<dt class="replytext">' + textString + '</dt>\n<dd class="annotator-date" title="' + published.toDateString() + '">' + dateString + '</dd>\n<dd class="annotator-user" title="' + userTitle + '">' + userString + '</dd>');
       comment.appendTo(erratum);
     }
@@ -4247,4 +4294,4 @@ Annotator.Plugin.EEAGoogleChartsUnpivotAnnotation = (function(_super) {
 //
 */
 
-//# sourceMappingURL=annotator-full.map
+//@ sourceMappingURL=annotator-full.map
