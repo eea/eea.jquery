@@ -1,8 +1,8 @@
 Changelog
 =========
 
-7.3-dev - (unreleased)
-----------------------
+7.3 - (2014-02-03)
+------------------
 * Change: Annotator js and css resources are now restricted to authenticated users
   [olimpiurob #17233]
 * Feature: Updated annotator plugin with fixed FontAwesome icons for unpivot annotations
