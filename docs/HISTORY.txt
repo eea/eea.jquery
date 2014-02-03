@@ -1,6 +1,9 @@
 Changelog
 =========
 
+7.4-dev - (unreleased)
+----------------------
+
 7.3 - (2014-02-03)
 ------------------
 * Change: Annotator js and css resources are now restricted to authenticated users
