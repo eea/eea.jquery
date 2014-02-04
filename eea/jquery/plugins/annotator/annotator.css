@@ -285,6 +285,7 @@
 
 .annotator-item .annotator-date {
   float: right;
+  font-style: italic;
 }
 
 .annotator-item .reply .annotator-date {
@@ -293,10 +294,6 @@
 
 .annotator-item .annotator-user:hover, .annotator-item  .annotator-date:hover {
   color: #999;
-}
-
-.annotator-item .annotator-date:before {
-  content: ' - ';
 }
 
 .annotator-item .reply {
