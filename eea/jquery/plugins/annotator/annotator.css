@@ -193,6 +193,7 @@
 .annotator-editor .annotator-item input,
 .annotator-editor .annotator-item textarea,
 .annotator-portlet-body textarea {
+	font: 100% Monaco, "Courier New", Courier, monospace;
 	position: relative;
 	font-size: 12px;
 }
@@ -284,6 +285,7 @@
 
 .annotator-item .annotator-date {
   float: right;
+  font-style: italic;
 }
 
 .annotator-item .reply .annotator-date {
@@ -292,10 +294,6 @@
 
 .annotator-item .annotator-user:hover, .annotator-item  .annotator-date:hover {
   color: #999;
-}
-
-.annotator-item .annotator-date:before {
-  content: ' - ';
 }
 
 .annotator-item .reply {
