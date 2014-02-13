@@ -1,8 +1,8 @@
 Changelog
 =========
 
-7.4-dev - (unreleased)
-----------------------
+7.4 - (2014-02-13)
+------------------
 * Feature: Real-time update of annotator inline comments via AJAX calls
   [voineali refs #18098]
 * Change: Prettify the dates displayed in annotations
