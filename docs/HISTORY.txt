@@ -3,6 +3,8 @@ Changelog
 
 7.5-dev - (unreleased)
 ----------------------
+* Change: released new egg since 7.4 was a brown bag release
+  [ichimdav]
 
 7.4 - (2014-02-13)
 ------------------
