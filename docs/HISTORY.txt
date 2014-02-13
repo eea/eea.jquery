@@ -1,6 +1,9 @@
 Changelog
 =========
 
+7.5-dev - (unreleased)
+----------------------
+
 7.4 - (2014-02-13)
 ------------------
 * Feature: Real-time update of annotator inline comments via AJAX calls
