@@ -1,6 +1,9 @@
 Changelog
 =========
 
+7.6-dev - (unreleased)
+----------------------
+
 7.5 - (2014-02-13)
 ------------------
 * Change: released new egg since 7.4 was a brown bag release
