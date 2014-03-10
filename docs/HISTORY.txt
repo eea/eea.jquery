@@ -3,6 +3,8 @@ Changelog
 
 7.6-dev - (unreleased)
 ----------------------
+* Bug fix: Fix annotator matching algorithm when mixing styling html tags
+  [voineali refs #18795]
 * Feature: Don't hide selected text when adding a new inline comment
   [voineali refs #18674]
 
