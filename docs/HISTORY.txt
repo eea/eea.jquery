@@ -1,6 +1,9 @@
 Changelog
 =========
 
+7.7-dev - (unreleased)
+----------------------
+
 7.6 - (2014-03-10)
 ------------------
 * Bug fix: Fix annotator matching algorithm when mixing styling html tags
