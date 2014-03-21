@@ -182,4 +182,13 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+  <!-- jQuery SerialScroll -->
+  <genericsetup:registerProfile
+    name="21-serialscroll"
+    title="EEA jQuery Serial Scroll"
+    directory="profiles/serialscroll"
+    description="Extension profile for eea.jquery - serialscroll"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
 </configure>

@@ -276,4 +276,11 @@
     permission="zope.Public"
     />
 
+  <!-- ScrollTo and SerialScroll -->
+  <browser:resource
+    name="jquery.serialscroll.js"
+    file="serialscroll/jquery.serialScroll.js"
+    permission="zope.Public"
+    />
+
 </configure>
