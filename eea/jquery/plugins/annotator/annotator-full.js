@@ -7,7 +7,7 @@
 ** Dual licensed under the MIT and GPLv3 licenses.
 ** https://github.com/okfn/annotator/blob/master/LICENSE
 **
-** Built at: 2014-03-13 08:57:25Z
+** Built at: 2014-03-26 13:15:25Z
 */
 
 
@@ -4344,7 +4344,7 @@ Annotator.Plugin.EEAGoogleChartsUnpivotAnnotation = (function(_super) {
     $(this.element).remove();
     $(".googlechartAnnotationEditorTable").html("");
     $(".googlechartAnnotationViewerTable").remove();
-    $("<table>").attr("style", "position:absolute; left:10px; top:-95px;").addClass("googlechartAnnotationEditorTable").appendTo(obj);
+    $("<table>").attr("style", "position:relative; left:10px; top:-95px;").addClass("googlechartAnnotationEditorTable").appendTo(obj);
     $("<tr>").addClass("googlechartAnnotationColumnType").appendTo(".googlechartAnnotationEditorTable");
     $("<td>").text("Column Type").appendTo(".googlechartAnnotationColumnType");
     $("<td>").html("<select>").appendTo(".googlechartAnnotationColumnType");
@@ -4352,7 +4352,7 @@ Annotator.Plugin.EEAGoogleChartsUnpivotAnnotation = (function(_super) {
     $("<option>").attr("value", "pivot").text("pivot").appendTo(".googlechartAnnotationColumnType select");
     $("<tr>").addClass("googlechartAnnotationColumnName").appendTo(".googlechartAnnotationEditorTable");
     $("<td>").text("Column Name").appendTo(".googlechartAnnotationColumnName");
-    $("<td>").html("<input type='text' style='padding:3px;margin-top:5px; margin-bottom:5px;'>").appendTo(".googlechartAnnotationColumnName");
+    $("<td>").html("<input type='text' style='padding:3px;margin-top:0px; height:30px; margin-bottom:5px;border:1px solid #cccccc'>").appendTo(".googlechartAnnotationColumnName");
     $("<tr>").addClass("googlechartAnnotationValueType").appendTo(".googlechartAnnotationEditorTable");
     $("<td>").text("Value Type").appendTo(".googlechartAnnotationValueType");
     $("<td>").html("<select>").appendTo(".googlechartAnnotationValueType");

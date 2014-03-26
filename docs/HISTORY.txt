@@ -3,6 +3,8 @@ Changelog
 
 7.7-dev - (unreleased)
 ----------------------
+* Bugfix: Fixed unpivot annotator for firefox
+  [szabozo0 refs #19052]
 * Feature: Added jquery-masonry plugin
   [voineali refs #17713]
 * Feature: Added jquery-serialscroll plugin
