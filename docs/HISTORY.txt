@@ -3,6 +3,8 @@ Changelog
 
 7.7-dev - (unreleased)
 ----------------------
+* Feature: Added jquery-masonry plugin
+  [voineali refs #17713]
 * Feature: Added jquery-serialscroll plugin
   [voineali refs #17713]
 * Bug fix: Don't try to highlight inline comments within textareas and inputs

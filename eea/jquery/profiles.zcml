@@ -191,4 +191,13 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+  <!-- jQuery Masonry -->
+  <genericsetup:registerProfile
+    name="22-masonry"
+    title="EEA jQuery Masonry"
+    directory="profiles/masonry"
+    description="Extension profile for eea.jquery - masonry"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
 </configure>

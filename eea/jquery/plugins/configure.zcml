@@ -283,4 +283,11 @@
     permission="zope.Public"
     />
 
+<!-- Masonry -->
+  <browser:resource
+    name="jquery.masonry.js"
+    file="masonry/masonry.pkgd.js"
+    permission="zope.Public"
+    />
+
 </configure>
