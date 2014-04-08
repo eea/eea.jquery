@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts">
+    <javascript id="++resource++select2/select2.min.js"
+                authenticated="True" 
+                compression="none"
+                insert-after="++resource++jquery.annotator.js" />
+</object>

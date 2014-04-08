@@ -290,4 +290,9 @@
     permission="zope.Public"
     />
 
+<!-- Select2 -->
+  <browser:resourceDirectory
+    name="select2"
+    directory="select2"
+  />
 </configure>

@@ -3,6 +3,8 @@ Changelog
 
 7.7-dev - (unreleased)
 ----------------------
+* Feature: Added jquery-select2 plugin
+  [ichim-david refs #18559]
 * Bugfix: Fixed unpivot annotator for firefox
   [szabozo0 refs #19052]
 * Feature: Added jquery-masonry plugin

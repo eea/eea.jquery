@@ -200,4 +200,13 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+  <!-- jQuery Masonry -->
+  <genericsetup:registerProfile
+    name="23-select2"
+    title="EEA jQuery Select2"
+    directory="profiles/select2"
+    description="Extension profile for eea.jquery - select2"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
 </configure>
