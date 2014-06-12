@@ -3,6 +3,8 @@ Changelog
 
 7.8-dev - (unreleased)
 ----------------------
+* Bug fix: Fix matching algorithm within jquery annotator plugin
+  [voineali refs #19978]
 
 7.7 - (2014-05-13)
 ------------------
