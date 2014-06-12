@@ -3,6 +3,14 @@ Changelog
 
 7.8-dev - (unreleased)
 ----------------------
+* Feature: jQuery Annotator Plugin - added minWords option in order to
+  allow addition of inline comments only if selected text has at least
+  one number of words
+  [voineali refs #19978]
+* Feature: jQuery Annotator Plugin - added noDuplicate option in order to
+  disable possibility to add inline comments if selected text has multiple
+  occurrences
+  [voineali refs #19978]
 * Bug fix: Fix matching algorithm within jquery annotator plugin
   [voineali refs #19978]
 

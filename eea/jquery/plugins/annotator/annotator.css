@@ -75,12 +75,23 @@
 }
 
 .annotator-adder,
+.annotator-adder-warning,
 .annotator-outer,
 .annotator-widget,
 .annotator-notice {
 	position: absolute;
 	font-size: 10px;
 	line-height: 1;
+}
+
+.annotator-adder-warning {
+  background: #eee;
+  padding: 1em;
+  z-index: 1020;
+  max-width: 200px;
+  text-align: center;
+  border: 1px solid #ccc;
+  box-shadow: 5px 5px 10px #999;
 }
 
 .annotator-hide {
