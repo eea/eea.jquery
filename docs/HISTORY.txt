@@ -1,8 +1,8 @@
 Changelog
 =========
 
-7.8-dev - (unreleased)
-----------------------
+7.8 - (2014-06-26)
+------------------
 * Feature: jQuery Annotator Plugin - added minWords option in order to
   allow addition of inline comments only if selected text has at least
   one number of words
