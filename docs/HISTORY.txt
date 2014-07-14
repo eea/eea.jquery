@@ -3,6 +3,8 @@ Changelog
 
 7.9-dev - (unreleased)
 ----------------------
+* Feature: WIP created timeout dialog jQuery plugin.
+  [ghicaale refs #20389]
 
 7.8 - (2014-06-26)
 ------------------

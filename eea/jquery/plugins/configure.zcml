@@ -263,6 +263,30 @@
     directory="colorpicker/images"
     />
 
+  <!--TimeoutDialog-->
+  <browser:resource
+    name="jquery.timeoutdialog.js"
+    file="timeoutdialog/js/timeout-dialog.js"
+    permission="zope.Public"
+    />
+
+  <browser:resource
+    name="jquery.timeoutdialog.index.css"
+    file="timeoutdialog/css/index.css"
+    permission="zope.Public"
+    />
+
+  <browser:resource
+    name="jquery.timeoutdialog.css"
+    file="timeoutdialog/css/timeout-dialog.css"
+    permission="zope.Public"
+    />
+
+  <browser:resourceDirectory
+    name="timeoutdialog-images"
+    directory="timeoutdialog/imgs"
+    />
+
   <!-- Annotator -->
   <browser:resource
     name="jquery.annotator.js"

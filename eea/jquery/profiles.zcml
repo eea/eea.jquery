@@ -209,4 +209,13 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+  <!-- jQuery Timeout Dialog -->
+  <genericsetup:registerProfile
+    name="24-timeoutdialog"
+    title="EEA jQuery TimeoutDialog"
+    directory="profiles/timeoutdialog"
+    description="Extension profile for eea.jquery - timeoutdialog"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
 </configure>
