@@ -271,12 +271,6 @@
     />
 
   <browser:resource
-    name="jquery.timeoutdialog.index.css"
-    file="timeoutdialog/css/index.css"
-    permission="zope.Public"
-    />
-
-  <browser:resource
     name="jquery.timeoutdialog.css"
     file="timeoutdialog/css/timeout-dialog.css"
     permission="zope.Public"

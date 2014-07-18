@@ -12,17 +12,9 @@ String.prototype.format = function() {
   $.timeoutDialog = function(options) {
 
     var settings = {
-      timeout: 1200,
-      countdown: 60,
-      title : 'You should save your work!',
-      message : 'You didn\'t saved your work for {0} seconds.',
-      question: '',
-      keep_alive_button_text: 'Yes, Keep me signed in',
-      sign_out_button_text: 'No, Sign me out',
-      keep_alive_url: '/keep-alive',
-      logout_url: null,
-      logout_redirect_url: '/',
-      restart_on_yes: true,
+      countdown: 0,
+      title : 'You should save the document!',
+      message : 'You didn\'t saved your work for {0}',
       dialog_width: 350
     }
 
@@ -35,9 +27,7 @@ String.prototype.format = function() {
 
       setupDialogTimer: function() {
         var self = this;
-        window.setTimeout(function() {
-           self.setupDialog();
-        }, (settings.timeout - settings.countdown) * 1000);
+        window.setTimeout(function() { self.setupDialog(); }, 1000);
       },
 
       setupDialog: function() {
@@ -46,8 +36,8 @@ String.prototype.format = function() {
 
         $('<div id="timeout-dialog">' +
             '<span class="eea-icon eea-icon-clock-o eea-icon-3x eea-icon-left"></span>' +
-            '<p id="timeout-message">' + settings.message.format('<span id="timeout-countdown">' + settings.countdown + '</span>') + '</p>' +
-            '<p id="timeout-question">' + settings.question + '</p>' +
+            '<p id="timeout-message">' + settings.message.format('<span id="timeout-countdown">' + settings.countdown + '</span>') +
+            ' <span id="timeout-measurement"></span>.</p>' +
           '</div>')
         .appendTo('body')
         .dialog({
@@ -65,28 +55,6 @@ String.prototype.format = function() {
                   duration: 1000
                 },
           position: { my: "right top", at: "right bottom", of: window },
-
-
-
-/*
-          buttons : {
-            'keep-alive-button' : {
-              text: settings.keep_alive_button_text,
-              id: "timeout-keep-signin-btn",
-              click: function() {
-                self.keepAlive();
-              }
-            },
-            'sign-out-button' : {
-              text: settings.sign_out_button_text,
-              id: "timeout-sign-out-button",
-              click: function() {
-                self.signOut(true);
-              }
-            }
-          }
-*/
-
         });
 
         self.startCountdown();
@@ -99,58 +67,43 @@ String.prototype.format = function() {
         }
       },
 
+      toHHMMSS: function(seconds) {
+        var sec_num = parseInt(seconds, 10);
+        var hours   = Math.floor(sec_num / 3600);
+        var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+        var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+        if (hours   < 10) {hours   = "0"+hours;}
+        if (minutes < 10) {minutes = "0"+minutes;}
+        if (seconds < 10) {seconds = "0"+seconds;}
+        var time    = hours+':'+minutes+':'+seconds;
+        return time;
+      },
+
       startCountdown: function() {
         var self = this,
-            counter = settings.countdown;
+            counter = settings.countdown,
+            timeMeasurement = 'seconds';
 
         this.countdown = window.setInterval(function() {
-          counter -= 1;
-          $("#timeout-countdown").html(counter);
+          counter += 1;
+
+          if (counter <= 60) {
+              timeMeasurement = 'seconds';
+          } else if (counter >= 60 && counter <= 3600) {
+              timeMeasurement = 'minutes';
+          } else {
+              timeMeasurement = 'hours';
+          }
+
+          $("#timeout-countdown").html(self.toHHMMSS(counter));
+          $("#timeout-measurement").html(timeMeasurement);
 
           if (counter <= 0) {
             window.clearInterval(self.countdown);
-            self.signOut(false);
           }
 
         }, 1000);
-      },
-
-      keepAlive: function() {
-        var self = this;
-        this.destroyDialog();
-        window.clearInterval(this.countdown);
-
-        $.get(settings.keep_alive_url, function(data) {
-          if (data == "OK") {
-            if (settings.restart_on_yes) {
-              self.setupDialogTimer();
-            }
-          }
-          else {
-            self.signOut(false);
-          }
-        });
-      },
-
-      signOut: function(is_forced) {
-        var self = this;
-        this.destroyDialog();
-
-        if (settings.logout_url != null) {
-            $.post(settings.logout_url, function(data){
-                self.redirectLogout(is_forced);
-            });
-        }
-        else {
-            self.redirectLogout(is_forced);
-        }
-      },
-
-      redirectLogout: function(is_forced){
-        var target = settings.logout_redirect_url + '?next=' + encodeURIComponent(window.location.pathname + window.location.search);
-        if (!is_forced)
-          target += '&timeout=t';
-        window.location = target;
       }
     };
 
