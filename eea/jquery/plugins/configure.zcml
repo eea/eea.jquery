@@ -282,11 +282,6 @@
     permission="zope.Public"
     />
 
-  <browser:resourceDirectory
-    name="timeoutdialog-images"
-    directory="timeoutdialog/imgs"
-    />
-
   <!-- Annotator -->
   <browser:resource
     name="jquery.annotator.js"
