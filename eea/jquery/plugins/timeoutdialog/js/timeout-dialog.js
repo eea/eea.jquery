@@ -12,7 +12,7 @@ String.prototype.format = function() {
   $.timeoutDialog = function(options) {
 
     var settings = {
-      countdown: 0,
+      counter: 0,
       title : 'You should save the document!',
       message : 'You didn\'t saved your work for {0}',
       dialog_width: 350
@@ -36,7 +36,7 @@ String.prototype.format = function() {
 
         $('<div id="timeout-dialog">' +
             '<span class="eea-icon eea-icon-clock-o eea-icon-3x eea-icon-left"></span>' +
-            '<p id="timeout-message">' + settings.message.format('<span id="timeout-countdown">' + settings.countdown + '</span>') +
+            '<p id="timeout-message">' + settings.message.format('<span id="timeout-counter">' + settings.counter + '</span>') +
             ' <span id="timeout-measurement"></span>.</p>' +
           '</div>')
         .appendTo('body')
@@ -82,10 +82,10 @@ String.prototype.format = function() {
 
       startCountdown: function() {
         var self = this,
-            counter = settings.countdown,
+            counter = settings.counter,
             timeMeasurement = 'seconds';
 
-        this.countdown = window.setInterval(function() {
+        this.counter = window.setInterval(function() {
           counter += 1;
 
           if (counter <= 60) {
@@ -96,11 +96,11 @@ String.prototype.format = function() {
               timeMeasurement = 'hours';
           }
 
-          $("#timeout-countdown").html(self.toHHMMSS(counter));
+          $("#timeout-counter").html(self.toHHMMSS(counter));
           $("#timeout-measurement").html(timeMeasurement);
 
           if (counter <= 0) {
-            window.clearInterval(self.countdown);
+            window.clearInterval(self.counter);
           }
 
         }, 1000);

@@ -1,16 +1,23 @@
 timeout-dialog.js
 =================
 
-Timeout-dialog.js is a JQuery plugin that displays a timeout popover after a certain period of time. The timeout dialog should be used whenever you want to display to the user that the logged in session is about to expire. It creates a light box with a countdown and options to stay signed in or sign out.
+Timeout-dialog.js is a JQuery plugin that displays a timer popup after a certain period of time.
+The timeout dialog should be used whenever you want to warn the editors to save their works more often and to avoid long editing sessions.
+It creates a light box with a time counter to inform you how much time passed since the editing session began.
 
-Example and Documentation
--------------------------
+How to use
+----------
 
-[timeout-dialog.js examples](http://rigoneri.github.com/timeout-dialog.js)
+`$.timeoutDialog();`
 
 
-Credit
-------
+Options
+-------
 
-timeout-dialog.js was developed by [@rigoneri]
-
+==============  ========  =======================================  ========================================================================
+Name            Type      Default                                  Description
+==============  ========  =======================================  ========================================================================
+countdown       number    0                                        The start value for the time counter (in seconds).
+title           string    You should save the document!            The title message in the dialog box.
+message         string    'You didn\'t saved your work for {0}'    The counter message where {0} will be used to enter the counter value.
+dialog_width    number    350                                      The width of the dialog box.
