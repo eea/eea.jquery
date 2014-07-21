@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts">
- <javascript id="++resource++jquery.timeoutdialog.js" />
+ <javascript id="++resource++jquery.timeoutdialog.js"
+             expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.URL0.split('/')[-1] and (not object.meta_type in ['Specification', 'Assessment', 'IndicatorFactSheet'])" />
 </object>

@@ -12,9 +12,10 @@ String.prototype.format = function() {
   $.timeoutDialog = function(options) {
 
     var settings = {
-      counter: 0,
       title : 'You should save the document!',
       message : 'You didn\'t saved your work for {0}',
+      counter: 0,
+      delay: 300000,
       dialog_width: 350
     }
 
@@ -27,7 +28,7 @@ String.prototype.format = function() {
 
       setupDialogTimer: function() {
         var self = this;
-        window.setTimeout(function() { self.setupDialog(); }, 1000);
+        window.setTimeout(function() { self.setupDialog(); }, settings.delay);
       },
 
       setupDialog: function() {
@@ -38,7 +39,8 @@ String.prototype.format = function() {
             '<span class="eea-icon eea-icon-clock-o eea-icon-3x eea-icon-left"></span>' +
             '<p id="timeout-message">' + settings.message.format('<span id="timeout-counter">' + settings.counter + '</span>') +
             ' <span id="timeout-measurement"></span>.</p>' +
-          '</div>')
+            '<p> Document' + self.lastModified() + '.</p>' +
+            '</div>')
         .appendTo('body')
         .dialog({
           modal: false,
@@ -80,9 +82,18 @@ String.prototype.format = function() {
         return time;
       },
 
+      lastModified: function() {
+        try {
+            return $(".documentModified").html()
+        }
+        catch(err) {
+            console.log('Unable to get the last modified information.');
+        }
+      },
+
       startCountdown: function() {
         var self = this,
-            counter = settings.counter,
+            counter = settings.counter + (settings.delay / 1000),
             timeMeasurement = 'seconds';
 
         this.counter = window.setInterval(function() {

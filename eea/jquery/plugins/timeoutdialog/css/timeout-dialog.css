@@ -48,3 +48,6 @@
 #timeout-counter {
   font-weight: bold;
 }
+.timeout-dialog .eea-icon-clock-o {
+  margin-top: 13px;
+}

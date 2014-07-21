@@ -8,7 +8,13 @@ It creates a light box with a time counter to inform you how much time passed si
 How to use
 ----------
 
+Deafult usage:
+
 `$.timeoutDialog();`
+
+Passing a paramater:
+
+`$.timeoutDialog({delay: 5000});`
 
 
 Options
@@ -17,7 +23,8 @@ Options
 ==============  ========  =======================================  ========================================================================
 Name            Type      Default                                  Description
 ==============  ========  =======================================  ========================================================================
-countdown       number    0                                        The start value for the time counter (in seconds).
 title           string    You should save the document!            The title message in the dialog box.
 message         string    'You didn\'t saved your work for {0}'    The counter message where {0} will be used to enter the counter value.
+countdown       number    0                                        The start value for the time counter (in seconds).
+delay           number    300000                                   Time after the counter popup will show up, default is set to 5 minutes.
 dialog_width    number    350                                      The width of the dialog box.
