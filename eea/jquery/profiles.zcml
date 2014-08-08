@@ -218,4 +218,12 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+  <!-- jQuery Remember state -->
+  <genericsetup:registerProfile
+    name="25-rememberstate"
+    title="EEA jQuery Remember State"
+    directory="profiles/rememberstate"
+    description="Extension profile for eea.jquery - rememberstate"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
 </configure>

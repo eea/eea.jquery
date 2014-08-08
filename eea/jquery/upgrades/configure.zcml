@@ -25,4 +25,15 @@
 
   </genericsetup:upgradeSteps>
 
+    <genericsetup:upgradeSteps
+            source="4.1"
+            destination="7.9"
+            profile="eea.jquery:01-jquery">
+
+        <genericsetup:upgradeDepends
+                title="Add jquery.remember-state plugin"
+                import_profile="eea.jquery:25-rememberstate"
+                />
+
+    </genericsetup:upgradeSteps>
 </configure>
