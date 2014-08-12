@@ -1,8 +1,8 @@
 Changelog
 =========
 
-7.9-dev - (unreleased)
-----------------------
+7.9 - (2014-08-12)
+------------------
 * Feature: created timeout dialog jQuery plugin.
   [ghicaale refs #20389]
 
