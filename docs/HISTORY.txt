@@ -1,6 +1,9 @@
 Changelog
 =========
 
+8.0-dev - (unreleased)
+----------------------
+
 7.9 - (2014-08-12)
 ------------------
 * Feature: created timeout dialog jQuery plugin.
