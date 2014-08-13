@@ -3,6 +3,8 @@ Changelog
 
 8.0-dev - (unreleased)
 ----------------------
+* Feature: added jquery-rememberstate plugin
+  [ichimdav refs #20302]
 
 7.9 - (2014-08-12)
 ------------------

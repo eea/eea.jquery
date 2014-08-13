@@ -40,6 +40,7 @@
         noticeCancelSelector: "",
         ignore: null,
         noticeSelector: ".remember_state",
+        onSaveCallback: null,
         use_ids: false,
         objName: false,
         restoreState: function(e) {
@@ -93,6 +94,9 @@
                     value: $i.val()
                 });
             });
+            if ($.isFunction(instance.onSaveCallback)) {
+                values = instance.onSaveCallback(values);
+            }
             values = instance.removeIgnored(values);
             values.length && internals.setObject(instance.objName, values);
         },
@@ -166,6 +170,7 @@
             destroy_local_storage && localStorage.removeItem(this.objName);
         },
         init: function() {
+            debugger;
             this.bindNoticeDialog();
             this.setName();
 

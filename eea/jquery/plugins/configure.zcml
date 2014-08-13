@@ -308,4 +308,12 @@
     name="select2"
     directory="select2"
   />
+
+<!-- Remember State -->
+  <browser:resource
+    name="jquery.remember-state.js"
+    file="remember_state/jquery.remember-state.js"
+    permission="zope.Public"
+  />
+
 </configure>
