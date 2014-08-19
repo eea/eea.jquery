@@ -60,7 +60,9 @@
                 }
                 $e.change();
             }
-            this.noticeDialog.remove();
+            if (this.noticeDialog) {
+                this.noticeDialog.remove();
+            }
             e && e.preventDefault && e.preventDefault();
         },
         cancelNotice: function(e) {
@@ -170,7 +172,6 @@
             destroy_local_storage && localStorage.removeItem(this.objName);
         },
         init: function() {
-            debugger;
             this.bindNoticeDialog();
             this.setName();
 
