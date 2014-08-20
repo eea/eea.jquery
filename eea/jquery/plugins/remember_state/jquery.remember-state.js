@@ -46,7 +46,7 @@
         restoreState: function(e) {
             var data = JSON.parse(localStorage.getItem(this.objName)),
                 $f = this.$el,
-                $e;
+                $e, $select_option;
             for (var i in data) {
                 $e = $f.find("[name=\"" + data[i].name + "\"]");
                 if ($e.is(":radio")) {
@@ -54,7 +54,13 @@
                 } else if ($e.is(":checkbox") && data[i].value) {
                     $e.prop("checked", true);
                 } else if ($e.is("select")) {
-                    $e.find("[value=\"" + data[i].value + "\"]").prop("selected", true);
+                    $select_option = $e.find("[value=\"" + data[i].value + "\"]");
+                    if ($select_option.length) {
+                        $select_option.prop("selected", true);
+                    }
+                    else {
+                        $("<option>", {value: data[i].value, selected: true}).text(data[i].value).appendTo($e);
+                    }
                 } else {
                     $e.val(data[i].value);
                 }
