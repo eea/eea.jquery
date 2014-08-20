@@ -62,7 +62,7 @@
                         $("<option>", {value: data[i].value, selected: true}).text(data[i].value).appendTo($e);
                     }
                 } else {
-                    $e.val(data[i].value);
+                    $e.html(data[i].value);
                 }
                 $e.change();
             }
