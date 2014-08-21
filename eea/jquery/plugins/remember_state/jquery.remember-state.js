@@ -41,6 +41,7 @@
         ignore: null,
         noticeSelector: ".remember_state",
         onSaveCallback: null,
+        onRestoreCallback: null,
         use_ids: false,
         objName: false,
         restoreState: function(e) {
@@ -64,6 +65,7 @@
                 } else {
                     $e.html(data[i].value);
                 }
+                $e && this.onRestoreCallback && this.onRestoreCallback($e, data[i]);
                 $e.change();
             }
             if (this.noticeDialog) {
