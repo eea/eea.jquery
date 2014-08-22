@@ -63,7 +63,7 @@
                         $("<option>", {value: data[i].value, selected: true}).text(data[i].value).appendTo($e);
                     }
                 } else {
-                    $e.html(data[i].value);
+                    $e.val(data[i].value);
                 }
                 $e && this.onRestoreCallback && this.onRestoreCallback($e, data[i]);
                 $e.change();
