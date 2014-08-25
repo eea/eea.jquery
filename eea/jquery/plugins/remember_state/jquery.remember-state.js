@@ -42,6 +42,7 @@
         noticeSelector: ".remember_state",
         onSaveCallback: null,
         onRestoreCallback: null,
+        onSelectTagCallback: null,
         use_ids: false,
         objName: false,
         restoreState: function(e) {
@@ -55,12 +56,17 @@
                 } else if ($e.is(":checkbox") && data[i].value) {
                     $e.prop("checked", true);
                 } else if ($e.is("select")) {
-                    $select_option = $e.find("[value=\"" + data[i].value + "\"]");
-                    if ($select_option.length) {
-                        $select_option.prop("selected", true);
+                    if (this.onSelectTagCallback) {
+                        this.onSelectTagCallback($e, data[i]);
                     }
                     else {
-                        $("<option>", {value: data[i].value, selected: true}).text(data[i].value).appendTo($e);
+                        $select_option = $e.find("[value=\"" + data[i].value + "\"]");
+                        if ($select_option.length) {
+                            $select_option.prop("selected", true);
+                        }
+                        else {
+                            $("<option>", {value: data[i].value, selected: true}).text(data[i].value).appendTo($e);
+                        }
                     }
                 } else {
                     $e.val(data[i].value);
