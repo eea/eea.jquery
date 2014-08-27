@@ -1,6 +1,9 @@
 Changelog
 =========
 
+8.1-dev - (unreleased)
+----------------------
+
 8.0 - (2014-08-27)
 ------------------
 * Feature: added jquery-rememberstate plugin
