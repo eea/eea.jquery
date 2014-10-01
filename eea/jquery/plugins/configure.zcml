@@ -316,4 +316,11 @@
     permission="zope.Public"
   />
 
+ <!-- Knob -->
+  <browser:resource
+    name="jquery.knob.js"
+    file="knob/jquery.knob.js"
+    permission="zope.Public"
+  />
+
 </configure>

@@ -226,4 +226,13 @@
     description="Extension profile for eea.jquery - rememberstate"
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
+
+  <!-- jQuery Knob -->
+  <genericsetup:registerProfile
+    name="26-knob"
+    title="jQuery Knob"
+    directory="profiles/knob"
+    description="Extension profile for eea.jquery - knob"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
 </configure>
