@@ -140,7 +140,7 @@
   <!-- jQuery tokeninput -->
   <genericsetup:registerProfile
     name="16-tokeninput"
-    title="EEA jQuery Tokeninput"
+    title="EEA jQuery - Tokeninput"
     directory="profiles/tokeninput"
     description="Extension profile for eea.jquery - Tokeninput"
     provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -149,7 +149,7 @@
   <!-- jQuery jqGrid -->
   <genericsetup:registerProfile
     name="17-jqgrid"
-    title="EEA jQuery jqGrid"
+    title="EEA jQuery - jqGrid"
     directory="profiles/jqgrid"
     description="Extension profile for eea.jquery - jqGrid"
     provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -158,7 +158,7 @@
   <!-- jQuery Slick Grid -->
   <genericsetup:registerProfile
     name="18-slickgrid"
-    title="EEA jQuery SlickGrid"
+    title="EEA jQuery - SlickGrid"
     directory="profiles/slickgrid"
     description="Extension profile for eea.jquery - slickgrid"
     provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -167,7 +167,7 @@
   <!-- jQuery Slick Grid -->
   <genericsetup:registerProfile
     name="19-colorpicker"
-    title="EEA jQuery ColorPicker"
+    title="EEA jQuery - ColorPicker"
     directory="profiles/colorpicker"
     description="Extension profile for eea.jquery - colorpicker"
     provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -176,7 +176,7 @@
   <!-- jQuery Annotator -->
   <genericsetup:registerProfile
     name="20-annotator"
-    title="EEA jQuery Annotator"
+    title="EEA jQuery - Annotator"
     directory="profiles/annotator"
     description="Extension profile for eea.jquery - annotator"
     provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -185,7 +185,7 @@
   <!-- jQuery SerialScroll -->
   <genericsetup:registerProfile
     name="21-serialscroll"
-    title="EEA jQuery Serial Scroll"
+    title="EEA jQuery - Serial Scroll"
     directory="profiles/serialscroll"
     description="Extension profile for eea.jquery - serialscroll"
     provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -194,7 +194,7 @@
   <!-- jQuery Masonry -->
   <genericsetup:registerProfile
     name="22-masonry"
-    title="EEA jQuery Masonry"
+    title="EEA jQuery - Masonry"
     directory="profiles/masonry"
     description="Extension profile for eea.jquery - masonry"
     provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -203,7 +203,7 @@
   <!-- jQuery Masonry -->
   <genericsetup:registerProfile
     name="23-select2"
-    title="EEA jQuery Select2"
+    title="EEA jQuery - Select2"
     directory="profiles/select2"
     description="Extension profile for eea.jquery - select2"
     provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -212,7 +212,7 @@
   <!-- jQuery Timeout Dialog -->
   <genericsetup:registerProfile
     name="24-timeoutdialog"
-    title="EEA jQuery TimeoutDialog"
+    title="EEA jQuery - TimeoutDialog"
     directory="profiles/timeoutdialog"
     description="Extension profile for eea.jquery - timeoutdialog"
     provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -221,7 +221,7 @@
   <!-- jQuery Remember state -->
   <genericsetup:registerProfile
     name="25-rememberstate"
-    title="EEA jQuery Remember State"
+    title="EEA jQuery - Remember State"
     directory="profiles/rememberstate"
     description="Extension profile for eea.jquery - rememberstate"
     provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -230,7 +230,7 @@
   <!-- jQuery Knob -->
   <genericsetup:registerProfile
     name="26-knob"
-    title="jQuery Knob"
+    title="EEA jQuery - Knob"
     directory="profiles/knob"
     description="Extension profile for eea.jquery - knob"
     provides="Products.GenericSetup.interfaces.EXTENSION"
