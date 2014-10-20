@@ -4,7 +4,7 @@ Changelog
 8.1-dev - (unreleased)
 ----------------------
 * Bug fix: fixed timeoutdialog plugin for case when last modified
-  information could not be retrived.
+  information could not be retrieved.
   [ghicaale refs #21457]
 
 8.0 - (2014-08-27)
