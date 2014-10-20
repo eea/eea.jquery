@@ -84,10 +84,16 @@ String.prototype.format = function() {
 
       lastModified: function() {
         try {
-            return $(".documentModified").html()
+            data = $(".documentModified").html();
+            if (data !== null) {
+                return $(".documentModified").html();
+            } else {
+                return ' could not find last modified information';
+            }
         }
         catch(err) {
             console.log('Unable to get the last modified information.');
+            return null
         }
       },
 
