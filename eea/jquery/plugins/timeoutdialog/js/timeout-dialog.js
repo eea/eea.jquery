@@ -102,7 +102,7 @@ String.prototype.format = function() {
             counter = settings.counter + (settings.delay / 1000),
             timeMeasurement = 'seconds';
 
-        this.counter = window.setInterval(function() {
+        this.counter_interval = window.setInterval(function() {
           counter += 1;
 
           if (counter <= 60) {
@@ -123,6 +123,14 @@ String.prototype.format = function() {
         }, 1000);
       }
     };
+
+    $.timeoutDialog.reset = function() {
+        if ($("#timeout-dialog").length) {
+          $('#timeout-dialog').dialog("close");
+          window.clearInterval(TimeoutDialog.counter_interval);
+          window.setTimeout(function() { $('#timeout-dialog').dialog("open"); TimeoutDialog.startCountdown(); }, settings.delay);
+        }
+    }
 
     TimeoutDialog.init();
   };
