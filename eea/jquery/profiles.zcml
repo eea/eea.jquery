@@ -235,4 +235,14 @@
     description="Extension profile for eea.jquery - knob"
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
+
+  <!-- jQuery Dracula -->
+  <genericsetup:registerProfile
+    name="27-dracula"
+    title="EEA jQuery - Dracula"
+    directory="profiles/dracula"
+    description="Extension profile for eea.jquery - dracula"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
 </configure>

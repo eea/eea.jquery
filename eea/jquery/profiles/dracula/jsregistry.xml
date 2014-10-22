@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts">
+    <javascript id="++resource++eea.jquery.dracula/raphael.js" />
+    <javascript id="++resource++eea.jquery.dracula/graffle.js" />
+    <javascript id="++resource++eea.jquery.dracula/graph.js" />
+</object>

@@ -323,4 +323,10 @@
     permission="zope.Public"
   />
 
+  <!-- Dracula -->
+  <browser:resourceDirectory
+    name="eea.jquery.dracula"
+    directory="dracula"
+  />
+
 </configure>

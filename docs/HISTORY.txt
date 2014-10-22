@@ -3,6 +3,8 @@ Changelog
 
 8.1-dev - (unreleased)
 ----------------------
+* Feature: Added jquery-dracula plugin (see: http://www.graphdracula.net)
+  [voineali refs #21182]
 * Feature: Support CSRF authenticator validation within annotator plugin
   [avoinea]
 * Bug fix: fixed timeoutdialog plugin for case when last modified
