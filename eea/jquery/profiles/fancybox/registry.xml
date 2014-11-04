@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/fancybox"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="css">
+      <element>++resource++jquery.fancybox.css</element>
+    </value>
+    <value key="js">++resource++jquery.fancybox.js</value>
+  </records>
+</registry>

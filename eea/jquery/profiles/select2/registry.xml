@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/select2"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="css">
+      <element>++resource++select2/select2.css</element>
+    </value>
+    <value key="js">++resource++select2/select2.min.js</value>
+  </records>
+</registry>

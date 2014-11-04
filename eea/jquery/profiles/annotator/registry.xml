@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/annotator"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="css">
+      <element>++resource++jquery.annotator.css</element>
+    </value>
+    <value key="js">++resource++jquery.annotator.js</value>
+  </records>
+</registry>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/dracula-raphael"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++resource++jquery.dracula/raphael.js</value>
+  </records>
+  <records prefix="plone.resources/dracula-graffle"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++resource++jquery.dracula/graffle.js</value>
+  </records>
+  <records prefix="plone.resources/dracula-graph"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++resource++jquery.dracula/graph.js</value>
+  </records>
+</registry>

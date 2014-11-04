@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/jqzoom"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="css">
+      <element>++resource++jquery.jqzoom.css</element>
+    </value>
+    <value key="js">++resource++jquery.jqzoom.js</value>
+  </records>
+</registry>

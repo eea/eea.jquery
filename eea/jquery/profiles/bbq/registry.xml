@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/bbq"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++resource++jquery.bbq.js</value>
+  </records>
+</registry>

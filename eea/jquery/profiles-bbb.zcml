@@ -1,0 +1,248 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+  <!-- jQuery -->
+  <genericsetup:registerProfile
+    name="01-jquery"
+    title="EEA jQuery"
+    directory="profiles-bbb/jquery"
+    description="Extension profile for eea.jquery"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery UI -->
+  <genericsetup:registerProfile
+    name="02-ui"
+    title="EEA jQuery - UI"
+    directory="profiles-bbb/ui"
+    description="Extension profile for eea.jquery - installs jquery.ui"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery ajaxfileupload -->
+  <genericsetup:registerProfile
+    name="03-ajaxfileupload"
+    title="EEA jQuery - AJAX File Upload"
+    directory="profiles-bbb/ajaxfileupload"
+    description="Extension profile for eea.jquery - installs ajaxfileupload"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery bbq -->
+  <genericsetup:registerProfile
+    name="04-bbq"
+    title="EEA jQuery - BBQ"
+    directory="profiles-bbb/bbq"
+    description="Extension profile for eea.jquery - installs bbq"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery cookie -->
+  <genericsetup:registerProfile
+    name="05-cookie"
+    title="EEA jQuery - Cookie"
+    directory="profiles-bbb/cookie"
+    description="Extension profile for eea.jquery - installs cookie"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery fancybox -->
+  <genericsetup:registerProfile
+    name="06-fancybox"
+    title="EEA jQuery - Fancybox"
+    directory="profiles-bbb/fancybox"
+    description="Extension profile for eea.jquery - installs fancybox"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery flashembed -->
+  <genericsetup:registerProfile
+    name="07-flashembed"
+    title="EEA jQuery - Flash Embed"
+    directory="profiles-bbb/flashembed"
+    description="Extension profile for eea.jquery - installs flashembed"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery galleryview -->
+  <genericsetup:registerProfile
+    name="08-galleryview"
+    title="EEA jQuery - Gallery View"
+    directory="profiles-bbb/galleryview"
+    description="Extension profile for eea.jquery - installs galleryview"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery jqzoom -->
+  <genericsetup:registerProfile
+    name="09-jqzoom"
+    title="EEA jQuery - JQ Zoom"
+    directory="profiles-bbb/jqzoom"
+    description="Extension profile for eea.jquery - installs jqzoom"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery jstree -->
+  <genericsetup:registerProfile
+    name="10-jstree"
+    title="EEA jQuery - JS Tree"
+    directory="profiles-bbb/jstree"
+    description="Extension profile for eea.jquery - installs jstree"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery reflection -->
+  <genericsetup:registerProfile
+    name="11-reflection"
+    title="EEA jQuery - Reflection"
+    directory="profiles-bbb/reflection"
+    description="Extension profile for eea.jquery - installs reflection"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery select2uisloder -->
+  <genericsetup:registerProfile
+    name="12-select2uislider"
+    title="EEA jQuery - Select to UI Slider"
+    directory="profiles-bbb/select2uislider"
+    description="Extension profile for eea.jquery - installs select2uislider"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery splitter -->
+  <genericsetup:registerProfile
+    name="13-splitter"
+    title="EEA jQuery - Splitter"
+    directory="profiles-bbb/splitter"
+    description="Extension profile for eea.jquery - installs splitter"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery tag cloud -->
+  <genericsetup:registerProfile
+    name="14-tagcloud"
+    title="EEA jQuery - Tag Cloud"
+    directory="profiles-bbb/tagcloud"
+    description="Extension profile for eea.jquery - installs tagcloud"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery tools -->
+  <genericsetup:registerProfile
+    name="15-tools"
+    title="EEA jQuery - Tools"
+    directory="profiles-bbb/tools"
+    description="Extension profile for eea.jquery - installs tools"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery tokeninput -->
+  <genericsetup:registerProfile
+    name="16-tokeninput"
+    title="EEA jQuery - Tokeninput"
+    directory="profiles-bbb/tokeninput"
+    description="Extension profile for eea.jquery - Tokeninput"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery jqGrid -->
+  <genericsetup:registerProfile
+    name="17-jqgrid"
+    title="EEA jQuery - jqGrid"
+    directory="profiles-bbb/jqgrid"
+    description="Extension profile for eea.jquery - jqGrid"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery Slick Grid -->
+  <genericsetup:registerProfile
+    name="18-slickgrid"
+    title="EEA jQuery - SlickGrid"
+    directory="profiles-bbb/slickgrid"
+    description="Extension profile for eea.jquery - slickgrid"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery Slick Grid -->
+  <genericsetup:registerProfile
+    name="19-colorpicker"
+    title="EEA jQuery - ColorPicker"
+    directory="profiles-bbb/colorpicker"
+    description="Extension profile for eea.jquery - colorpicker"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery Annotator -->
+  <genericsetup:registerProfile
+    name="20-annotator"
+    title="EEA jQuery - Annotator"
+    directory="profiles-bbb/annotator"
+    description="Extension profile for eea.jquery - annotator"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery SerialScroll -->
+  <genericsetup:registerProfile
+    name="21-serialscroll"
+    title="EEA jQuery - Serial Scroll"
+    directory="profiles-bbb/serialscroll"
+    description="Extension profile for eea.jquery - serialscroll"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery Masonry -->
+  <genericsetup:registerProfile
+    name="22-masonry"
+    title="EEA jQuery - Masonry"
+    directory="profiles-bbb/masonry"
+    description="Extension profile for eea.jquery - masonry"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery Masonry -->
+  <genericsetup:registerProfile
+    name="23-select2"
+    title="EEA jQuery - Select2"
+    directory="profiles-bbb/select2"
+    description="Extension profile for eea.jquery - select2"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery Timeout Dialog -->
+  <genericsetup:registerProfile
+    name="24-timeoutdialog"
+    title="EEA jQuery - TimeoutDialog"
+    directory="profiles-bbb/timeoutdialog"
+    description="Extension profile for eea.jquery - timeoutdialog"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery Remember state -->
+  <genericsetup:registerProfile
+    name="25-rememberstate"
+    title="EEA jQuery - Remember State"
+    directory="profiles-bbb/rememberstate"
+    description="Extension profile for eea.jquery - rememberstate"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery Knob -->
+  <genericsetup:registerProfile
+    name="26-knob"
+    title="EEA jQuery - Knob"
+    directory="profiles-bbb/knob"
+    description="Extension profile for eea.jquery - knob"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery Dracula -->
+  <genericsetup:registerProfile
+    name="27-dracula"
+    title="EEA jQuery - Dracula"
+    directory="profiles-bbb/dracula"
+    description="Extension profile for eea.jquery - dracula"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+</configure>

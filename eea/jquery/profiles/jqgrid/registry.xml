@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/jqgrid-locale-en"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++resource++jquery.jqgrid.locale-en.js</value>
+  </records>
+  <records prefix="plone.resources/jqgrid"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="css">
+      <element>++resource++jquery.jqgrid.css</element>
+    </value>
+    <value key="js">++resource++jquery.jqgrid.js</value>
+  </records>
+</registry>

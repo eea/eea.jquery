@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/knob"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++resource++jquery.knob.js</value>
+  </records>
+</registry>

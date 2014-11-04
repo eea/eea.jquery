@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/timeoutdialog"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="css">
+      <element>++resource++jquery.timeoutdialog.css</element>
+    </value>
+    <value key="js">++resource++jquery.timeoutdialog.js</value>
+  </records>
+</registry>

@@ -3,6 +3,9 @@ Changelog
 
 8.1-dev - (unreleased)
 ----------------------
+* Add Plone 5 resource registrations for those libraries not already bundled in
+  Plone 5's JS and CSS.
+  [rpatterson]
 * Feature: Added jquery-dracula plugin (see: http://www.graphdracula.net)
   [voineali refs #21182]
 * Feature: Support CSRF authenticator validation within annotator plugin

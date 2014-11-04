@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/tokeninput"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="css">
+      <element>++resource++jquery.tokeninput.css</element>
+      <element>++resource++jquery.tokeninput.facebook.css</element>
+      <element>++resource++jquery.tokeninput.mac.css</element>
+    </value>
+    <value key="js">++resource++jquery.tokeninput.js</value>
+  </records>
+</registry>

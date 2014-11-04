@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/timers"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++resource++jquery.timers.js</value>
+  </records>
+  <records prefix="plone.resources/galleryview"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="css">
+      <element>++resource++jquery.galleryview.css</element>
+    </value>
+    <value key="js">++resource++jquery.galleryview.js</value>
+  </records>
+</registry>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/reflection"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++resource++jquery.reflection.js</value>
+  </records>
+</registry>

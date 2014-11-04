@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<metadata>
+ <version>6.0</version>
+ <dependencies>
+  <dependency>profile-eea.jquery:01-jquery</dependency>
+  <dependency>profile-eea.jquery:02-ui</dependency>
+  <dependency>profile-eea.jquery:03-ajaxfileupload</dependency>
+  <dependency>profile-eea.jquery:04-bbq</dependency>
+  <dependency>profile-eea.jquery:05-cookie</dependency>
+  <dependency>profile-eea.jquery:06-fancybox</dependency>
+  <dependency>profile-eea.jquery:07-flashembed</dependency>
+  <dependency>profile-eea.jquery:08-galleryview</dependency>
+  <dependency>profile-eea.jquery:09-jqzoom</dependency>
+  <dependency>profile-eea.jquery:10-jstree</dependency>
+  <dependency>profile-eea.jquery:11-reflection</dependency>
+  <dependency>profile-eea.jquery:12-select2uislider</dependency>
+  <dependency>profile-eea.jquery:13-splitter</dependency>
+  <dependency>profile-eea.jquery:14-tagcloud</dependency>
+  <dependency>profile-eea.jquery:15-tools</dependency>
+  <dependency>profile-eea.jquery:16-tokeninput</dependency>
+  <dependency>profile-eea.jquery:17-jqgrid</dependency>
+  <dependency>profile-eea.jquery:18-slickgrid</dependency>
+  <dependency>profile-eea.jquery:19-colorpicker</dependency>
+  <dependency>profile-eea.jquery:20-annotator</dependency>
+ </dependencies>
+</metadata>
