@@ -3,6 +3,9 @@ Changelog
 
 8.1-dev - (unreleased)
 ----------------------
+* Add the jQuery browser plugin for restoring browser detection deprecated and
+  removed from jQuery core.
+  [rpatterson]
 * Add Plone 5 resource registrations for those libraries not already bundled in
   Plone 5's JS and CSS.
   [rpatterson]

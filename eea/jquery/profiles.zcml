@@ -38,6 +38,16 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+  <!-- jQuery browser -->
+  <genericsetup:registerProfile
+    name="28-browser"
+    title="EEA jQuery - Browser"
+    directory="profiles/browser"
+    description="Extension profile for eea.jquery - installs the jQuery browser
+                 plugin to restore deprecated browser detection."
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
   <!-- jQuery cookie -->
   <genericsetup:registerProfile
     name="05-cookie"

@@ -14,6 +14,13 @@
     permission="zope.Public"
     />
 
+  <!-- jQuery browser -->
+  <browser:resource
+    name="jquery.browser.js"
+    file="browser/jquery.browser.min.js"
+    permission="zope.Public"
+    />
+
   <!-- jQuery cookie -->
   <browser:resource
     name="jquery.cookie.js"
