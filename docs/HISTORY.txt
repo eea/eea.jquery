@@ -1,8 +1,8 @@
 Changelog
 =========
 
-8.1-dev - (unreleased)
-----------------------
+8.1 - (2014-11-20)
+------------------
 * Add the jQuery browser plugin for restoring browser detection deprecated and
   removed from jQuery core.
   [rpatterson]
