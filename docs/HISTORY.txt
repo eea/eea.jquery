@@ -3,6 +3,8 @@ Changelog
 
 8.2-dev - (unreleased)
 ----------------------
+* Bug fix: Fixed TypeError: Range.prototype is undefined within Firefox
+  [avoinea refs #3 (github)]
 
 8.1 - (2014-11-20)
 ------------------
