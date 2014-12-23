@@ -1,6 +1,9 @@
 Changelog
 =========
 
+8.3-dev - (unreleased)
+----------------------
+
 8.2 - (2014-12-23)
 ------------------
 * Bug fix: Fixed TypeError: Range.prototype is undefined within Firefox
