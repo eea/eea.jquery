@@ -1,8 +1,8 @@
 Changelog
 =========
 
-8.6.dev0 - (unreleased)
------------------------
+8.6 - (2015-10-05)
+------------------
 * jQuery.bbq: Remove legacy browser support for jQuery >= 1.9
   [petschki]
 
