@@ -3,6 +3,8 @@ Changelog
 
 8.7.dev0 - (unreleased)
 -----------------------
+* Change: Upgrade to select2 3.5.4 and include select2 locales files.
+  [vincentfretin]
 
 8.6 - (2015-10-05)
 ------------------
