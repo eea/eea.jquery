@@ -210,7 +210,7 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
-  <!-- jQuery Masonry -->
+  <!-- jQuery select2 -->
   <genericsetup:registerProfile
     name="23-select2"
     title="EEA jQuery - Select2"
