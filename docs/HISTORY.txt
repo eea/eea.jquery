@@ -1,6 +1,9 @@
 Changelog
 =========
 
+8.8.dev0 - (unreleased)
+-----------------------
+
 8.7 - (2016-03-01)
 ------------------
 * Change: Upgrade to select2 3.5.4 and include select2 locales files.
