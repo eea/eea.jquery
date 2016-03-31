@@ -1,8 +1,8 @@
 Changelog
 =========
 
-8.8.dev0 - (unreleased)
------------------------
+8.8 - (2016-03-31)
+------------------
 * Bug fix: use applyPrefix=1 for the select2 CSS registration so images like 
   select2.png are found correctly.
   [gbastien]
