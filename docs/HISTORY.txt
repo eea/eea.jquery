@@ -1,8 +1,8 @@
 Changelog
 =========
 
-9.0.dev0 - (unreleased)
------------------------
+9.0 - (2016-06-29)
+------------------
 * Upgrade step: Within "Plone > Site setup > Add-ons" click on
   upgrade button available for eea.jquery
 * Bug fix: Add Plone 5 registry.xml for jquery2uislider, colorpicker, cookie
