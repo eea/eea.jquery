@@ -5,6 +5,18 @@
 
   <genericsetup:upgradeSteps
     source="*"
+    destination="9.0"
+    profile="eea.jquery:01-jquery">
+
+    <genericsetup:upgradeDepends
+      title="Bump installed version of eea.jquery"
+      import_profile="eea.jquery:01-jquery"
+      />
+
+  </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeSteps
+    source="*"
     destination="4.1"
     profile="eea.jquery:01-jquery">
 

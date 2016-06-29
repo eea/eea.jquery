@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/select2uislider"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="css">
+      <element>++resource++jquery.select2uislider/ui.slider.extras.css</element>
+    </value>
+    <value key="js">++resource++jquery.select2uislider/selectToUISlider.jQuery.js</value>
+  </records>
+</registry>

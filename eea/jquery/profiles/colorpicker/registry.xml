@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/colorpicker"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="css">
+      <element>++resource++jquery.colorpicker.css</element>
+    </value>
+    <value key="js">++resource++jquery.colorpicker.js</value>
+  </records>
+</registry>
