@@ -392,8 +392,8 @@ reselect : function (is_callback) {
       //event.stopPropagation();
       return true;
     });
-  $("#" + this.container.attr("id") + " li")
-    .live("click", function(event) { // WHEN CLICK IS ON THE ARROW
+  this.container
+    .on("click", 'li', function(event) { // WHEN CLICK IS ON THE ARROW
       if(event.target.tagName != "LI") return true;
       _this.off_height();
       if(event.pageY - $(event.target).offset().top > _this.li_height) return true;
@@ -401,8 +401,8 @@ reselect : function (is_callback) {
       event.stopPropagation();
       return false;
     });
-  $("#" + this.container.attr("id") + " li a")
-    .live("click.jstree", function (event) { // WHEN CLICK IS ON THE TEXT OR ICON
+  this.container
+    .on("click.jstree", "li a", function (event) { // WHEN CLICK IS ON THE TEXT OR ICON
       if(event.which && event.which == 3) return true;
       if(_this.locked) {
         event.preventDefault();
@@ -415,7 +415,7 @@ reselect : function (is_callback) {
       event.target.blur();
       return false;
     })
-    .live("dblclick.jstree", function (event) { // WHEN DOUBLECLICK ON TEXT OR ICON
+    .on("dblclick.jstree", "li a", function (event) { // WHEN DOUBLECLICK ON TEXT OR ICON
       if(_this.locked) {
         event.preventDefault();
         event.stopPropagation();
@@ -427,14 +427,14 @@ reselect : function (is_callback) {
       event.stopPropagation();
       event.target.blur();
     })
-    .live("contextmenu.jstree", function (event) {
+    .on("contextmenu.jstree", "li a", function (event) {
       if(_this.locked) {
         event.target.blur();
         return _this.error("LOCKED");
       }
       return _this.callback("onrgtclk", [_this.get_node(event.target).get(0), _this, event]);
     })
-    .live("mouseover.jstree", function (event) {
+    .on("mouseover.jstree", "li a", function (event) {
       if(_this.locked) {
         event.preventDefault();
         event.stopPropagation();
@@ -446,7 +446,7 @@ reselect : function (is_callback) {
       }
       _this.callback("onhover",[_this.get_node(event.target).get(0), _this]);
     })
-    .live("mousedown.jstree", function (event) {
+    .on("mousedown.jstree", "li a", function (event) {
       if(_this.settings.rules.drag_button == "left" && event.which && event.which != 1)	return true;
       if(_this.settings.rules.drag_button == "right" && event.which && event.which != 3)	return true;
       _this.focus.apply(_this);

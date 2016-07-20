@@ -3,6 +3,8 @@ Changelog
 
 9.1.dev0 - (unreleased)
 -----------------------
+* Bug fix: Fixed jstree plugin by replacing deprecated jQuery `.live` with `.on`
+  [avoinea]
 
 9.0 - (2016-06-29)
 ------------------
@@ -20,7 +22,7 @@ Changelog
 
 8.8 - (2016-03-31)
 ------------------
-* Bug fix: use applyPrefix=1 for the select2 CSS registration so images like 
+* Bug fix: use applyPrefix=1 for the select2 CSS registration so images like
   select2.png are found correctly.
   [gbastien]
 
