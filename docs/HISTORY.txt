@@ -3,6 +3,8 @@ Changelog
 
 9.2.dev0 - (unreleased)
 -----------------------
+* Bug fix: Fixed date widget slide bar
+  [catalinmititiuc]
 
 9.1 - (2016-07-20)
 ------------------
