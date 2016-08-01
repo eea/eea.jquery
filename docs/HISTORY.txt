@@ -1,6 +1,9 @@
 Changelog
 =========
 
+9.3.dev0 - (unreleased)
+-----------------------
+
 9.2 - (2016-08-01)
 ------------------
 * Bug fix: Fixed date widget slide bar
