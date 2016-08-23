@@ -3,6 +3,8 @@ Changelog
 
 9.3.dev0 - (unreleased)
 -----------------------
+* Change: Do not restrict select2 js and css resources to authenticated users
+  [laulaz refs #5 (github)]
 
 9.2 - (2016-08-01)
 ------------------
