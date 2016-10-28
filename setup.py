@@ -11,7 +11,7 @@ VERSION = open(join(*PATH)).read().strip()
 setup(name=NAME,
       version=VERSION,
       description="jQuery library and plugins for Plone",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
           "Framework :: Zope2",
