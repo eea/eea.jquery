@@ -253,5 +253,14 @@
     description="Extension profile for eea.jquery - scrolldepth"
     provides="Products.GenericSetup.interfaces.EXTENSION"
   />
+  
+   <!-- jQuery Screentime -->
+  <genericsetup:registerProfile
+    name="29-screentime"
+    title="EEA jQuery - Screentime"
+    directory="profiles-bbb/screentime"
+    description="Extension profile for eea.jquery - screentime"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+  />
 
 </configure>

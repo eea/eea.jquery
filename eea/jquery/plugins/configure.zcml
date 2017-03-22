@@ -342,4 +342,10 @@
     directory="scrolldepth"
   />
 
+ <!-- screentime -->
+  <browser:resource
+    name="jquery.screentime.js"
+    file="screentime/jquery.screentime.js"
+    permission="zope.Public"
+    />
 </configure>

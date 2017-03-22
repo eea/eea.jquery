@@ -255,4 +255,21 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+  <!-- jQuery ScrollDepth -->
+  <genericsetup:registerProfile
+    name="28-scrolldepth"
+    title="EEA jQuery - Scroll Depth"
+    directory="profiles/scrolldepth"
+    description="Extension profile for eea.jquery - scrolldepth"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+  />
+
+   <!-- jQuery Screentime -->
+  <genericsetup:registerProfile
+    name="29-screentime"
+    title="EEA jQuery - Screentime"
+    directory="profiles/screentime"
+    description="Extension profile for eea.jquery - screentime"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+  />
 </configure>

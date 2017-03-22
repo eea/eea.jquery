@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/scrolldepth"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++resource++jquery.scrolldepth/jquery.scrolldepth.js</value>
+  </records>
+</registry>
