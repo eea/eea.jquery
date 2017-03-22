@@ -336,4 +336,10 @@
     directory="dracula"
   />
 
+  <!-- scrolldepth -->
+  <browser:resourceDirectory
+    name="eea.jquery.scrolldepth"
+    directory="scrolldepth"
+  />
+
 </configure>

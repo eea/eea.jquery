@@ -245,4 +245,13 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+  <!-- jQuery ScrollDepth -->
+  <genericsetup:registerProfile
+    name="28-scrolldepth"
+    title="EEA jQuery - Scroll Depth"
+    directory="profiles-bbb/scrolldepth"
+    description="Extension profile for eea.jquery - scrolldepth"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+  />
+
 </configure>
