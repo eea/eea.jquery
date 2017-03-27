@@ -1,8 +1,8 @@
 Changelog
 =========
 
-9.5.dev0 - (unreleased)
------------------------
+9.5 - (2017-03-27)
+------------------
 * Feature: added jquery.scrolldepth and jquery.screentime plugins
   [ichim-david refs #83507]
 
