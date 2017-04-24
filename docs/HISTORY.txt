@@ -4,7 +4,7 @@ Changelog
 9.6.dev0 - (unreleased)
 -----------------------
 * Change: updated package information
-[eduard-fironda]
+  [eduard-fironda]
 
 9.5 - (2017-03-27)
 ------------------
