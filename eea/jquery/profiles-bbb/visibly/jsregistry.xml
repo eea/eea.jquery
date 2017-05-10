@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts">
+
+ <javascript id="jquery.remember-state.js"
+             expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL.split('/')[-1]" remove="True"/>
+
+ <javascript id="++resource++jquery.remember-state.js"
+             expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL.split('/')[-1]" />
+</object>

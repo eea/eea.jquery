@@ -348,4 +348,24 @@
     file="screentime/jquery.screentime.js"
     permission="zope.Public"
     />
+
+  <!-- eea analytics -->
+  <browser:resource
+          name="eea.jquery.analytics.js"
+          file="eea_analytics/eea_analytics.js"
+          permission="zope.Public"
+  />
+  <!-- visibly -->
+  <browser:resource
+          name="jquery.textstatistics.js"
+          file="text_statistics/textStatistics.js"
+          permission="zope.Public"
+  />
+
+  <!-- visibly -->
+  <browser:resource
+          name="jquery.visibly.js"
+          file="visibly/visibly.js"
+          permission="zope.Public"
+  />
 </configure>
