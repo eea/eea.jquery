@@ -2,7 +2,7 @@
 // Plugin definition.
 // portions of google analytics code inspired from
 // http://cutroni.com/blog/2014/02/12/advanced-content-tracking-with-universal-analytics/
-;( function( $, window, document, undefined ) {
+;(function($, window, document, undefined) {
 	"use strict";
     var throttle =  window.underscore ? window.underscore.throttle : function(t, e) {
         var n;
@@ -58,17 +58,8 @@
                 timers[key] = val + 1;
             });
 
-            if (opts.debug) {
-                var ii = new Date();
-                window.console.log('INCREMENT at ' + ii.getMinutes() + ' ' + ii.getSeconds());
-            }
         };
-        var startTimers = function startTimers(msg) {
-            if (opts.debug) {
-                var ii = new Date();
-                window.console.log('startTimers at ' + ii.getMinutes() + ' ' + ii.getSeconds() + ' ' + msg);
-            }
-
+        var startTimers = function startTimers() {
             if (!started) {
                 incrementTimeSpent();
                 started = true;
@@ -77,11 +68,7 @@
                 incrementTimeSpent();
             }, 1000);
         };
-        var stopTimers = function stopTimers(msg) {
-            if (opts.debug) {
-                var ii = new Date();
-                window.console.log('stopTimers at ' + ii.getMinutes() + ' ' + ii.getSeconds() + ' ' + msg);
-            }
+        var stopTimers = function stopTimers() {
             window.clearInterval(looker);
             looker = null;
         };
@@ -204,4 +191,4 @@
         ptype: null // portal type used as the google analytics event action label
     };
 
-} )( jQuery, window, document );
+})(jQuery, window, document);
