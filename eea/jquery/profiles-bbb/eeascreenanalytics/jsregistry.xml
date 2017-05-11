@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts">
 
- <javascript id="jquery.eea.screen.analytics.js"
-             expression="" />
+ <javascript id="++resource++eea.jquery.screenanalytics.js" expression="" />
 
 </object>

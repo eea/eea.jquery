@@ -17,10 +17,10 @@ jQuery(document).ready(function($) {
                     content_core.innerText).wordCount() / 228), 10) * 60;
 
         // Set some flags for tracking & execution
-        var timer = 0;
-        var scroller = false;
-        var endContent = false;
-        var didComplete = false;
+        var timer;
+        var scroller;
+        var endContent;
+        var didComplete;
 
         // Get some information about the current page
         var ptype = $('body').attr('class').match('portaltype-[a-z-]*');
@@ -77,7 +77,7 @@ jQuery(document).ready(function($) {
 
             // Track the article load
             if (!scrollAnalyticsDebugMode) {
-                window.ga('send', 'event', 'Reading', '1 Page Loaded', ptype, {'nonInteraction': 1});
+                ga('send', 'event', 'Reading', '1 Page Loaded', ptype, {'nonInteraction': 1});
             } else {
                 window.console.log('The page has loaded.');
             }
@@ -99,7 +99,7 @@ jQuery(document).ready(function($) {
                     timeToScroll = timers['beginning'];
 
                     if (!scrollAnalyticsDebugMode) {
-                        window.ga('send', 'event', 'Reading', '2 Started Content Reading', ptype, timeToScroll,
+                        ga('send', 'event', 'Reading', '2 Started Content Reading', ptype, timeToScroll,
                             {'metric1': timeToScroll, 'metric3': 1});
                     } else {
                         window.console.log('Reached content start in ' + timeToScroll);
@@ -111,14 +111,14 @@ jQuery(document).ready(function($) {
                 if (window.innerHeight >= content_core.getBoundingClientRect().bottom && !endContent) {
                     timeToContentEnd = timers['content_bottom'];
                     if (!scrollAnalyticsDebugMode) {
-                        if (timeToContentEnd < (minReadTime - 60)) {
-                            window.ga('set', 'dimension1', 'Scanner');
-                            window.ga('send', 'event', 'Reading', '5 Content Scanned', ptype, timeToContentEnd);
+                        if (timeToContentEnd < (minReadTime - 30)) {
+                            ga('set', 'dimension1', 'Scanner');
+                            ga('send', 'event', 'Reading', '5 Content Scanned', ptype, timeToContentEnd);
                         } else {
-                            window.ga('set', 'dimension1', 'Reader');
-                            window.ga('send', 'event', 'Reading', '6 Content Read', ptype, timeToContentEnd);
+                            ga('set', 'dimension1', 'Reader');
+                            ga('send', 'event', 'Reading', '6 Content Read', ptype, timeToContentEnd);
                         }
-                        window.ga('send', 'event', 'Reading', '3 Reached Content Bottom', ptype, timeToContentEnd,
+                        ga('send', 'event', 'Reading', '3 Reached Content Bottom', ptype, timeToContentEnd,
                             {'metric2': timeToContentEnd, 'metric4': 1});
                     } else {
                         window.console.log('Reached content section bottom in ' + timeToContentEnd);
@@ -130,7 +130,7 @@ jQuery(document).ready(function($) {
                 if (bottom >= height - 50 && !didComplete) {
                     totalTime = timers['page_bottom'];
                     if (!scrollAnalyticsDebugMode) {
-                        window.ga('send', 'event', 'Reading', '4 Reached Page Bottom', ptype, totalTime, {'metric3': totalTime, 'metric6': 1});
+                        ga('send', 'event', 'Reading', '4 Reached Page Bottom', ptype, totalTime, {'metric3': totalTime, 'metric6': 1});
                     } else {
                         window.console.log('Reached page bottom in ' + totalTime);
                     }
@@ -149,7 +149,7 @@ jQuery(document).ready(function($) {
 
                     // Use a buffer so we don't call trackLocation too often.
                     if (!didComplete) {
-                        timer = window.setTimeout(trackLocation, callBackTime);
+                        timer = setTimeout(trackLocation, callBackTime);
                     }
                     else {
                         timer = null;
