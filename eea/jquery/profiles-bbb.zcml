@@ -263,12 +263,12 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
   />
 
-  <!-- jQuery EEA Screen Analytics -->
+  <!-- jQuery - Visibly -->
   <genericsetup:registerProfile
-          name="30-eeaanalytics"
-          title="EEA jQuery - EEA Screentime Analytics"
-          directory="profiles-bbb/eeascreenanalytics"
-          description="Extension profile for eea.jquery - screen analytics"
+          name="30-visibly"
+          title="EEA jQuery - Visibly"
+          directory="profiles-bbb/visibly"
+          description="Extension profile for eea.jquery - visibly"
           provides="Products.GenericSetup.interfaces.EXTENSION"
   />
 
@@ -281,12 +281,12 @@
           provides="Products.GenericSetup.interfaces.EXTENSION"
   />
 
-  <!-- jQuery - Visibly -->
+  <!-- jQuery EEA Screen Analytics -->
   <genericsetup:registerProfile
-          name="32-visibly"
-          title="EEA jQuery - Visibly"
-          directory="profiles-bbb/visibly"
-          description="Extension profile for eea.jquery - visibly"
+          name="32-eeaanalytics"
+          title="EEA jQuery - EEA Screentime Analytics"
+          directory="profiles-bbb/eeascreenanalytics"
+          description="Extension profile for eea.jquery - screen analytics"
           provides="Products.GenericSetup.interfaces.EXTENSION"
   />
 
