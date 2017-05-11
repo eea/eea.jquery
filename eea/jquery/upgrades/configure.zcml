@@ -1,7 +1,21 @@
 <configure
   xmlns="http://namespaces.zope.org/zope"
   xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  xmlns:zcml="http://namespaces.zope.org/zcml"
   i18n_domain="eea">
+
+  <genericsetup:upgradeSteps
+          source="*"
+          destination="9.1"
+          profile="eea.jquery:01-jquery"
+        zcml:condition="installed eea.tinymce">
+
+    <genericsetup:upgradeDepends
+            title="Import EEA Screen Analytics plugin"
+            import_profile="eea.jquery:30-eeaanalytics"
+    />
+
+  </genericsetup:upgradeSteps>
 
   <genericsetup:upgradeSteps
     source="*"
