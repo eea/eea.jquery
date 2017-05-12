@@ -267,7 +267,7 @@
   <genericsetup:registerProfile
           name="32-screentimeanalytics"
           title="EEA jQuery - EEA Screentime Analytics"
-          directory="profiles-bbb/eeascreenanalytics"
+          directory="profiles-bbb/eea_screenanalytics"
           description="Extension profile for eea.jquery - screen analytics"
           provides="Products.GenericSetup.interfaces.EXTENSION"
   />

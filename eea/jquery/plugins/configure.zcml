@@ -352,7 +352,7 @@
   <!-- eea analytics -->
   <browser:resource
           name="eea.jquery.screentimeanalytics.js"
-          file="eea_screentimeanalytics/eea_analytics.js"
+          file="eea_screentimeanalytics/eea_screentimeanalytics.js"
           permission="zope.Public"
   />
   <!-- visibly -->
