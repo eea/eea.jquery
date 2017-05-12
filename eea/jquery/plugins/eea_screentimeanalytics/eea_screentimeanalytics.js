@@ -230,7 +230,7 @@
     };
 
     TextStatistics.prototype.averageCharactersPerWord = function(text) {
-        var txt = text ? this.cleanText(text) : this.text;
+        var txt = text ? cleanText(text) : this.text;
         return this.letterCount(txt) / this.wordCount(txt);
     };
 
