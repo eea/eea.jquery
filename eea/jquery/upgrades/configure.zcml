@@ -12,7 +12,7 @@
 
     <genericsetup:upgradeDepends
             title="Import EEA Screen Analytics plugin"
-            import_profile="eea.jquery:32-screentimeanalytics"
+            import_profile="eea.jquery:30-screentimeanalytics"
     />
 
 

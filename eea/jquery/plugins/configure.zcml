@@ -336,19 +336,6 @@
     directory="dracula"
   />
 
-  <!-- scrolldepth -->
-  <browser:resourceDirectory
-    name="eea.jquery.scrolldepth"
-    directory="scrolldepth"
-  />
-
- <!-- screentime -->
-  <browser:resource
-    name="jquery.screentime.js"
-    file="screentime/jquery.screentime.js"
-    permission="zope.Public"
-    />
-
   <!-- eea analytics -->
   <browser:resource
           name="eea.jquery.screentimeanalytics.js"

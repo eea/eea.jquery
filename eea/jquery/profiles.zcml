@@ -38,16 +38,6 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
-  <!-- jQuery browser -->
-  <genericsetup:registerProfile
-    name="28-browser"
-    title="EEA jQuery - Browser"
-    directory="profiles/browser"
-    description="Extension profile for eea.jquery - installs the jQuery browser
-                 plugin to restore deprecated browser detection."
-    provides="Products.GenericSetup.interfaces.EXTENSION"
-    />
-
   <!-- jQuery cookie -->
   <genericsetup:registerProfile
     name="05-cookie"
@@ -255,21 +245,14 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
-  <!-- jQuery ScrollDepth -->
+  <!-- jQuery browser -->
   <genericsetup:registerProfile
-    name="28-scrolldepth"
-    title="EEA jQuery - Scroll Depth"
-    directory="profiles/scrolldepth"
-    description="Extension profile for eea.jquery - scrolldepth"
-    provides="Products.GenericSetup.interfaces.EXTENSION"
+          name="28-browser"
+          title="EEA jQuery - Browser"
+          directory="profiles/browser"
+          description="Extension profile for eea.jquery - installs the jQuery browser
+                 plugin to restore deprecated browser detection."
+          provides="Products.GenericSetup.interfaces.EXTENSION"
   />
 
-   <!-- jQuery Screentime -->
-  <genericsetup:registerProfile
-    name="29-screentime"
-    title="EEA jQuery - Screentime"
-    directory="profiles/screentime"
-    description="Extension profile for eea.jquery - screentime"
-    provides="Products.GenericSetup.interfaces.EXTENSION"
-  />
 </configure>
