@@ -263,4 +263,31 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
   />
 
+  <!-- jQuery - Visibly -->
+  <genericsetup:registerProfile
+          name="30-visibly"
+          title="EEA jQuery - Visibly"
+          directory="profiles-bbb/visibly"
+          description="Extension profile for eea.jquery - visibly"
+          provides="Products.GenericSetup.interfaces.EXTENSION"
+  />
+
+  <!-- jQuery - Text statistics -->
+  <genericsetup:registerProfile
+          name="31-textstatistics"
+          title="EEA jQuery - Text statistics"
+          directory="profiles-bbb/textstatistics"
+          description="Extension profile for eea.jquery - text statistics"
+          provides="Products.GenericSetup.interfaces.EXTENSION"
+  />
+
+  <!-- jQuery EEA Screen Analytics -->
+  <genericsetup:registerProfile
+          name="32-eeaanalytics"
+          title="EEA jQuery - EEA Screentime Analytics"
+          directory="profiles-bbb/eeascreenanalytics"
+          description="Extension profile for eea.jquery - screen analytics"
+          provides="Products.GenericSetup.interfaces.EXTENSION"
+  />
+
 </configure>
