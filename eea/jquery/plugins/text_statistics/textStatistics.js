@@ -1,4 +1,3 @@
-
 // TextStatistics.js
 // Christopher Giffard (2012)
 // 1:1 API Fork of TextStatistics.php by Dave Child (Thanks mate!)
@@ -92,6 +91,11 @@
     TextStatistics.prototype.averageWordsPerSentence = function(text) {
         text = text ? cleanText(text) : this.text;
         return this.wordCount(text) / this.sentenceCount(text);
+    };
+
+    TextStatistics.prototype.averageCharactersPerWord = function(text) {
+        var txt = text ? this.cleanText(text) : this.text;
+        return this.letterCount(txt) / this.wordCount(txt);
     };
 
     TextStatistics.prototype.averageSyllablesPerWord = function(text) {

@@ -229,6 +229,11 @@
         return this.wordCount(text) / this.sentenceCount(text);
     };
 
+    TextStatistics.prototype.averageCharactersPerWord = function(text) {
+        var txt = text ? this.cleanText(text) : this.text;
+        return this.letterCount(txt) / this.wordCount(txt);
+    };
+
     TextStatistics.prototype.averageSyllablesPerWord = function(text) {
         text = text ? cleanText(text) : this.text;
         var syllableCount = 0,
