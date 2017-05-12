@@ -245,24 +245,6 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
-  <!-- jQuery ScrollDepth -->
-  <genericsetup:registerProfile
-    name="28-scrolldepth"
-    title="EEA jQuery - Scroll Depth"
-    directory="profiles-bbb/scrolldepth"
-    description="Extension profile for eea.jquery - scrolldepth"
-    provides="Products.GenericSetup.interfaces.EXTENSION"
-  />
-  
-   <!-- jQuery Screentime -->
-  <genericsetup:registerProfile
-    name="29-screentime"
-    title="EEA jQuery - Screentime"
-    directory="profiles-bbb/screentime"
-    description="Extension profile for eea.jquery - screentime"
-    provides="Products.GenericSetup.interfaces.EXTENSION"
-  />
-
   <!-- jQuery - Visibly -->
   <genericsetup:registerProfile
           name="30-visibly"
@@ -283,7 +265,7 @@
 
   <!-- jQuery EEA Screen Analytics -->
   <genericsetup:registerProfile
-          name="32-eeaanalytics"
+          name="32-screentimeanalytics"
           title="EEA jQuery - EEA Screentime Analytics"
           directory="profiles-bbb/eeascreenanalytics"
           description="Extension profile for eea.jquery - screen analytics"

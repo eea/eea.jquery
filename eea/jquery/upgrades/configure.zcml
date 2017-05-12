@@ -11,17 +11,8 @@
         zcml:condition="installed eea.tinymce">
 
     <genericsetup:upgradeDepends
-            title="Import Visibly plugin"
-            import_profile="eea.jquery:30-visibly"
-    />
-    <genericsetup:upgradeDepends
-            title="Import Text Statistics plugin"
-            import_profile="eea.jquery:31-textstatistics"
-    />
-
-    <genericsetup:upgradeDepends
             title="Import EEA Screen Analytics plugin"
-            import_profile="eea.jquery:32-eeaanalytics"
+            import_profile="eea.jquery:32-screentimeanalytics"
     />
 
 

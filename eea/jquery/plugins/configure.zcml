@@ -351,8 +351,8 @@
 
   <!-- eea analytics -->
   <browser:resource
-          name="eea.jquery.screenanalytics.js"
-          file="eea_analytics/eea_analytics.js"
+          name="eea.jquery.screentimeanalytics.js"
+          file="eea_screentimeanalytics/eea_analytics.js"
           permission="zope.Public"
   />
   <!-- visibly -->
