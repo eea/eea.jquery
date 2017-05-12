@@ -3,6 +3,15 @@ Changelog
 
 9.7.dev0 - (unreleased)
 -----------------------
+* Change: removed jquery.scrolldepth and jquery.screentime plugins
+  from eea.jquery since they didn't provide in the end the platform
+  for recording the screen analytics
+  [ichim-david refs #83507]
+* Feature: added eea.jquery.screenanalytics.js which in combination
+  with google analytics allows you to track time spent until user
+  reaches the designated thresholds such as end of content or end
+  of page
+  [ichim-david refs #83507]
 
 9.6 - (2017-04-24)
 ------------------
