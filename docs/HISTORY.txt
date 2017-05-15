@@ -1,8 +1,8 @@
 Changelog
 =========
 
-9.7.dev0 - (unreleased)
------------------------
+9.7 - (2017-05-15)
+------------------
 * Change: removed jquery.scrolldepth and jquery.screentime plugins
   from eea.jquery since they didn't provide in the end the platform
   for recording the screen analytics
