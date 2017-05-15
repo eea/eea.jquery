@@ -14,8 +14,7 @@
  * visibly.visibilitychange(callback(state));
  */
 
-;
-(function() {
+;(function() {
 
     window.visibly = {
         q: document,
@@ -344,7 +343,7 @@
 // Plugin definition.
 // portions of google analytics code inspired from
 // http://cutroni.com/blog/2014/02/12/advanced-content-tracking-with-universal-analytics/
-;(function($, window, document, undefined) {
+(function($, window, document, undefined) {
 	"use strict";
     var throttle =  window.underscore ? window.underscore.throttle : function(t, e) {
         var n;
@@ -372,6 +371,7 @@
         var content_core = this[0];
         var minReadTime = window.parseInt(Math.round(window.textstatistics(
                     content_core.innerText).wordCount() / opts.avgWPM), 10) * 60;
+        var start_obj_metrics = {}, content_obj_metrics = {}, page_obj_metrics = {};
 
         // Set some flags for tracking & execution
         var timer;
@@ -432,9 +432,6 @@
             var timeToScroll, totalTime, timeToContentEnd;
 
             function trackLocation() {
-                if (!content_core) {
-                    return;
-                }
                 var scrollTop = $(window).scrollTop();
                 var bottom = Math.round($(window).height() + scrollTop);
                 var height = $(document).height();
@@ -444,8 +441,9 @@
                     timeToScroll = timers['beginning'];
 
                     if (!opts.debug) {
-                        ga('send', 'event', 'Reading', '2 Started Content Reading', ptype, timeToScroll,
-                            {'metric1': timeToScroll, 'metric3': 1});
+                        start_obj_metrics[opts.metrics['started_reading']] = timeToScroll;
+                        start_obj_metrics[opts.metrics['start_reading']] = 1;
+                        ga('send', 'event', 'Reading', '2 Started Content Reading', ptype, timeToScroll, start_obj_metrics);
                     } else {
                         window.console.log('Reached content start in ' + timeToScroll);
                     }
@@ -463,8 +461,9 @@
                             ga('set', 'dimension1', 'Reader');
                             ga('send', 'event', 'Reading', '6 Content Read', ptype, timeToContentEnd);
                         }
-                        ga('send', 'event', 'Reading', '3 Reached Content Bottom', ptype, timeToContentEnd,
-                            {'metric2': timeToContentEnd, 'metric4': 1});
+                        content_obj_metrics[opts.metrics['reached_content_bottom']] = timeToContentEnd;
+                        content_obj_metrics[opts.metrics['content_bottom']] = 1;
+                        ga('send', 'event', 'Reading', '3 Reached Content Bottom', ptype, timeToContentEnd, content_obj_metrics);
                     } else {
                         window.console.log('Reached content section bottom in ' + timeToContentEnd);
                     }
@@ -475,7 +474,9 @@
                 if (bottom >= height - opts.bottomThreshold && !didComplete) {
                     totalTime = timers['page_bottom'];
                     if (!opts.debug) {
-                        ga('send', 'event', 'Reading', '4 Reached Page Bottom', ptype, totalTime, {'metric3': totalTime, 'metric6': 1});
+                        page_obj_metrics[opts.metrics['reached_page_bottom']] = totalTime;
+                        page_obj_metrics[opts.metrics['page_bottom']] = 1;
+                        ga('send', 'event', 'Reading', '4 Reached Page Bottom', ptype, totalTime, page_obj_metrics);
                     } else {
                         window.console.log('Reached page bottom in ' + totalTime);
                     }
@@ -530,10 +531,18 @@
         avgWPM: 228, // average words per minute
         readTimeThreshold: 30, // buffer to treat spent time as read time in seconds
         bottomThreshold: 50,
-        ptype: null // portal type used as the google analytics event action label
+        ptype: null, // portal type used as the google analytics event action label
                     // calculated from body class portaltype entry otherwise default to
                     // Article. Pass another string entry if you have another way
                     // to calculate the portal type or you want another label for the action
+        metrics: { // define your metric mapping in case you already have analytics metrics
+            'started_reading': 'metric1',
+            'reached_content_bottom': 'metric2',
+            'reached_page_bottom': 'metric3',
+            'start_reading': 'metric4',
+            'content_bottom': 'metric5',
+            'page_bottom': 'metric6'
+        }
     };
 
 })(jQuery, window, document);
