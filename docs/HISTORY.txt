@@ -1,6 +1,9 @@
 Changelog
 =========
 
+9.8.dev0 - (unreleased)
+-----------------------
+
 9.7 - (2017-05-15)
 ------------------
 * Change: removed jquery.scrolldepth and jquery.screentime plugins
