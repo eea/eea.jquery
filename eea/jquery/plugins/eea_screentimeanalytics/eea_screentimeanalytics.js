@@ -432,7 +432,7 @@
             var timeToScroll, totalTime, timeToContentEnd;
 
             function trackLocation() {
-                if (!content_core.length) {
+                if (!content_core) {
                     return;
                 }
                 var scrollTop = $(window).scrollTop();
