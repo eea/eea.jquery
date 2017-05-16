@@ -372,6 +372,10 @@
         var minReadTime = window.parseInt(Math.round(window.textstatistics(
                     content_core.innerText).wordCount() / opts.avgWPM), 10) * 60;
         var start_obj_metrics = {}, content_obj_metrics = {}, page_obj_metrics = {};
+        var reached_content_bottom = opts.metrics['reached_content_bottom'];
+        var content_bottom = opts.metrics['content_bottom'];
+        var reached_page_bottom = opts.metrics['reached_page_bottom'];
+        var page_bottom = opts.metrics['page_bottom'];
 
         // Set some flags for tracking & execution
         var timer;
@@ -461,8 +465,12 @@
                             ga('set', 'dimension1', 'Reader');
                             ga('send', 'event', 'Reading', '6 Content Read', ptype, timeToContentEnd);
                         }
-                        content_obj_metrics[opts.metrics['reached_content_bottom']] = timeToContentEnd;
-                        content_obj_metrics[opts.metrics['content_bottom']] = 1;
+                        if (reached_content_bottom) {
+                            content_obj_metrics[reached_content_bottom] = timeToContentEnd;
+                        }
+                        if (content_bottom) {
+                            content_obj_metrics[content_bottom] = 1;
+                        }
                         ga('send', 'event', 'Reading', '3 Reached Content Bottom', ptype, timeToContentEnd, content_obj_metrics);
                     } else {
                         window.console.log('Reached content section bottom in ' + timeToContentEnd);
@@ -474,8 +482,12 @@
                 if (bottom >= height - opts.bottomThreshold && !didComplete) {
                     totalTime = timers['page_bottom'];
                     if (!opts.debug) {
-                        page_obj_metrics[opts.metrics['reached_page_bottom']] = totalTime;
-                        page_obj_metrics[opts.metrics['page_bottom']] = 1;
+                        if (reached_page_bottom) {
+                            page_obj_metrics[reached_page_bottom] = totalTime;
+                        }
+                        if (page_bottom) {
+                            page_obj_metrics[page_bottom] = 1;
+                        }
                         ga('send', 'event', 'Reading', '4 Reached Page Bottom', ptype, totalTime, page_obj_metrics);
                     } else {
                         window.console.log('Reached page bottom in ' + totalTime);
@@ -536,6 +548,8 @@
                     // Article. Pass another string entry if you have another way
                     // to calculate the portal type or you want another label for the action
         metrics: { // define your metric mapping in case you already have analytics metrics
+                    // override this mapping in case you have no free metrics in order
+                    // to avoid recieving hits from this plugin
             'started_reading': 'metric1',
             'reached_content_bottom': 'metric2',
             'reached_page_bottom': 'metric3',
