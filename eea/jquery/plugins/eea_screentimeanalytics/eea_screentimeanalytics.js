@@ -365,9 +365,10 @@
         var opts = $.extend( {}, $.fn.screentimeAnalytics.defaults, options );
         // Our plugin implementation code goes here.
 
-        var looker = null;
+        var looker, content_looker;
         var started;
         var timers = { beginning: 0, content_bottom: 0, page_bottom: 0};
+        var counter = {content: 0};
         var content_core = this[0];
         var minReadTime = window.parseInt(Math.round(window.textstatistics(
                     content_core.innerText).wordCount() / opts.avgWPM), 10) * 60;
@@ -414,15 +415,85 @@
                 incrementTimeSpent();
             }, 1000);
         };
+
+        // viewport and onScreen functionality taken from
+        // https://github.com/robflaherty/screentime/blob/master/screentime.js
+        function Viewport() {
+            this.top = $window.scrollTop();
+            this.height = $window.height();
+            this.bottom = this.top + this.height;
+            this.width = $window.width();
+        }
+
+        function Field(elem) {
+            var $elem = $(elem);
+            this.top = $elem.offset().top;
+            this.height = $elem.height();
+            this.bottom = this.top + this.height;
+            this.width = $elem.width();
+        }
+
+        function onScreen(viewport, field) {
+            var cond, buffered, partialView;
+
+            // Field entirely within viewport
+            if ((field.bottom <= viewport.bottom) && (field.top >= viewport.top)) {
+                return true;
+            }
+
+            // Field bigger than viewport
+            if (field.height > viewport.height) {
+
+                cond = (viewport.bottom - field.top) > (viewport.height / 2) && (field.bottom - viewport.top) > (viewport.height / 2);
+
+                if (cond) {
+                    return true;
+                }
+
+            }
+
+            // Partially in view
+            buffered = (field.height * (opts.percentOnScreen / 100));
+            partialView = ((viewport.bottom - buffered) >= field.top && (field.bottom - buffered) > viewport.top);
+
+            return partialView;
+        }
+
+        function checkViewport() {
+            var viewport = new Viewport();
+            var field = new Field(content_core);
+            if (onScreen(viewport, field)) {
+                counter['content'] += 1;
+            }
+        }
+
+        var startContentReading = function startTimers() {
+            if (!started) {
+                checkViewport();
+                started = true;
+            }
+            content_looker = window.setInterval(function() {
+                checkViewport();
+            }, 1000);
+        };
+
         var stopTimers = function stopTimers() {
             window.clearInterval(looker);
             looker = null;
         };
 
-        $(window).one("scroll", function() {
+        var stopContentReading = function startTimers() {
+            window.clearInterval(content_looker);
+            content_looker = null;
+        };
+        var $window = $(window);
+        var $document = $(document);
+
+        $window.one("scroll", function() {
             // Set some time variables to calculate reading time
             if (!started) {
                 startTimers();
+                startContentReading();
             }
 
             // Track the article load
@@ -436,9 +507,9 @@
             var timeToScroll, totalTime, timeToContentEnd;
 
             function trackLocation() {
-                var scrollTop = $(window).scrollTop();
-                var bottom = Math.round($(window).height() + scrollTop);
-                var height = $(document).height();
+                var scrollTop = $window.scrollTop();
+                var bottom = Math.round($window.height() + scrollTop);
+                var height = $document.height();
 
                 // If user starts to scroll send an event
                 if (scrollTop > opts.readerLocation && !scroller) {
@@ -447,7 +518,8 @@
                     if (!opts.debug) {
                         start_obj_metrics[opts.metrics['started_reading']] = timeToScroll;
                         start_obj_metrics[opts.metrics['start_reading']] = 1;
-                        ga('send', 'event', 'Reading', '2 Started Content Reading', ptype, timeToScroll, start_obj_metrics);
+                        ga('set', start_obj_metrics);
+                        ga('send', 'event', 'Reading', '2 Started Content Reading', ptype, timeToScroll);
                     } else {
                         window.console.log('Reached content start in ' + timeToScroll);
                     }
@@ -455,7 +527,7 @@
                 }
 
                 // If user has hit the bottom of the content send an event
-                if (window.innerHeight >= content_core.getBoundingClientRect().bottom && !endContent) {
+                if (window.innerHeight >= (content_core.getBoundingClientRect().bottom + opts.bottomThreshold) && !endContent) {
                     timeToContentEnd = timers['content_bottom'];
                     if (!opts.debug) {
                         if (timeToContentEnd < (minReadTime - opts.readTimeThreshold)) {
@@ -466,12 +538,12 @@
                             ga('send', 'event', 'Reading', '6 Content Read', ptype, timeToContentEnd);
                         }
                         if (reached_content_bottom) {
-                            content_obj_metrics[reached_content_bottom] = timeToContentEnd;
+                            ga('set', reached_content_bottom, timeToContentEnd);
                         }
                         if (content_bottom) {
-                            content_obj_metrics[content_bottom] = 1;
+                            ga('set', content_bottom, 1);
                         }
-                        ga('send', 'event', 'Reading', '3 Reached Content Bottom', ptype, timeToContentEnd, content_obj_metrics);
+                        ga('send', 'event', 'Reading', '3 Reached Content Bottom', ptype, timeToContentEnd);
                     } else {
                         window.console.log('Reached content section bottom in ' + timeToContentEnd);
                     }
@@ -488,7 +560,8 @@
                         if (page_bottom) {
                             page_obj_metrics[page_bottom] = 1;
                         }
-                        ga('send', 'event', 'Reading', '4 Reached Page Bottom', ptype, totalTime, page_obj_metrics);
+                        ga('set', page_obj_metrics);
+                        ga('send', 'event', 'Reading', '4 Reached Page Bottom', ptype, totalTime);
                     } else {
                         window.console.log('Reached page bottom in ' + totalTime);
                     }
@@ -496,8 +569,6 @@
                     stopTimers('onvisible');
                 }
             }
-
-            // Track the scrolling and track location
 
             var lazyNavScroll = throttle(function(){
                 if (timer) {
@@ -513,25 +584,49 @@
                 }
 
             }, opts.throttleTime);
-            $(window).scroll(lazyNavScroll);
+            $window.scroll(lazyNavScroll);
         });
 
         if (document.hasFocus && document.hasFocus()) {
-            $(window).trigger('scroll');
+            $window.trigger('scroll');
         }
         if (window.visibly) {
             window.visibly.onHidden(function() {
                 if (!didComplete) {
-                    stopTimers('onhidden');
+                    stopTimers();
                 }
+                stopContentReading();
             });
             window.visibly.onVisible(function() {
                 if (!didComplete) {
-                    stopTimers('onvisible');
-                    startTimers('onvisible');
+                    stopTimers();
+                    startTimers();
                 }
+                stopContentReading();
+                startContentReading();
             });
         }
+
+        window.onbeforeunload = function() {
+            var content_time = counter['content'];
+            ga('send', 'event', 'Reading', '7 Content area time spent', ptype, content_time);
+
+            if (reached_content_bottom) {
+                content_obj_metrics[reached_content_bottom] = content_time;
+            }
+            if (content_bottom) {
+                content_obj_metrics[content_bottom] = 1;
+            }
+            ga('set', content_obj_metrics);
+            ga('send', 'event', 'Reading', '3 Reached Content Bottom', ptype, content_time);
+            if (content_time < (minReadTime - opts.readTimeThreshold)) {
+                ga('set', 'dimension1', 'Scanner');
+                ga('send', 'event', 'Reading', '5 Content Scanned', ptype, content_time);
+            } else {
+                ga('set', 'dimension1', 'Reader');
+                ga('send', 'event', 'Reading', '6 Content Read', ptype, content_time);
+            }
+        };
     };
 
     // Plugin defaults – added as a property on our plugin function.
@@ -543,6 +638,7 @@
         avgWPM: 228, // average words per minute
         readTimeThreshold: 30, // buffer to treat spent time as read time in seconds
         bottomThreshold: 50,
+        percentOnScreen: 7,
         ptype: null, // portal type used as the google analytics event action label
                     // calculated from body class portaltype entry otherwise default to
                     // Article. Pass another string entry if you have another way
@@ -560,3 +656,4 @@
     };
 
 })(jQuery, window, document);
+
