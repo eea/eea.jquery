@@ -20,21 +20,24 @@ Who: Web developer.
 
 The following steps should be performed in order to have screentime analytics tracking with Google Analytics: 
 1. Make sure you load google analytics script
-1. Install or update EEA Jquery to the latest version available
-   1. Import all steps from **EEA jQuery - EEA Screentime Analytics** profile
-   ![Goal Definition](images/001-import-jquery-steps.png)
-1. On a non Plone installation simply load **eea_screentimeanalytics.js** within
-   site header
+1. Load **eea_screentimeanalytics.js** within your site by performing the following steps:
+   1. On a non Plone installation simply load **eea_screentimeanalytics.js** within the site header
+   1. On a Plone site do the following steps:
+      1. Install or update EEA Jquery to the latest version available
+      1. Import all steps from **EEA jQuery - EEA Screentime Analytics** profile
+      ![Goal Definition](images/001-import-jquery-steps.png)
+   
 1. Add within a javascript a call to the jQuery plugin with the context set to the content area you want to track
-  ex: <pre>
+   ex: <pre>
                $("#content-core").screentimeAnalytics();
       </pre>
- See the [github page](https://github.com/collective/eea.jquery/blob/master/eea/jquery/plugins/eea_screentimeanalytics/eea_screentimeanalytics.js#L633) for parameters which you can pass in case you want to modify the behaviour of the script
-ex:
- <pre>
+      
+   See the [github page](https://github.com/collective/eea.jquery/blob/master/eea/jquery/plugins/eea_screentimeanalytics/eea_screentimeanalytics.js#L633) for parameters which you can pass in case you want to modify the behaviour of the script
+   ex:
+   <pre>
       $("#content-core").screentimeAnalytics({debug: true});
- </pre>
- in case you want to get console information instead of sending events to google
+   </pre>
+   in case you want to get console information instead of sending events to google
 1. Configure google analytics to record the metrics given by the javascript as described in the next section
 
 ## Google analytics configuration
