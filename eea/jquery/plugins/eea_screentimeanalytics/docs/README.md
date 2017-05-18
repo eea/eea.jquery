@@ -19,7 +19,12 @@ Contact Antonio De Marinis for more details.
 Who: Web developer. 
 
 The following steps should be performed in order to have screentime analytics tracking with Google Analytics: 
+1. Make sure you load google analytics script
 1. Install or update EEA Jquery to the latest version available
+   1. Import all steps from **EEA jQuery - EEA Screentime Analytics** profile
+   ![Goal Definition](images/001-import-jquery-steps.png)
+1. On a non Plone installation simply load **eea_screentimeanalytics.js** within
+   site header
 1. Add within a javascript a call to the jQuery plugin with the context set to the content area you want to track
   ex: <pre>
                $("#content-core").screentimeAnalytics();
