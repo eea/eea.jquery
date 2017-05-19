@@ -384,7 +384,7 @@
         var endContent;
         var didComplete;
         var ptype;
-
+        var sentPageTrack;
         // Get some information about the current page
         if (!opts.ptype) {
             ptype = $('body').attr('class').match('portaltype-[a-z-]*');
@@ -535,6 +535,10 @@
                             ga('send', 'event', 'Reading', '5 Content Scanned', ptype, timeToContentEnd);
                         } else {
                             ga('set', 'dimension1', 'Reader');
+                            if (!sentPageTrack) {
+                                sentPageTrack = true;
+                                ga('send', 'pageview', window.location.pathname);
+                            }
                             ga('send', 'event', 'Reading', '6 Content Read', ptype, timeToContentEnd);
                         }
                         if (reached_content_bottom) {
@@ -611,20 +615,13 @@
             var content_time = counter['content'];
             ga('send', 'event', 'Reading', '7 Content area time spent', ptype, content_time);
 
-            if (reached_content_bottom) {
-                content_obj_metrics[reached_content_bottom] = content_time;
-            }
-            if (content_bottom) {
-                content_obj_metrics[content_bottom] = 1;
-            }
-            ga('set', content_obj_metrics);
-            ga('send', 'event', 'Reading', '3 Reached Content Bottom', ptype, content_time);
-            if (content_time < (minReadTime - opts.readTimeThreshold)) {
-                ga('set', 'dimension1', 'Scanner');
-                ga('send', 'event', 'Reading', '5 Content Scanned', ptype, content_time);
-            } else {
+            var timeToread = minReadTime - opts.readTimeThreshold;
+            if (content_time > timeToread && endContent) {
                 ga('set', 'dimension1', 'Reader');
-                ga('send', 'event', 'Reading', '6 Content Read', ptype, content_time);
+                ga('send', 'event', 'Reading', '9 Content Area Reader', ptype, content_time);
+            } else {
+                ga('set', 'dimension1', 'Scanner');
+                ga('send', 'event', 'Reading', '8 Content Area Scanner', ptype, content_time);
             }
         };
     };
