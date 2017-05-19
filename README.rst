@@ -73,6 +73,17 @@ Source code
 - `EEA on Github <https://github.com/eea/eea.jquery>`_
 
 
+Plugins documentation
+=====================
+
+`eea_screentimeanalytics`_ An EEA's developed google analytics plugin that 
+can tell you, exactly, how many users are reading for real the content of 
+a webpage. Reading is detecting by catching they scroll events versus 
+the time needed to read the actual content (average reader speed is around
+200 words per minute) and reaches the bottom of the page. If they reaches 
+the bottom of the page too fast they are categorized as scanner.
+
+
 Copyright and license
 =====================
 The Initial Owner of the Original Code is European Environment Agency (EEA).
@@ -108,5 +119,6 @@ EEA_ - European Environment Agency (EU)
 
 .. _EEA: http://www.eea.europa.eu/
 .. _`eea.tags`: http://eea.github.com/docs/eea.tags
+.. _`eea_screentimeanalytics`: https://github.com/collective/eea.jquery/tree/master/eea/jquery/plugins/eea_screentimeanalytics/docs
 .. _`plone.recipe.zope2instance`: http://pypi.python.org/pypi/plone.recipe.zope2instance
 .. _`zc.buildout`: http://pypi.python.org/pypi/zc.buildout
