@@ -167,7 +167,7 @@
     }
 
     var TextStatistics = function TextStatistics(text) {
-        this.text = text ? cleanText(text) : this.text;
+        this.text = text ? cleanText(text) : "";
     };
 
     TextStatistics.prototype.fleschKincaidReadingEase = function(text) {
