@@ -335,9 +335,7 @@
         return new TextStatistics(text);
     }
 
-    (typeof module != "undefined" && module.exports) ? (module.exports = textStatistics) : (typeof define != "undefined" ? (define("textstatistics", [], function() {
-        return textStatistics;
-    })) : (glob.textstatistics = textStatistics));
+    glob.textstatistics = textStatistics;
 })(this);
 
 // Plugin definition.
