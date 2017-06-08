@@ -3,6 +3,10 @@ Changelog
 
 9.8.dev0 - (unreleased)
 -----------------------
+* Change: documented need for custom dimension in order to import
+  the report for the screentimeanalytics plugin and remove compression
+  for the loaded js in order to avoid js error
+  [ichim-david]
 
 9.7 - (2017-05-15)
 ------------------

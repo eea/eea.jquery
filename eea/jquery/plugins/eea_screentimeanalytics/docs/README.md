@@ -58,6 +58,9 @@ Who: Google Analytics Administrator.
 ![Calculated Metrics page bottom](images/7-calculated-metrics-page-end.png)
 1. Configure **Time avg** custom metric:
 ![Calculated Metrics time](images/8-calculated-metrics-time.png)
+
+1. Configure **ReaderType** custom dimension:
+![ReaderType hit custom dimension](images/12-custom-dimension.png)
 1. Clink to import the **["Reading time custom report"](https://analytics.google.com/analytics/web/template?uid=5KK7hlW5R_-dv3o8_1ixpg)** as seen bellow:
 ![Custom report import](images/9-custom-report-import.png)
 
