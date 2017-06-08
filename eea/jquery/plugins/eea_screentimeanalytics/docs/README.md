@@ -61,7 +61,7 @@ Who: Google Analytics Administrator.
 
 1. Configure **ReaderType** custom dimension:
 ![ReaderType hit custom dimension](images/12-custom-dimension.png)
-1. Clink to import the **["Reading time custom report"](https://analytics.google.com/analytics/web/template?uid=5KK7hlW5R_-dv3o8_1ixpg)** as seen bellow:
+1. Clink to import the **["Reading time custom report"](https://analytics.google.com/analytics/web/template?uid=W8VkKVrVQQi5pdF3f-Ig2A)** as seen bellow:
 ![Custom report import](images/9-custom-report-import.png)
 
 After a few days you can see several reports such as the following
