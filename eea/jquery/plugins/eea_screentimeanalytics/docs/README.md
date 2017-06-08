@@ -63,6 +63,9 @@ Who: Google Analytics Administrator.
 ![ReaderType hit custom dimension](images/12-custom-dimension.png)
 1. Clink to import the **["Reading time custom report"](https://analytics.google.com/analytics/web/template?uid=W8VkKVrVQQi5pdF3f-Ig2A)** as seen bellow:
 ![Custom report import](images/9-custom-report-import.png)
+1. Clink to import the **["Reading stats - others custom dashboard"](https://analytics.google.com/analytics/web/template?uid=udjee9WQQdSoICOpCbv1cA)** as seen bellow:
+![Custom report import](images/9-custom-report-import.png)
+
 
 After a few days you can see several reports such as the following
 ![Reading time example](images/10-reading-time-example.png)
