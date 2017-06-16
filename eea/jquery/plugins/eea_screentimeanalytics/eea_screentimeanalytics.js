@@ -368,6 +368,9 @@
         var timers = { beginning: 0, content_bottom: 0, page_bottom: 0};
         var counter = {content: 0};
         var content_core = this[0];
+	if (!content_core) {
+	    return;
+	}
         var minReadTime = window.parseInt(Math.round(window.textstatistics(
                     content_core.innerText).wordCount() / opts.avgWPM), 10) * 60;
         var start_obj_metrics = {}, content_obj_metrics = {}, page_obj_metrics = {};
