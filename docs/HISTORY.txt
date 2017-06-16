@@ -3,8 +3,9 @@ Changelog
 
 9.9.dev0 - (unreleased)
 -----------------------
+* Bug fix: avoid error if content_core isn't found when calling screentimeAnalytics
+  [ichim-david refs #86049]
 
-9.8 - (2017-06-12)
 ------------------
 * Change: documented need for custom dimension in order to import
   the report for the screentimeanalytics plugin and remove compression
