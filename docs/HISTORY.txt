@@ -1,18 +1,17 @@
 Changelog
 =========
 
-10.0.dev0 - (unreleased)
-------------------------
+10.0 - (2017-08-29)
+-------------------
 # Bug fix: select2.png 404 (Not Found), under geotags popup on edit, in prod mode
   Fixed the path to images in css
   [zoltan_andras refs #84486]
-
 
 9.9 - (2017-08-16)
 ------------------
 * Bug fix: avoid error if content_core isn't found when calling screentimeAnalytics
   [ichim-david refs #86049]
-  
+
 9.8 - (2017-06-12)
 ------------------
 * Change: documented need for custom dimension in order to import
