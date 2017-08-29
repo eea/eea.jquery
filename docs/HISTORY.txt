@@ -1,6 +1,9 @@
 Changelog
 =========
 
+10.1.dev0 - (unreleased)
+------------------------
+
 10.0 - (2017-08-29)
 -------------------
 # Bug fix: select2.png 404 (Not Found), under geotags popup on edit, in prod mode
