@@ -6,7 +6,7 @@ Changelog
 
 10.0 - (2017-08-29)
 -------------------
-# Bug fix: select2.png 404 (Not Found), under geotags popup on edit, in prod mode
+* Bug fix: select2.png 404 (Not Found), under geotags popup on edit, in prod mode
   Fixed the path to images in css
   [zoltan_andras refs #84486]
 
