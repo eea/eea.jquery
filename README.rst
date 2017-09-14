@@ -1,12 +1,8 @@
 ==========
 EEA jQuery
 ==========
-.. image:: http://ci.eionet.europa.eu/job/eea.jquery-www/badge/icon
-  :target: http://ci.eionet.europa.eu/job/eea.jquery-www/lastBuild
-.. image:: http://ci.eionet.europa.eu/job/eea.jquery-plone4/badge/icon
-  :target: http://ci.eionet.europa.eu/job/eea.jquery-plone4/lastBuild
-.. image:: http://ci.eionet.europa.eu/job/eea.jquery-zope/badge/icon
-  :target: http://ci.eionet.europa.eu/job/eea.jquery-zope/lastBuild
+.. image:: http://ci.eionet.europa.eu/job/eea/job/eea.jquery/job/master/badge/icon
+  :target: http://ci.eionet.europa.eu/job/eea/job/eea.jquery/job/master/display/redirect
 
 Introduction
 ============
@@ -76,11 +72,11 @@ Source code
 Plugins documentation
 =====================
 
-`eea_screentimeanalytics`_ An EEA's developed google analytics plugin that 
-can tell you, exactly, how many users are reading for real the content of 
-a webpage. Reading is detecting by catching they scroll events versus 
+`eea_screentimeanalytics`_ An EEA's developed google analytics plugin that
+can tell you, exactly, how many users are reading for real the content of
+a webpage. Reading is detecting by catching they scroll events versus
 the time needed to read the actual content (average reader speed is around
-200 words per minute) and reaches the bottom of the page. If they reaches 
+200 words per minute) and reaches the bottom of the page. If they reaches
 the bottom of the page too fast they are categorized as scanner.
 
 
