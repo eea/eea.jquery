@@ -1,8 +1,8 @@
 Changelog
 =========
 
-10.1.dev0 - (unreleased)
-------------------------
+10.1 - (2017-09-26)
+-------------------
 * Bug fix: Escape annotator RegExp selection
   [avoinea refs #88339]
 
