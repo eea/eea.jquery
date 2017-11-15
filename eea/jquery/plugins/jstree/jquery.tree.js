@@ -14,7 +14,7 @@
 
 (function($) {
   // jQuery plugin
-  $.tree = {
+  $.jstree = {
     datastores	: { },
     plugins		: { },
     defaults	: {
@@ -162,13 +162,13 @@ drop_mode	: function (opts) {
     tree_component.drag_drop.drag_help	= $("<div id='jstree-dragged' class='tree tree-default'><ul><li class='last dragged foreign'><a href='#'><ins>&nbsp;</ins>" + opts.str + "</a></li></ul></div>");
     tree_component.drag_drop.drag_node	= tree_component.drag_drop.drag_help.find("li:eq(0)");
   }
-  if($.tree.drag_start !== false) $.tree.drag_start.call(null, false);
+  if($.jstree.drag_start !== false) $.jstree.drag_start.call(null, false);
 },
 drag_start	: false,
 drag		: false,
 drag_end	: false
 };
-$.fn.tree = function (opts) {
+$.fn.jstree = function (opts) {
   return this.each(function() {
     var conf = $.extend({},opts);
     if(tree_component.inst && tree_component.inst[$(this).attr('id')]) tree_component.inst[$(this).attr('id')].destroy();
@@ -180,7 +180,7 @@ $.fn.tree = function (opts) {
   function tree_component () {
     return {
       cntr : ++tree_component.cntr,
-      settings : $.extend({},$.tree.defaults),
+      settings : $.extend({},$.jstree.defaults),
 
   init : function(elem, conf) {
     var _this = this;
@@ -304,7 +304,7 @@ refresh : function (obj) {
   }
 
   var _this = this;
-  var _datastore = new $.tree.datastores[this.settings.data.type]();
+  var _datastore = new $.jstree.datastores[this.settings.data.type]();
   if(this.container.children("ul").size() == 0) {
     this.container.html("<ul class='ltr' style='direction:ltr;'><li class='last'><a class='loading' href='#'><ins>&nbsp;</ins>" + (this.settings.lang.loading || "Loading ...") + "</a></li></ul>");
   }
@@ -613,7 +613,7 @@ scroll_into_view : function (obj) {
   var tree2 = ref_node.parents(".tree:eq(0)").get(0);
   // if different trees
   if(tree1 && tree1 != tree2) {
-    var m = $.tree.reference(tree2.id).settings.rules.multitree;
+    var m = $.jstree.reference(tree2.id).settings.rules.multitree;
     if(m == "none" || ($.isArray(m) && $.inArray(tree1.id, m) == -1)) return false;
   }
 
@@ -779,7 +779,7 @@ open_branch : function (obj, disable_animation, callback) {
   obj.children("ul:eq(0)").remove().end().append("<ul><li class='last'><a class='loading' href='#'><ins>&nbsp;</ins>" + (_this.settings.lang.loading || "Loading ...") + "</a></li></ul>");
   obj.removeClass("closed").addClass("open");
 
-  var _datastore = new $.tree.datastores[this.settings.data.type]();
+  var _datastore = new $.jstree.datastores[this.settings.data.type]();
   _datastore.load(this.callback("beforedata",[obj,this]),this,this.settings.data.opts,function(data){
     data = _this.callback("ondata", [data, _this]);
     if(!data || data.length == 0) {
@@ -935,7 +935,7 @@ close_all : function (obj) {
   }
 
   obj = this.callback("ondata",[obj, this]);
-  var obj_s = $.tree.datastores.json().parse(obj,this);
+  var obj_s = $.jstree.datastores.json().parse(obj,this);
   obj_s = this.callback("onparse", [obj_s, this]);
   var $li = $(obj_s);
 
@@ -1176,8 +1176,8 @@ children : function(obj) {
     var p = false;
     var r = null;
     for(var i in this.settings.plugins) {
-      if(typeof $.tree.plugins[i] != "object") continue;
-      p = $.tree.plugins[i];
+      if(typeof $.jstree.plugins[i] != "object") continue;
+      p = $.jstree.plugins[i];
       if(p.callbacks && typeof p.callbacks[cb] == "function") r = p.callbacks[cb].apply(this, args);
       if(typeof r !== "undefined" && r !== null) {
         if(cb == "ondata" || cb == "onparse") args[0] = r; // keep the chain if data or parse
@@ -1564,7 +1564,7 @@ tree_component.mouseup = function(event) {
   if(tmp.open_time)	clearTimeout(tmp.open_time);
   if(tmp.scroll_time)	clearTimeout(tmp.scroll_time);
 
-  if(tmp.moving && $.tree.drag_end !== false) $.tree.drag_end.call(null, event, tmp);
+  if(tmp.moving && $.jstree.drag_end !== false) $.jstree.drag_end.call(null, event, tmp);
 
   if(tmp.foreign === false && tmp.drag_node && tmp.drag_node.size()) {
     tmp.drag_help.remove();
@@ -1626,7 +1626,7 @@ tree_component.mousemove = function(event) {
 
   if(tmp.drag_help !== false) {
     if(!tmp.appended) {
-      if(tmp.foreign !== false) tmp.origin_tree = $.tree.focused();
+      if(tmp.foreign !== false) tmp.origin_tree = $.jstree.focused();
       $("body").append(tmp.drag_help);
       tmp.w = tmp.drag_help.width();
       tmp.appended = true;
@@ -1634,8 +1634,8 @@ tree_component.mousemove = function(event) {
     tmp.drag_help.css({ "left" : (event.pageX + 5 ), "top" : (event.pageY + 15) });
   }
 
-  if(is_start && $.tree.drag_start !== false) $.tree.drag_start.call(null, event, tmp);
-  if($.tree.drag !== false) $.tree.drag.call(null, event, tmp);
+  if(is_start && $.jstree.drag_start !== false) $.jstree.drag_start.call(null, event, tmp);
+  if($.jstree.drag !== false) $.jstree.drag.call(null, event, tmp);
 
   if(event.target.tagName == "DIV" && event.target.id == "jstree-marker") return false;
 
@@ -1816,7 +1816,7 @@ $(function () {
 // Datastores
 // HTML and JSON are included here by default
 (function ($) {
-  $.extend($.tree.datastores, {
+  $.extend($.jstree.datastores, {
     "html" : function () {
       return {
         get		: function(obj, tree, opts) {
