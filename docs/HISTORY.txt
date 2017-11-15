@@ -1,8 +1,8 @@
 Changelog
 =========
 
-10.3.dev0 - (unreleased)
-------------------------
+10.3 - (2017-11-15)
+-------------------
 * Change: Changed name $.tree to $.jstree accoding to tokewf comment.
   [dals83 refs #7]
 
