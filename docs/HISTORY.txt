@@ -3,6 +3,11 @@ Changelog
 
 10.4.dev0 - (unreleased)
 ------------------------
+* Bug fix: Align metadata version to 10.4
+  [avoinea]
+* Upgrade step: Within "Plone > Site setup > Add-ons" click on
+  upgrade button available for eea.jquery
+  [avoinea]
 
 10.3 - (2017-11-15)
 -------------------
