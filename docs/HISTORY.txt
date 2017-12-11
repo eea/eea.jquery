@@ -3,6 +3,8 @@ Changelog
 
 10.5.dev0 - (unreleased)
 ------------------------
+* Change: Replace eeacms/zptlint with eeacms/plone-test:4 zptlint
+  [avoinea refs #90415]
 
 10.4 - (2017-11-20)
 -------------------
