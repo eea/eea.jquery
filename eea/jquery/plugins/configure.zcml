@@ -31,13 +31,13 @@
   <!-- jQuery fancybox -->
   <browser:resource
     name="jquery.fancybox.js"
-    file="fancybox/jquery.fancybox-1.3.4.js"
+    file="fancybox/jquery.fancybox.pack.js"
     permission="zope.Public"
     />
 
   <browser:resource
     name="jquery.fancybox.css"
-    file="fancybox/jquery.fancybox-1.3.4.css"
+    file="fancybox/jquery.fancybox.css"
     permission="zope.Public"
     />
 
