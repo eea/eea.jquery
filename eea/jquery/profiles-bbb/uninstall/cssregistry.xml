@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<object name="portal_css">
+  <stylesheet remove="True" id="++resource++jquery-ui-1.7.custom.css"/>
+  <stylesheet remove="True" id="++resource++jquery.annotator.css"/>
+  <stylesheet remove="True" id="++resource++jquery.colorpicker.css"/>
+  <stylesheet remove="True" id="++resource++jquery.css"/>
+  <stylesheet remove="True" id="++resource++jquery.fancybox.css"/>
+  <stylesheet remove="True" id="++resource++jquery.galleryview.css"/>
+  <stylesheet remove="True" id="++resource++jquery.jqgrid.css"/>
+  <stylesheet remove="True" id="++resource++jquery.jqzoom.css"/>
+  <stylesheet remove="True" id="++resource++jquery.select2uislider.css"/>
+  <stylesheet remove="True" id="++resource++jquery.slickgrid.css"/>
+  <stylesheet remove="True" id="++resource++jquery.timeoutdialog.css"/>
+  <stylesheet remove="True" id="++resource++jquery.tokeninput.css"/>
+  <stylesheet remove="True" id="++resource++jquery.tokeninput.facebook.css"/>
+  <stylesheet remove="True" id="++resource++jquery.tokeninput.mac.css"/>
+  <stylesheet remove="True" id="++resource++select2/select2.css"/>
+</object>
