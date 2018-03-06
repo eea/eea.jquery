@@ -3,6 +3,8 @@ Changelog
 
 10.6.dev0 - (unreleased)
 ------------------------
+* Add a BBB uninstall profile.
+  [thet]
 * Change: upgrade fancybox to 2.1.7 and jquery.reflection to 1.11 in order to avoid jquery.migrate warnings for using deprecated jquery features
   [ichim-david refs #91577]
 
