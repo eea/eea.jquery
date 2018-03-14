@@ -4,6 +4,15 @@
 
   <!-- jQuery -->
   <genericsetup:registerProfile
+    name="uninstall"
+    title="EEA jQuery (uninstall)"
+    directory="profiles-bbb/uninstall"
+    description="Uninstall extension profile for eea.jquery"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- jQuery -->
+  <genericsetup:registerProfile
     name="01-jquery"
     title="EEA jQuery"
     directory="profiles-bbb/jquery"
