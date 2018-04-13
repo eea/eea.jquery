@@ -1,8 +1,12 @@
 ==========
 EEA jQuery
 ==========
-.. image:: http://ci.eionet.europa.eu/job/eea/job/eea.jquery/job/master/badge/icon
-  :target: http://ci.eionet.europa.eu/job/eea/job/eea.jquery/job/master/display/redirect
+.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.jquery/develop
+  :target: https://ci.eionet.europa.eu/job/eea/job/eea.jquery/job/develop/display/redirect
+  :alt: develop
+.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.jquery/master
+  :target: https://ci.eionet.europa.eu/job/eea/job/eea.jquery/job/master/display/redirect
+  :alt: master
 
 Introduction
 ============
