@@ -2,7 +2,7 @@
 
 /*!
  * visibly - v0.7 Page Visibility API Polyfill
- * http://github.com/addyosmani
+ * https://github.com/addyosmani
  * Copyright (c) 2011-2014 Addy Osmani
  * Dual licensed under the MIT and GPL licenses.
  *

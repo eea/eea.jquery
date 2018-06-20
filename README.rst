@@ -117,8 +117,8 @@ Funding
 
 EEA_ - European Environment Agency (EU)
 
-.. _EEA: http://www.eea.europa.eu/
-.. _`eea.tags`: http://eea.github.com/docs/eea.tags
+.. _EEA: https://www.eea.europa.eu/
+.. _`eea.tags`: https://eea.github.com/docs/eea.tags
 .. _`eea_screentimeanalytics`: https://github.com/collective/eea.jquery/tree/master/eea/jquery/plugins/eea_screentimeanalytics/docs
-.. _`plone.recipe.zope2instance`: http://pypi.python.org/pypi/plone.recipe.zope2instance
-.. _`zc.buildout`: http://pypi.python.org/pypi/zc.buildout
+.. _`plone.recipe.zope2instance`: https://pypi.python.org/pypi/plone.recipe.zope2instance
+.. _`zc.buildout`: https://pypi.python.org/pypi/zc.buildout
