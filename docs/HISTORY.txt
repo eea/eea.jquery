@@ -1,6 +1,9 @@
 Changelog
 =========
 
+10.8-dev0 - (unreleased)
+---------------------
+
 10.7 - (2018-06-20)
 ---------------------
 * Change: updated URLs pointing to eea.europa.eu with https://
@@ -488,4 +491,3 @@ Changelog
 1.0 - (2009-10-29)
 ------------------
 * Initial release
-
