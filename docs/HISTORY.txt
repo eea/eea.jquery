@@ -1,6 +1,11 @@
 Changelog
 =========
 
+10.7 - (2018-06-20)
+---------------------
+* Change: updated URLs pointing to eea.europa.eu with https://
+  [alecghica refs #95849]
+
 10.6 - (2018-03-14)
 -------------------
 * Add a BBB uninstall profile.

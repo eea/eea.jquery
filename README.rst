@@ -1,8 +1,12 @@
 ==========
 EEA jQuery
 ==========
-.. image:: http://ci.eionet.europa.eu/job/eea/job/eea.jquery/job/master/badge/icon
-  :target: http://ci.eionet.europa.eu/job/eea/job/eea.jquery/job/master/display/redirect
+.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.jquery/develop
+  :target: https://ci.eionet.europa.eu/job/eea/job/eea.jquery/job/develop/display/redirect
+  :alt: develop
+.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.jquery/master
+  :target: https://ci.eionet.europa.eu/job/eea/job/eea.jquery/job/master/display/redirect
+  :alt: master
 
 Introduction
 ============
@@ -113,8 +117,8 @@ Funding
 
 EEA_ - European Environment Agency (EU)
 
-.. _EEA: http://www.eea.europa.eu/
-.. _`eea.tags`: http://eea.github.com/docs/eea.tags
+.. _EEA: https://www.eea.europa.eu/
+.. _`eea.tags`: https://eea.github.com/docs/eea.tags
 .. _`eea_screentimeanalytics`: https://github.com/collective/eea.jquery/tree/master/eea/jquery/plugins/eea_screentimeanalytics/docs
-.. _`plone.recipe.zope2instance`: http://pypi.python.org/pypi/plone.recipe.zope2instance
-.. _`zc.buildout`: http://pypi.python.org/pypi/zc.buildout
+.. _`plone.recipe.zope2instance`: https://pypi.python.org/pypi/plone.recipe.zope2instance
+.. _`zc.buildout`: https://pypi.python.org/pypi/zc.buildout
