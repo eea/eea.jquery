@@ -3,6 +3,8 @@ Changelog
 
 10.8-dev0 - (unreleased)
 ---------------------
+* Bug fix:  jQuery.timer is undefined
+  [avoinea refs #97410]
 
 10.7 - (2018-06-20)
 ---------------------
