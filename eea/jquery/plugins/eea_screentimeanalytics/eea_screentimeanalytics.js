@@ -1,4 +1,4 @@
-/*global jQuery window document ga setTimeout*/
+/*global jQuery window document ga _paq setTimeout*/
 
 /*!
  * visibly - v0.7 Page Visibility API Polyfill
@@ -510,7 +510,12 @@
 
             // Track the article load
             if (!opts.debug) {
-                ga('send', 'event', 'Reading', '1 Page Loaded', ptype, { 'nonInteraction': 1 });
+                if (window.ga) {
+                    ga('send', 'event', 'Reading', '1 Page Loaded', ptype, { 'nonInteraction': 1 });
+                }
+                if (window._paq) {
+                    _paq.push(['trackEvent', 'Reading', 'load', ptype, 1]);
+                }
             } else {
                 window.console.log('The page has loaded.');
             }
@@ -528,10 +533,17 @@
                     timeToScroll = timers['beginning'];
 
                     if (!opts.debug) {
-                        start_obj_metrics[opts.metrics['started_reading']] = timeToScroll;
-                        start_obj_metrics[opts.metrics['start_reading']] = 1;
-                        ga('set', start_obj_metrics);
-                        ga('send', 'event', 'Reading', '2 Started Content Reading', ptype, timeToScroll);
+                        if (window.ga) {
+                            start_obj_metrics[opts.metrics['started_reading']] = timeToScroll;
+                            start_obj_metrics[opts.metrics['start_reading']] = 1;
+                            ga('set', start_obj_metrics);
+                            ga('send', 'event', 'Reading', '2 Started Content Reading', ptype, timeToScroll);
+                        }
+                        if (window._paq) {
+                            _paq.push(['setCustomVariable', 1, 'started_reading', timeToScroll, 'Reading']);
+                            _paq.push(['setCustomVariable', 2, 'start_reading', 1, 'Reading']);
+                            _paq.push(['trackEvent', 'Reading', 'start', ptype, timeToScroll]);
+                        }
                     } else {
                         window.console.log('Reached content start in ' + timeToScroll);
                     }
@@ -543,23 +555,60 @@
                     timeToContentEnd = timers['content_bottom'];
                     if (!opts.debug) {
                         if (timeToContentEnd < (minReadTime - opts.readTimeThreshold)) {
-                            ga('set', 'dimension1', 'Scanner');
-                            ga('send', 'event', 'Reading', '5 Content Scanned', ptype, timeToContentEnd);
+                            if (window.ga) {
+                                ga('set', 'dimension1', 'Scanner');
+                                ga('send', 'event', 'Reading', '5 Content Scanned', ptype, timeToContentEnd);
+                            }
+                            if (window._paq) {
+                                _paq.push(['setCustomDimension', 1, 'scanner']);
+                                _paq.push(['trackEvent', 'Reading', 'scan', ptype, timeToContentEnd]);
+                            }
                         } else {
-                            ga('set', 'dimension1', 'Reader');
+                            if (window.ga) {
+                                ga('set', 'dimension1', 'Reader');
+                            }
+                            if(window._paq) {
+                                _paq.push(['setCustomDimension', 1, 'reader']);
+                            }
                             if (!sentPageTrack) {
                                 sentPageTrack = true;
-                                ga('send', 'pageview', window.location.pathname);
+                                if (window.ga) {
+                                    ga('send', 'pageview', window.location.pathname);
+                                }
+                                if(window._paq) {
+                                    _paq.push(['setCustomUrl', window.location.pathname]);
+                                    _paq.push(['trackPageView']);
+                                }
                             }
-                            ga('send', 'event', 'Reading', '6 Content Read', ptype, timeToContentEnd);
+                            if (window.ga) {
+                                ga('send', 'event', 'Reading', '6 Content Read', ptype, timeToContentEnd);
+                            }
+                            if (window._paq) {
+                                _paq.push(['trackEvent', 'Reading', 'read', ptype, timeToContentEnd]);
+                            }
                         }
                         if (reached_content_bottom) {
-                            ga('set', reached_content_bottom, timeToContentEnd);
+                            if (window.ga) {
+                                ga('set', reached_content_bottom, timeToContentEnd);
+                            }
+                            if(window._paq) {
+                                _paq.push(['setCustomVariable', 3, 'reached_content_bottom', timeToContentEnd, 'Reading']);
+                            }
                         }
                         if (content_bottom) {
-                            ga('set', content_bottom, 1);
+                            if (window.ga) {
+                                ga('set', content_bottom, 1);
+                            }
+                            if (window._paq) {
+                                _paq.push(['setCustomVariable', 4, 'content_bottom', 1, 'Reading']);
+                            }
                         }
-                        ga('send', 'event', 'Reading', '3 Reached Content Bottom', ptype, timeToContentEnd);
+                        if (window.ga) {
+                            ga('send', 'event', 'Reading', '3 Reached Content Bottom', ptype, timeToContentEnd);
+                        }
+                        if(window._paq) {
+                            _paq.push(['trackEvent', 'Reading part', 'body', ptype, timeToContentEnd]);
+                        }
                     } else {
                         window.console.log('Reached content section bottom in ' + timeToContentEnd);
                     }
@@ -576,8 +625,15 @@
                         if (page_bottom) {
                             page_obj_metrics[page_bottom] = 1;
                         }
-                        ga('set', page_obj_metrics);
-                        ga('send', 'event', 'Reading', '4 Reached Page Bottom', ptype, totalTime);
+                        if (window.ga) {
+                            ga('set', page_obj_metrics);
+                            ga('send', 'event', 'Reading', '4 Reached Page Bottom', ptype, totalTime);
+                        }
+                        if(window._paq) {
+                            _paq.push(['setCustomVariable', 5, 'reached_page_bottom', totalTime, 'Reading']);
+                            _paq.push(['setCustomVariable', 6, 'page_bottom', 1, 'Reading']);
+                            _paq.push(['trackEvent', 'Reading part', 'page', ptype, totalTime]);
+                        }
                     } else {
                         window.console.log('Reached page bottom in ' + totalTime);
                     }
@@ -625,15 +681,32 @@
 
         window.onbeforeunload = function () {
             var content_time = counter['content'];
-            ga('send', 'event', 'Reading', '7 Content area time spent', ptype, content_time);
+            if (window.ga) {
+                ga('send', 'event', 'Reading', '7 Content area time spent', ptype, content_time);
+            }
+            if(window._paq) {
+                _paq.push(['trackEvent', 'Reading time', 'total', ptype, content_time]);
+            }
 
             var timeToread = minReadTime - opts.readTimeThreshold;
             if (content_time > timeToread && endContent) {
-                ga('set', 'dimension1', 'Reader');
-                ga('send', 'event', 'Reading', '9 Content Area Reader', ptype, content_time);
+                if (window.ga) {
+                    ga('set', 'dimension1', 'Reader');
+                    ga('send', 'event', 'Reading', '9 Content Area Reader', ptype, content_time);
+                }
+                if(window._paq) {
+                    _paq.push(['setCustomDimension', 1, 'reader']);
+                    _paq.push(['trackEvent', 'Reading type', 'reader', ptype, content_time]);
+                }
             } else {
-                ga('set', 'dimension1', 'Scanner');
-                ga('send', 'event', 'Reading', '8 Content Area Scanner', ptype, content_time);
+                if (window.ga) {
+                    ga('set', 'dimension1', 'Scanner');
+                    ga('send', 'event', 'Reading', '8 Content Area Scanner', ptype, content_time);
+                }
+                if(window._paq) {
+                    _paq.push(['setCustomDimension', 1, 'scanner']);
+                    _paq.push(['trackEvent', 'Reading type', 'scanner', ptype, content_time]);
+                }
             }
         };
     };
@@ -663,6 +736,5 @@
             'page_bottom': 'metric6'
         }
     };
-:
-})(jQuery, window, document);
 
+})(jQuery, window, document);
