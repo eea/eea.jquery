@@ -1,7 +1,7 @@
 Changelog
 =========
 
-10.9-dev0 - (unreleased)
+10.9 - (2018-10-05)
 ---------------------
 * Feature: Added support for Matomo analytics reading events
   [avoinea refs #98857]
