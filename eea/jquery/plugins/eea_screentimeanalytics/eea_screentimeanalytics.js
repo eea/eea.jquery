@@ -133,6 +133,7 @@
 })();
 
 
+
 // TextStatistics.js
 // Christopher Giffard (2012)
 // 1:1 API Fork of TextStatistics.php by Dave Child (Thanks mate!)
@@ -229,7 +230,7 @@
     };
 
     TextStatistics.prototype.averageCharactersPerWord = function(text) {
-        var txt = text ? cleanText(text) : this.text;
+        var txt = text ? this.cleanText(text) : this.text;
         return this.letterCount(txt) / this.wordCount(txt);
     };
 
@@ -335,7 +336,9 @@
         return new TextStatistics(text);
     }
 
-    glob.textstatistics = textStatistics;
+    (typeof module != "undefined" && module.exports) ? (module.exports = textStatistics) : (typeof define != "undefined" ? (define("textstatistics", [], function() {
+        return textStatistics;
+    })) : (glob.textstatistics = textStatistics));
 })(this);
 
 // Plugin definition.
@@ -368,9 +371,9 @@
         var timers = { beginning: 0, content_bottom: 0, page_bottom: 0};
         var counter = {content: 0};
         var content_core = this[0];
-	if (!content_core) {
-	    return;
-	}
+        if (!content_core) {
+            return;
+        }
         var minReadTime = window.parseInt(Math.round(window.textstatistics(
                     content_core.innerText).wordCount() / opts.avgWPM), 10) * 60;
         var start_obj_metrics = {}, content_obj_metrics = {}, page_obj_metrics = {};
@@ -652,6 +655,6 @@
             'page_bottom': 'metric6'
         }
     };
-
+:
 })(jQuery, window, document);
 
