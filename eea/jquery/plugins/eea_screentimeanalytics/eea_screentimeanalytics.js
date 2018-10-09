@@ -540,8 +540,7 @@
                             ga('send', 'event', 'Reading', '2 Started Content Reading', ptype, timeToScroll);
                         }
                         if (window._paq) {
-                            _paq.push(['setCustomVariable', 1, 'started_reading', timeToScroll, 'Reading']);
-                            _paq.push(['setCustomVariable', 2, 'start_reading', 1, 'Reading']);
+                            _paq.push(['setCustomVariable', 1, 'Reading: Started Content Reading', timeToScroll, 'page']);
                             _paq.push(['trackEvent', 'Reading', 'start', ptype, timeToScroll]);
                         }
                     } else {
@@ -592,15 +591,12 @@
                                 ga('set', reached_content_bottom, timeToContentEnd);
                             }
                             if(window._paq) {
-                                _paq.push(['setCustomVariable', 3, 'reached_content_bottom', timeToContentEnd, 'Reading']);
+                                _paq.push(['setCustomVariable', 2, 'Reading: Reached Content Bottom', timeToContentEnd, 'page']);
                             }
                         }
                         if (content_bottom) {
                             if (window.ga) {
                                 ga('set', content_bottom, 1);
-                            }
-                            if (window._paq) {
-                                _paq.push(['setCustomVariable', 4, 'content_bottom', 1, 'Reading']);
                             }
                         }
                         if (window.ga) {
@@ -630,8 +626,7 @@
                             ga('send', 'event', 'Reading', '4 Reached Page Bottom', ptype, totalTime);
                         }
                         if(window._paq) {
-                            _paq.push(['setCustomVariable', 5, 'reached_page_bottom', totalTime, 'Reading']);
-                            _paq.push(['setCustomVariable', 6, 'page_bottom', 1, 'Reading']);
+                            _paq.push(['setCustomVariable', 3, 'Reading: Reached Page Bottom', totalTime, 'page']);
                             _paq.push(['trackEvent', 'Reading part', 'page', ptype, totalTime]);
                         }
                     } else {
