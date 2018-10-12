@@ -14,6 +14,9 @@
  * visibly.visibilitychange(callback(state));
  */
 
+// Matomo support
+var _paq = _paq || [];
+
 (function () {
 
     window.visibly = {
@@ -354,6 +357,7 @@
 // http://cutroni.com/blog/2014/02/12/advanced-content-tracking-with-universal-analytics/
 (function ($, window, document, undefined) {
     "use strict";
+
     var throttle = window.underscore ? window.underscore.throttle : function (t, e) {
         var n;
         return function () {
@@ -513,9 +517,7 @@
                 if (window.ga) {
                     ga('send', 'event', 'Reading', '1 Page Loaded', ptype, { 'nonInteraction': 1 });
                 }
-                if (window._paq) {
-                    _paq.push(['trackEvent', 'Reading', 'load', ptype, 1]);
-                }
+                _paq.push(['trackEvent', 'Reading', 'load', ptype, 1]);
             } else {
                 window.console.log('The page has loaded.');
             }
@@ -539,10 +541,8 @@
                             ga('set', start_obj_metrics);
                             ga('send', 'event', 'Reading', '2 Started Content Reading', ptype, timeToScroll);
                         }
-                        if (window._paq) {
-                            _paq.push(['setCustomVariable', 1, 'Reading: Started Content Reading', timeToScroll, 'page']);
-                            _paq.push(['trackEvent', 'Reading', 'start', ptype, timeToScroll]);
-                        }
+                        _paq.push(['setCustomVariable', 1, 'Reading: Started Content Reading', timeToScroll, 'page']);
+                        _paq.push(['trackEvent', 'Reading', 'start', ptype, timeToScroll]);
                     } else {
                         window.console.log('Reached content start in ' + timeToScroll);
                     }
@@ -558,41 +558,31 @@
                                 ga('set', 'dimension1', 'Scanner');
                                 ga('send', 'event', 'Reading', '5 Content Scanned', ptype, timeToContentEnd);
                             }
-                            if (window._paq) {
-                                _paq.push(['setCustomDimension', 1, 'scanner']);
-                                _paq.push(['trackEvent', 'Reading', 'scan', ptype, timeToContentEnd]);
-                            }
+                            _paq.push(['setCustomDimension', 1, 'scanner']);
+                            _paq.push(['trackEvent', 'Reading', 'scan', ptype, timeToContentEnd]);
                         } else {
                             if (window.ga) {
                                 ga('set', 'dimension1', 'Reader');
                             }
-                            if(window._paq) {
-                                _paq.push(['setCustomDimension', 1, 'reader']);
-                            }
+                            _paq.push(['setCustomDimension', 1, 'reader']);
                             if (!sentPageTrack) {
                                 sentPageTrack = true;
                                 if (window.ga) {
                                     ga('send', 'pageview', window.location.pathname);
                                 }
-                                if(window._paq) {
-                                    _paq.push(['setCustomUrl', window.location.pathname]);
-                                    _paq.push(['trackPageView']);
-                                }
+                                _paq.push(['setCustomUrl', window.location.pathname]);
+                                _paq.push(['trackPageView']);
                             }
                             if (window.ga) {
                                 ga('send', 'event', 'Reading', '6 Content Read', ptype, timeToContentEnd);
                             }
-                            if (window._paq) {
-                                _paq.push(['trackEvent', 'Reading', 'read', ptype, timeToContentEnd]);
-                            }
+                            _paq.push(['trackEvent', 'Reading', 'read', ptype, timeToContentEnd]);
                         }
                         if (reached_content_bottom) {
                             if (window.ga) {
                                 ga('set', reached_content_bottom, timeToContentEnd);
                             }
-                            if(window._paq) {
-                                _paq.push(['setCustomVariable', 2, 'Reading: Reached Content Bottom', timeToContentEnd, 'page']);
-                            }
+                            _paq.push(['setCustomVariable', 2, 'Reading: Reached Content Bottom', timeToContentEnd, 'page']);
                         }
                         if (content_bottom) {
                             if (window.ga) {
@@ -602,9 +592,7 @@
                         if (window.ga) {
                             ga('send', 'event', 'Reading', '3 Reached Content Bottom', ptype, timeToContentEnd);
                         }
-                        if(window._paq) {
-                            _paq.push(['trackEvent', 'Reading part', 'body', ptype, timeToContentEnd]);
-                        }
+                        _paq.push(['trackEvent', 'Reading part', 'body', ptype, timeToContentEnd]);
                     } else {
                         window.console.log('Reached content section bottom in ' + timeToContentEnd);
                     }
@@ -625,10 +613,8 @@
                             ga('set', page_obj_metrics);
                             ga('send', 'event', 'Reading', '4 Reached Page Bottom', ptype, totalTime);
                         }
-                        if(window._paq) {
-                            _paq.push(['setCustomVariable', 3, 'Reading: Reached Page Bottom', totalTime, 'page']);
-                            _paq.push(['trackEvent', 'Reading part', 'page', ptype, totalTime]);
-                        }
+                        _paq.push(['setCustomVariable', 3, 'Reading: Reached Page Bottom', totalTime, 'page']);
+                        _paq.push(['trackEvent', 'Reading part', 'page', ptype, totalTime]);
                     } else {
                         window.console.log('Reached page bottom in ' + totalTime);
                     }
@@ -679,9 +665,7 @@
             if (window.ga) {
                 ga('send', 'event', 'Reading', '7 Content area time spent', ptype, content_time);
             }
-            if(window._paq) {
-                _paq.push(['trackEvent', 'Reading time', 'total', ptype, content_time]);
-            }
+            _paq.push(['trackEvent', 'Reading time', 'total', ptype, content_time]);
 
             var timeToread = minReadTime - opts.readTimeThreshold;
             if (content_time > timeToread && endContent) {
@@ -689,19 +673,15 @@
                     ga('set', 'dimension1', 'Reader');
                     ga('send', 'event', 'Reading', '9 Content Area Reader', ptype, content_time);
                 }
-                if(window._paq) {
-                    _paq.push(['setCustomDimension', 1, 'reader']);
-                    _paq.push(['trackEvent', 'Reading type', 'reader', ptype, content_time]);
-                }
+                _paq.push(['setCustomDimension', 1, 'reader']);
+                _paq.push(['trackEvent', 'Reading type', 'reader', ptype, content_time]);
             } else {
                 if (window.ga) {
                     ga('set', 'dimension1', 'Scanner');
                     ga('send', 'event', 'Reading', '8 Content Area Scanner', ptype, content_time);
                 }
-                if(window._paq) {
-                    _paq.push(['setCustomDimension', 1, 'scanner']);
-                    _paq.push(['trackEvent', 'Reading type', 'scanner', ptype, content_time]);
-                }
+                _paq.push(['setCustomDimension', 1, 'scanner']);
+                _paq.push(['trackEvent', 'Reading type', 'scanner', ptype, content_time]);
             }
         };
     };
