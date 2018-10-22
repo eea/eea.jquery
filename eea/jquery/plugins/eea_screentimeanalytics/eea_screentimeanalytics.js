@@ -592,7 +592,7 @@ var _paq = _paq || [];
                         if (window.ga) {
                             ga('send', 'event', 'Reading', '3 Reached Content Bottom', ptype, timeToContentEnd);
                         }
-                        _paq.push(['trackEvent', 'Reading part', 'body', ptype, timeToContentEnd]);
+                        _paq.push(['trackEvent', 'Reading part', 'content body read', ptype, timeToContentEnd]);
                     } else {
                         window.console.log('Reached content section bottom in ' + timeToContentEnd);
                     }
@@ -614,7 +614,7 @@ var _paq = _paq || [];
                             ga('send', 'event', 'Reading', '4 Reached Page Bottom', ptype, totalTime);
                         }
                         _paq.push(['setCustomVariable', 3, 'Reading: Reached Page Bottom', totalTime, 'page']);
-                        _paq.push(['trackEvent', 'Reading part', 'page', ptype, totalTime]);
+                        _paq.push(['trackEvent', 'Reading part', 'page footer seen', ptype, totalTime]);
                     } else {
                         window.console.log('Reached page bottom in ' + totalTime);
                     }
