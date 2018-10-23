@@ -1,4 +1,4 @@
-/*global jQuery window document ga setTimeout*/
+/*global jQuery window document ga _paq setTimeout*/
 
 /*!
  * visibly - v0.7 Page Visibility API Polyfill
@@ -14,7 +14,10 @@
  * visibly.visibilitychange(callback(state));
  */
 
-;(function() {
+// Matomo support
+var _paq = _paq || [];
+
+(function () {
 
     window.visibly = {
         q: document,
@@ -29,17 +32,17 @@
         cachedPrefix: "",
         fn: null,
 
-        onVisible: function(_callback) {
+        onVisible: function (_callback) {
             if (typeof _callback == 'function') {
                 this.visibleCallbacks.push(_callback);
             }
         },
-        onHidden: function(_callback) {
+        onHidden: function (_callback) {
             if (typeof _callback == 'function') {
                 this.hiddenCallbacks.push(_callback);
             }
         },
-        getPrefix: function() {
+        getPrefix: function () {
             if (!this.cachedPrefix) {
                 for (var l = 0, b; b = this.prefixes[l++];) {
                     if (b + this.props[2] in this.q) {
@@ -50,13 +53,13 @@
             }
         },
 
-        visibilityState: function() {
+        visibilityState: function () {
             return this._getProp(0);
         },
-        hidden: function() {
+        hidden: function () {
             return this._getProp(2);
         },
-        visibilitychange: function(fn) {
+        visibilitychange: function (fn) {
             if (typeof fn == 'function') {
                 this.genericCallbacks.push(fn);
             }
@@ -75,16 +78,16 @@
             }
 
         },
-        isSupported: function(index) {
+        isSupported: function (index) {
             return ((this._getPropName(2)) in this.q);
         },
-        _getPropName: function(index) {
+        _getPropName: function (index) {
             return (this.cachedPrefix == "" ? this.props[index].substring(0, 1).toLowerCase() + this.props[index].substring(1) : this.cachedPrefix + this.props[index]);
         },
-        _getProp: function(index) {
+        _getProp: function (index) {
             return this.q[this._getPropName(index)];
         },
-        _execute: function(index) {
+        _execute: function (index) {
             if (index) {
                 this._callbacks = (index == 1) ? this.visibleCallbacks : this.hiddenCallbacks;
                 var n = this._callbacks.length;
@@ -93,18 +96,18 @@
                 }
             }
         },
-        _visible: function() {
+        _visible: function () {
             window.visibly._execute(1);
             window.visibly.visibilitychange.call(window.visibly, 'visible');
         },
-        _hidden: function() {
+        _hidden: function () {
             window.visibly._execute(2);
             window.visibly.visibilitychange.call(window.visibly, 'hidden');
         },
-        _nativeSwitch: function() {
+        _nativeSwitch: function () {
             this[this._getProp(2) ? '_hidden' : '_visible']();
         },
-        _listen: function() {
+        _listen: function () {
             try { /*if no native page visibility support found..*/
                 if (!(this.isSupported())) {
                     if (this.q.addEventListener) { /*for browsers without focusin/out support eg. firefox, opera use focus/blur*/
@@ -117,13 +120,13 @@
                         }
                     }
                 } else { /*switch support based on prefix detected earlier*/
-                    this.q.addEventListener(this._getPropName(1), function() {
+                    this.q.addEventListener(this._getPropName(1), function () {
                         window.visibly._nativeSwitch.apply(window.visibly, arguments);
                     }, 1);
                 }
-            } catch (e) {}
+            } catch (e) { }
         },
-        init: function() {
+        init: function () {
             this.getPrefix();
             this._listen();
         }
@@ -133,19 +136,20 @@
 })();
 
 
+
 // TextStatistics.js
 // Christopher Giffard (2012)
 // 1:1 API Fork of TextStatistics.php by Dave Child (Thanks mate!)
 // https://github.com/DaveChild/Text-Statistics
 
 
-(function(glob) {
+(function (glob) {
 
     function cleanText(text) {
         // all these tags should be preceeded by a full stop.
         var fullStopTags = ['li', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'dd'];
 
-        fullStopTags.forEach(function(tag) {
+        fullStopTags.forEach(function (tag) {
             text = text.replace("</" + tag + ">", ".");
         });
 
@@ -170,76 +174,76 @@
         this.text = text ? cleanText(text) : "";
     };
 
-    TextStatistics.prototype.fleschKincaidReadingEase = function(text) {
+    TextStatistics.prototype.fleschKincaidReadingEase = function (text) {
         text = text ? cleanText(text) : this.text;
         return Math.round((206.835 - (1.015 * this.averageWordsPerSentence(text)) - (84.6 * this.averageSyllablesPerWord(text))) * 10) / 10;
     };
 
-    TextStatistics.prototype.fleschKincaidGradeLevel = function(text) {
+    TextStatistics.prototype.fleschKincaidGradeLevel = function (text) {
         text = text ? cleanText(text) : this.text;
         return Math.round(((0.39 * this.averageWordsPerSentence(text)) + (11.8 * this.averageSyllablesPerWord(text)) - 15.59) * 10) / 10;
     };
 
-    TextStatistics.prototype.gunningFogScore = function(text) {
+    TextStatistics.prototype.gunningFogScore = function (text) {
         text = text ? cleanText(text) : this.text;
         return Math.round(((this.averageWordsPerSentence(text) + this.percentageWordsWithThreeSyllables(text, false)) * 0.4) * 10) / 10;
     };
 
-    TextStatistics.prototype.colemanLiauIndex = function(text) {
+    TextStatistics.prototype.colemanLiauIndex = function (text) {
         text = text ? cleanText(text) : this.text;
         return Math.round(((5.89 * (this.letterCount(text) / this.wordCount(text))) - (0.3 * (this.sentenceCount(text) / this.wordCount(text))) - 15.8) * 10) / 10;
     };
 
-    TextStatistics.prototype.smogIndex = function(text) {
+    TextStatistics.prototype.smogIndex = function (text) {
         text = text ? cleanText(text) : this.text;
         return Math.round(1.043 * Math.sqrt((this.wordsWithThreeSyllables(text) * (30 / this.sentenceCount(text))) + 3.1291) * 10) / 10;
     };
 
-    TextStatistics.prototype.automatedReadabilityIndex = function(text) {
+    TextStatistics.prototype.automatedReadabilityIndex = function (text) {
         text = text ? cleanText(text) : this.text;
         return Math.round(((4.71 * (this.letterCount(text) / this.wordCount(text))) + (0.5 * (this.wordCount(text) / this.sentenceCount(text))) - 21.43) * 10) / 10;
     };
 
-    TextStatistics.prototype.textLength = function(text) {
+    TextStatistics.prototype.textLength = function (text) {
         text = text ? cleanText(text) : this.text;
         return text.length;
     };
 
-    TextStatistics.prototype.letterCount = function(text) {
+    TextStatistics.prototype.letterCount = function (text) {
         text = text ? cleanText(text) : this.text;
         text = text.replace(/[^a-z]+/ig, "");
         return text.length;
     };
 
-    TextStatistics.prototype.sentenceCount = function(text) {
+    TextStatistics.prototype.sentenceCount = function (text) {
         text = text ? cleanText(text) : this.text;
 
         // Will be tripped up by "Mr." or "U.K.". Not a major concern at this point.
         return text.replace(/[^\.!?]/g, '').length || 1;
     };
 
-    TextStatistics.prototype.wordCount = function(text) {
+    TextStatistics.prototype.wordCount = function (text) {
         text = text ? cleanText(text) : this.text;
         return text.split(/[^a-z0-9\'@\.\-]+/i).length || 1;
     };
 
-    TextStatistics.prototype.averageWordsPerSentence = function(text) {
+    TextStatistics.prototype.averageWordsPerSentence = function (text) {
         text = text ? cleanText(text) : this.text;
         return this.wordCount(text) / this.sentenceCount(text);
     };
 
-    TextStatistics.prototype.averageCharactersPerWord = function(text) {
-        var txt = text ? cleanText(text) : this.text;
+    TextStatistics.prototype.averageCharactersPerWord = function (text) {
+        var txt = text ? this.cleanText(text) : this.text;
         return this.letterCount(txt) / this.wordCount(txt);
     };
 
-    TextStatistics.prototype.averageSyllablesPerWord = function(text) {
+    TextStatistics.prototype.averageSyllablesPerWord = function (text) {
         text = text ? cleanText(text) : this.text;
         var syllableCount = 0,
             wordCount = this.wordCount(text),
             self = this;
 
-        text.split(/\s+/).forEach(function(word) {
+        text.split(/\s+/).forEach(function (word) {
             syllableCount += self.syllableCount(word);
         });
 
@@ -247,32 +251,34 @@
         return (syllableCount || 1) / (wordCount || 1);
     };
 
-    TextStatistics.prototype.wordsWithThreeSyllables = function(text, countProperNouns) {
+    TextStatistics.prototype.wordsWithThreeSyllables = function (text, countProperNouns) {
         text = text ? cleanText(text) : this.text;
         var longWordCount = 0,
             self = this;
 
         countProperNouns = countProperNouns === false ? false : true;
 
-        text.split(/\s+/).forEach(function(word) {
+        text.split(/\s+/).forEach(function (word) {
 
             // We don't count proper nouns or capitalised words if the countProperNouns attribute is set.
             // Defaults to true.
             if (!word.match(/^[A-Z]/) || countProperNouns) {
-                if (self.syllableCount(word) > 2) longWordCount++;
+                if (self.syllableCount(word) > 2) {
+                    longWordCount++;
+                }
             }
         });
 
         return longWordCount;
     };
 
-    TextStatistics.prototype.percentageWordsWithThreeSyllables = function(text, countProperNouns) {
+    TextStatistics.prototype.percentageWordsWithThreeSyllables = function (text, countProperNouns) {
         text = text ? cleanText(text) : this.text;
 
         return (this.wordsWithThreeSyllables(text, countProperNouns) / this.wordCount(text)) * 100;
     };
 
-    TextStatistics.prototype.syllableCount = function(word) {
+    TextStatistics.prototype.syllableCount = function (word) {
         var syllableCount = 0,
             prefixSuffixCount = 0,
             wordPartCount = 0;
@@ -289,7 +295,9 @@
         };
 
         // Return if we've hit one of those...
-        if (problemWords.hasOwnProperty(word)) return problemWords[word];
+        if (problemWords.hasOwnProperty(word)) {
+            return problemWords[word];
+        }
 
         // These syllables would be counted as two but should be one
         var subSyllables = [/cial/, /tia/, /cius/, /cious/, /giu/, /ion/, /iou/, /sia$/, /[^aeiuoyt]{2,}ed$/, /.ely$/, /[cg]h?e[rsd]?$/, /rved?$/, /[aeiouy][dt]es?$/, /[aeiouy][^aeiouydt]e[rsd]?$/, /^[dr]e[aeiou][^aeiou]+$/, // Sorts out deal, deign etc
@@ -303,7 +311,7 @@
         var prefixSuffix = [/^un/, /^fore/, /ly$/, /less$/, /ful$/, /ers?$/, /ings?$/];
 
         // Remove prefixes and suffixes and count how many were taken
-        prefixSuffix.forEach(function(regex) {
+        prefixSuffix.forEach(function (regex) {
             if (word.match(regex)) {
                 word = word.replace(regex, "");
                 prefixSuffixCount++;
@@ -311,7 +319,7 @@
         });
 
         wordPartCount = word.split(/[^aeiouy]+/ig)
-            .filter(function(wordPart) {
+            .filter(function (wordPart) {
                 return !!wordPart.replace(/\s+/ig, "").length;
             })
             .length;
@@ -320,12 +328,16 @@
         syllableCount = wordPartCount + prefixSuffixCount;
 
         // Some syllables do not follow normal rules - check for them
-        subSyllables.forEach(function(syllable) {
-            if (word.match(syllable)) syllableCount--;
+        subSyllables.forEach(function (syllable) {
+            if (word.match(syllable)) {
+                syllableCount--;
+            }
         });
 
-        addSyllables.forEach(function(syllable) {
-            if (word.match(syllable)) syllableCount++;
+        addSyllables.forEach(function (syllable) {
+            if (word.match(syllable)) {
+                syllableCount++;
+            }
         });
 
         return syllableCount || 1;
@@ -335,19 +347,22 @@
         return new TextStatistics(text);
     }
 
-    glob.textstatistics = textStatistics;
+    (typeof module != "undefined" && module.exports) ? (module.exports = textStatistics) : (typeof define != "undefined" ? (define("textstatistics", [], function () {
+        return textStatistics;
+    })) : (glob.textstatistics = textStatistics));
 })(this);
 
 // Plugin definition.
 // portions of google analytics code inspired from
 // http://cutroni.com/blog/2014/02/12/advanced-content-tracking-with-universal-analytics/
-(function($, window, document, undefined) {
-	"use strict";
-    var throttle =  window.underscore ? window.underscore.throttle : function(t, e) {
+(function ($, window, document, undefined) {
+    "use strict";
+
+    var throttle = window.underscore ? window.underscore.throttle : function (t, e) {
         var n;
-        return function() {
+        return function () {
             var i, o = this, r = arguments;
-            n || (i = function() {
+            n || (i = function () {
                 n = null,
                     t.apply(o, r);
             },
@@ -359,20 +374,20 @@
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
 
-    $.fn.screentimeAnalytics = function( options ) {
-        var opts = $.extend( {}, $.fn.screentimeAnalytics.defaults, options );
+    $.fn.screentimeAnalytics = function (options) {
+        var opts = $.extend({}, $.fn.screentimeAnalytics.defaults, options);
         // Our plugin implementation code goes here.
 
         var looker, content_looker;
         var started;
-        var timers = { beginning: 0, content_bottom: 0, page_bottom: 0};
-        var counter = {content: 0};
+        var timers = { beginning: 0, content_bottom: 0, page_bottom: 0 };
+        var counter = { content: 0 };
         var content_core = this[0];
-	if (!content_core) {
-	    return;
-	}
+        if (!content_core) {
+            return;
+        }
         var minReadTime = window.parseInt(Math.round(window.textstatistics(
-                    content_core.innerText).wordCount() / opts.avgWPM), 10) * 60;
+            content_core.innerText).wordCount() / opts.avgWPM), 10) * 60;
         var start_obj_metrics = {}, content_obj_metrics = {}, page_obj_metrics = {};
         var reached_content_bottom = opts.metrics['reached_content_bottom'];
         var content_bottom = opts.metrics['content_bottom'];
@@ -402,7 +417,7 @@
         }
 
         var incrementTimeSpent = function incrementTimeSpent() {
-            $.each(timers, function(key, val) {
+            $.each(timers, function (key, val) {
                 timers[key] = val + 1;
             });
 
@@ -412,7 +427,7 @@
                 incrementTimeSpent();
                 started = true;
             }
-            looker = window.setInterval(function() {
+            looker = window.setInterval(function () {
                 incrementTimeSpent();
             }, 1000);
         };
@@ -473,7 +488,7 @@
                 checkViewport();
                 started = true;
             }
-            content_looker = window.setInterval(function() {
+            content_looker = window.setInterval(function () {
                 checkViewport();
             }, 1000);
         };
@@ -490,7 +505,7 @@
         var $window = $(window);
         var $document = $(document);
 
-        $window.one("scroll", function() {
+        $window.one("scroll", function () {
             // Set some time variables to calculate reading time
             if (!started) {
                 startTimers();
@@ -499,7 +514,10 @@
 
             // Track the article load
             if (!opts.debug) {
-                ga('send', 'event', 'Reading', '1 Page Loaded', ptype, {'nonInteraction': 1});
+                if (window.ga) {
+                    ga('send', 'event', 'Reading', '1 Page Loaded', ptype, { 'nonInteraction': 1 });
+                }
+                _paq.push(['trackEvent', 'Reading', 'load', ptype, 1]);
             } else {
                 window.console.log('The page has loaded.');
             }
@@ -517,10 +535,14 @@
                     timeToScroll = timers['beginning'];
 
                     if (!opts.debug) {
-                        start_obj_metrics[opts.metrics['started_reading']] = timeToScroll;
-                        start_obj_metrics[opts.metrics['start_reading']] = 1;
-                        ga('set', start_obj_metrics);
-                        ga('send', 'event', 'Reading', '2 Started Content Reading', ptype, timeToScroll);
+                        if (window.ga) {
+                            start_obj_metrics[opts.metrics['started_reading']] = timeToScroll;
+                            start_obj_metrics[opts.metrics['start_reading']] = 1;
+                            ga('set', start_obj_metrics);
+                            ga('send', 'event', 'Reading', '2 Started Content Reading', ptype, timeToScroll);
+                        }
+                        _paq.push(['setCustomVariable', 1, 'Reading: Started Content Reading', timeToScroll, 'page']);
+                        _paq.push(['trackEvent', 'Reading', 'start', ptype, timeToScroll]);
                     } else {
                         window.console.log('Reached content start in ' + timeToScroll);
                     }
@@ -532,23 +554,45 @@
                     timeToContentEnd = timers['content_bottom'];
                     if (!opts.debug) {
                         if (timeToContentEnd < (minReadTime - opts.readTimeThreshold)) {
-                            ga('set', 'dimension1', 'Scanner');
-                            ga('send', 'event', 'Reading', '5 Content Scanned', ptype, timeToContentEnd);
+                            if (window.ga) {
+                                ga('set', 'dimension1', 'Scanner');
+                                ga('send', 'event', 'Reading', '5 Content Scanned', ptype, timeToContentEnd);
+                            }
+                            _paq.push(['setCustomDimension', 1, 'scanner']);
+                            _paq.push(['trackEvent', 'Reading', 'scan', ptype, timeToContentEnd]);
                         } else {
-                            ga('set', 'dimension1', 'Reader');
+                            if (window.ga) {
+                                ga('set', 'dimension1', 'Reader');
+                            }
+                            _paq.push(['setCustomDimension', 1, 'reader']);
                             if (!sentPageTrack) {
                                 sentPageTrack = true;
-                                ga('send', 'pageview', window.location.pathname);
+                                if (window.ga) {
+                                    ga('send', 'pageview', window.location.pathname);
+                                }
+                                _paq.push(['setCustomUrl', window.location.pathname]);
+                                _paq.push(['trackPageView']);
                             }
-                            ga('send', 'event', 'Reading', '6 Content Read', ptype, timeToContentEnd);
+                            if (window.ga) {
+                                ga('send', 'event', 'Reading', '6 Content Read', ptype, timeToContentEnd);
+                            }
+                            _paq.push(['trackEvent', 'Reading', 'read', ptype, timeToContentEnd]);
                         }
                         if (reached_content_bottom) {
-                            ga('set', reached_content_bottom, timeToContentEnd);
+                            if (window.ga) {
+                                ga('set', reached_content_bottom, timeToContentEnd);
+                            }
+                            _paq.push(['setCustomVariable', 2, 'Reading: Reached Content Bottom', timeToContentEnd, 'page']);
                         }
                         if (content_bottom) {
-                            ga('set', content_bottom, 1);
+                            if (window.ga) {
+                                ga('set', content_bottom, 1);
+                            }
                         }
-                        ga('send', 'event', 'Reading', '3 Reached Content Bottom', ptype, timeToContentEnd);
+                        if (window.ga) {
+                            ga('send', 'event', 'Reading', '3 Reached Content Bottom', ptype, timeToContentEnd);
+                        }
+                        _paq.push(['trackEvent', 'Reading part', 'content body read', ptype, timeToContentEnd]);
                     } else {
                         window.console.log('Reached content section bottom in ' + timeToContentEnd);
                     }
@@ -565,8 +609,12 @@
                         if (page_bottom) {
                             page_obj_metrics[page_bottom] = 1;
                         }
-                        ga('set', page_obj_metrics);
-                        ga('send', 'event', 'Reading', '4 Reached Page Bottom', ptype, totalTime);
+                        if (window.ga) {
+                            ga('set', page_obj_metrics);
+                            ga('send', 'event', 'Reading', '4 Reached Page Bottom', ptype, totalTime);
+                        }
+                        _paq.push(['setCustomVariable', 3, 'Reading: Reached Page Bottom', totalTime, 'page']);
+                        _paq.push(['trackEvent', 'Reading part', 'page footer seen', ptype, totalTime]);
                     } else {
                         window.console.log('Reached page bottom in ' + totalTime);
                     }
@@ -575,7 +623,7 @@
                 }
             }
 
-            var lazyNavScroll = throttle(function(){
+            var lazyNavScroll = throttle(function () {
                 if (timer) {
                     window.clearTimeout(timer);
                 }
@@ -596,13 +644,13 @@
             $window.trigger('scroll');
         }
         if (window.visibly) {
-            window.visibly.onHidden(function() {
+            window.visibly.onHidden(function () {
                 if (!didComplete) {
                     stopTimers();
                 }
                 stopContentReading();
             });
-            window.visibly.onVisible(function() {
+            window.visibly.onVisible(function () {
                 if (!didComplete) {
                     stopTimers();
                     startTimers();
@@ -612,17 +660,28 @@
             });
         }
 
-        window.onbeforeunload = function() {
+        window.onbeforeunload = function () {
             var content_time = counter['content'];
-            ga('send', 'event', 'Reading', '7 Content area time spent', ptype, content_time);
+            if (window.ga) {
+                ga('send', 'event', 'Reading', '7 Content area time spent', ptype, content_time);
+            }
+            _paq.push(['trackEvent', 'Reading time', 'total', ptype, content_time]);
 
             var timeToread = minReadTime - opts.readTimeThreshold;
             if (content_time > timeToread && endContent) {
-                ga('set', 'dimension1', 'Reader');
-                ga('send', 'event', 'Reading', '9 Content Area Reader', ptype, content_time);
+                if (window.ga) {
+                    ga('set', 'dimension1', 'Reader');
+                    ga('send', 'event', 'Reading', '9 Content Area Reader', ptype, content_time);
+                }
+                _paq.push(['setCustomDimension', 1, 'reader']);
+                _paq.push(['trackEvent', 'Reading type', 'reader', ptype, content_time]);
             } else {
-                ga('set', 'dimension1', 'Scanner');
-                ga('send', 'event', 'Reading', '8 Content Area Scanner', ptype, content_time);
+                if (window.ga) {
+                    ga('set', 'dimension1', 'Scanner');
+                    ga('send', 'event', 'Reading', '8 Content Area Scanner', ptype, content_time);
+                }
+                _paq.push(['setCustomDimension', 1, 'scanner']);
+                _paq.push(['trackEvent', 'Reading type', 'scanner', ptype, content_time]);
             }
         };
     };
@@ -638,12 +697,12 @@
         bottomThreshold: 50,
         percentOnScreen: 7,
         ptype: null, // portal type used as the google analytics event action label
-                    // calculated from body class portaltype entry otherwise default to
-                    // Article. Pass another string entry if you have another way
-                    // to calculate the portal type or you want another label for the action
+        // calculated from body class portaltype entry otherwise default to
+        // Article. Pass another string entry if you have another way
+        // to calculate the portal type or you want another label for the action
         metrics: { // define your metric mapping in case you already have analytics metrics
-                    // override this mapping in case you have no free metrics in order
-                    // to avoid recieving hits from this plugin
+            // override this mapping in case you have no free metrics in order
+            // to avoid recieving hits from this plugin
             'started_reading': 'metric1',
             'reached_content_bottom': 'metric2',
             'reached_page_bottom': 'metric3',
@@ -654,4 +713,3 @@
     };
 
 })(jQuery, window, document);
-
