@@ -3,7 +3,7 @@ pipeline {
 
   environment {
         GIT_NAME = "eea.jquery"
-        SONARQUBE_TAGS = "www.eea.europa.eu"
+        SONARQUBE_TAGS = "www.eea.europa.eu,do-not-report-coverage"
     }
 
   stages {
