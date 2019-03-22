@@ -415,7 +415,7 @@ var window_loaded = false;
                 $('.overlay-background',j_panels).css('bottom',0);
             }
 
-            $('.panel iframe',j_panels).css({
+            $('.gallery-panel iframe',j_panels).css({
                 'width':opts.panel_width+'px',
                 'height':opts.panel_height+'px',
                 'border':'0'
@@ -800,10 +800,10 @@ var window_loaded = false;
             if(opts.show_panels) {
                 for(i=j_frames.length-1;i>=0;i--) {
                     if(j_frames.eq(i).find('.panel-content').length>0) {
-                        j_frames.eq(i).find('.panel-content').remove().prependTo(j_gallery).addClass('panel');
+                        j_frames.eq(i).find('.panel-content').remove().prependTo(j_gallery).addClass('gallery-panel');
                     } else {
                         p = $('<div>');
-                        p.addClass('panel');
+                        p.addClass('gallery-panel');
                         im = $('<img />');
                         im.attr('src',j_frames.eq(i).find('img').eq(0).attr('src')).appendTo(p);
                         p.prependTo(j_gallery);
@@ -830,7 +830,7 @@ var window_loaded = false;
                 j_frame_img_wrappers = $('.img_wrap',j_frames);
             }
 
-            j_panels = $('.panel',j_gallery);
+            j_panels = $('.gallery-panel',j_gallery);
 
             if(!opts.show_panels) {
                 opts.panel_height = 0;

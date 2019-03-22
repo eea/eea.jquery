@@ -3,6 +3,9 @@ Changelog
 
 11.1-dev0 - (unreleased)
 ---------------------
+* Change: modified jquery.galleryview to add gallery-panel instead of panel class
+  thus avoiding clash with other javascripts that are using panel logic
+  [ichim-david refs #104101]
 
 11.0 - (2019-01-28)
 ---------------------
