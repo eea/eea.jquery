@@ -77,6 +77,11 @@
 /* WRAPPER FOR CURRENT FILMSTRIP IMAGE */
 .frame.current .img_wrap { border-color: #000; }
 
+/* 104101 thumbnail image is inside the border area when left is 0 */
+.img_wrap > img {
+  left: 0 !important;
+}
+
 /* FRAME IMAGES */
 .frame img { border: none; }
 
