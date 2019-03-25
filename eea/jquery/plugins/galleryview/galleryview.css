@@ -7,7 +7,7 @@
   To create additional rules, use the markup below as a guide to GalleryView's architecture.
 
   <div class="gallery">
-    <div class="panel">
+    <div class="gallery-panel">
       <img src="path/to/image.jpg" />
       <div class="panel-overlay">
         ...overlay content...
@@ -40,14 +40,14 @@
 .loader { background: url(../../++resource++galleryview/loader.gif) center center no-repeat white; }
 
 /* GALLERY PANELS */
-.gallery .panel {
+.gallery .gallery-panel {
   background: black;
 }
 
 /* DEFINE HEIGHT OF PANEL OVERLAY */
 /* NOTE - It is best to define padding here as well so overlay and background retain identical dimensions */
 .gallery .panel-overlay,
-.gallery .panel .overlay-background {
+.gallery .gallery-panel .overlay-background {
   min-height: 60px;
   padding: 1em;
   display: block;
@@ -58,11 +58,11 @@
 }
 
 /* PANEL OVERLAY BACKGROUND */
-.gallery .panel .overlay-background { background: #222; }
+.gallery .gallery-panel .overlay-background { background: #222; }
 
 /* PANEL OVERLAY CONTENT */
-.gallery .panel .panel-overlay { color: white; font-size: 13px; }
-.gallery .panel .panel-overlay a { color: white; text-decoration: underline; font-weight: bold; }
+.gallery .gallery-panel .panel-overlay { color: white; font-size: 13px; }
+.gallery .gallery-panel .panel-overlay a { color: white; text-decoration: underline; font-weight: bold; }
 
 /* FILMSTRIP */
 /* 'margin' will define top/bottom margin in completed gallery */
@@ -76,6 +76,11 @@
 
 /* WRAPPER FOR CURRENT FILMSTRIP IMAGE */
 .frame.current .img_wrap { border-color: #000; }
+
+/* 104101 thumbnail image is inside the border area when left is 0 */
+.img_wrap > img {
+  left: 0 !important;
+}
 
 /* FRAME IMAGES */
 .frame img { border: none; }

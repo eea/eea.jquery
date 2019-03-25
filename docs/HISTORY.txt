@@ -1,6 +1,15 @@
 Changelog
 =========
 
+11.1 - (2019-03-25)
+---------------------
+* Bug fix: fixed jquery.galleryview behavior when more than 1 gallery is added
+  and javascript is loaded on the bottom
+  [ichim-david refs #104101]
+* Change: modified jquery.galleryview to add gallery-panel instead of panel class
+  thus avoiding clash with other javascripts that are using panel logic
+  [ichim-david refs #104101]
+
 11.0 - (2019-01-28)
 ---------------------
 * Jenkins: Add sonarqube step

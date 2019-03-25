@@ -2,6 +2,12 @@ GalleryView - jQuery Content Gallery Plugin
 Author: 		Jack Anderson
 Documentation: 	http://www.spaceforaname.com/galleryview/
 
+Version 2.0.2 - 2019-03-22
+--------------------------
+- removed onLoad buildGallery as moving the js to the bottom can
+  end up calling the buildGallery more than once
+- renamed panel to gallery-panel as panel can interfere with other
+  javascript 
 
 Version 2.0.1 - 2013-05-28
 --------------------------

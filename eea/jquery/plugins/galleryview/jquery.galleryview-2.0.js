@@ -72,6 +72,7 @@ var window_loaded = false;
             //Transition from current item to item 'i'
         function showItem(i) {
             //Disable next/prev buttons until transition is complete
+            var show_filmstrip = j_gallery.find('.strip_wrapper').length;
             if(opts.hover_nav_buttons_images) {
                 $('.nav-next-overlay',j_gallery).unbind('click');
                 $('.nav-prev-overlay',j_gallery).unbind('click');
@@ -81,7 +82,7 @@ var window_loaded = false;
             j_frames.unbind('click');
 
             //Fade out all frames while fading in target frame
-            if(opts.show_filmstrip) {
+            if(show_filmstrip) {
                 j_frames.removeClass('current').find('img').stop().animate({
                     'opacity':opts.frame_opacity
                 },opts.transition_speed);
@@ -93,7 +94,7 @@ var window_loaded = false;
             //If the gallery has panels and the panels should fade, fade out all panels while fading in target panel
             if(opts.show_panels && opts.fade_panels) {
                 j_panels.fadeOut(opts.transition_speed).eq(i%item_count).fadeIn(opts.transition_speed,function(){
-                    if(!opts.show_filmstrip) {
+                    if(!show_filmstrip) {
                         if(opts.hover_nav_buttons_images) {
                             $('.nav-prev-overlay',j_gallery).click(showPrevItem);
                             $('.nav-next-overlay',j_gallery).click(showNextItem);
@@ -105,7 +106,7 @@ var window_loaded = false;
             }
 
             //If gallery has a filmstrip, handle animation of frames
-            if(opts.show_filmstrip) {
+            if(show_filmstrip) {
                 //Slide either pointer or filmstrip, depending on transition method
                 if(slide_method=='strip') {
                     //Stop filmstrip if it's currently in motion
@@ -415,7 +416,7 @@ var window_loaded = false;
                 $('.overlay-background',j_panels).css('bottom',0);
             }
 
-            $('.panel iframe',j_panels).css({
+            $('.gallery-panel iframe',j_panels).css({
                 'width':opts.panel_width+'px',
                 'height':opts.panel_height+'px',
                 'border':'0'
@@ -800,10 +801,10 @@ var window_loaded = false;
             if(opts.show_panels) {
                 for(i=j_frames.length-1;i>=0;i--) {
                     if(j_frames.eq(i).find('.panel-content').length>0) {
-                        j_frames.eq(i).find('.panel-content').remove().prependTo(j_gallery).addClass('panel');
+                        j_frames.eq(i).find('.panel-content').remove().prependTo(j_gallery).addClass('gallery-panel');
                     } else {
                         p = $('<div>');
-                        p.addClass('panel');
+                        p.addClass('gallery-panel');
                         im = $('<img />');
                         im.attr('src',j_frames.eq(i).find('img').eq(0).attr('src')).appendTo(p);
                         p.prependTo(j_gallery);
@@ -830,7 +831,7 @@ var window_loaded = false;
                 j_frame_img_wrappers = $('.img_wrap',j_frames);
             }
 
-            j_panels = $('.panel',j_gallery);
+            j_panels = $('.gallery-panel',j_gallery);
 
             if(!opts.show_panels) {
                 opts.panel_height = 0;
@@ -924,15 +925,7 @@ var window_loaded = false;
                 'height':gallery_height+(filmstrip_orientation=='vertical'?(gallery_padding*2):gallery_padding+Math.max(gallery_padding,filmstrip_margin))+'px'
             }).appendTo(j_gallery);
 
-
-            if(!window_loaded) {
-                $(window).load(function(){
-                    window_loaded = true;
-                    buildGallery();
-                });
-            } else {
-                buildGallery();
-            }
+            buildGallery();
 
         });
     };
