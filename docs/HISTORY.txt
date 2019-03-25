@@ -1,6 +1,9 @@
 Changelog
 =========
 
+11.2-dev0 - (unreleased)
+---------------------
+
 11.1 - (2019-03-25)
 ---------------------
 * Bug fix: fixed jquery.galleryview behavior when more than 1 gallery is added
