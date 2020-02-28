@@ -3,6 +3,9 @@ Changelog
 
 11.2-dev0 - (unreleased)
 ---------------------
+* Change: patch slick.grid.js to use dispatch.call instead of handle.call
+  since handle is gone from jquery 3
+  [ichim-david refs #105112]
 
 11.1 - (2019-03-25)
 ---------------------
