@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-git clone https://github.com/eea/SlickGrid.git /tmp/SlickGrid
+git clone https://github.com/6pac/SlickGrid.git /tmp/SlickGrid
 
 # Update CSS
 cat /tmp/SlickGrid/examples/*-theme.css /tmp/SlickGrid/*.css /tmp/SlickGrid/controls/*.css /tmp/SlickGrid/plugins/*.css slick.custom.css > /tmp/SlickGrid/all.css
