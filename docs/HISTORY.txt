@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.3-dev0 - (unreleased)
+11.3 - (2021-11-01)
 ---------------------------
 * Change: Explicitly load zcml of dependencies, instead of using includeDependencies
   [avoinea]
