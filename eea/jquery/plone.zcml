@@ -3,7 +3,7 @@
   xmlns:zcml="http://namespaces.zope.org/zcml"
   i18n_domain="eea">
 
-  <includeDependencies package="." />
+  <include package="collective.js.jqueryui" />
   <include zcml:condition="have plone-5"
            file="profiles.zcml" />
   <include zcml:condition="not-have plone-5"

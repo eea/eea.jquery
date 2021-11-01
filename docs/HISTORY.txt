@@ -3,6 +3,8 @@ Changelog
 
 11.3-dev0 - (unreleased)
 ---------------------------
+* Change: Explicitly load zcml of dependencies, instead of using includeDependencies
+  [avoinea]
 
 11.2 - (2020-02-28)
 --------------------------
